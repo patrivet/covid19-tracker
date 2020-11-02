@@ -1,6 +1,12 @@
 import React from 'react';
 import './App.css';
 import { Line } from 'react-chartjs-2';
+import store from './store';
+import { fetchCovidData } from './actions/actions';
+import { useSelector } from 'react-redux';
+import CountriesList from './components/CountriesList';
+
+
 
 const data = {
   labels: [
@@ -74,12 +80,28 @@ const data = {
 };
 
 function App() {
+  const countries = useSelector( store => store.countries);
+  let dataLoaded = useSelector( store => store.dataLoaded);
+  let countriesProcessed = useSelector( store => store.countriesProcessed);
+
+  React.useEffect( () => {
+    countries.forEach( country => {
+      store.dispatch(fetchCovidData(country.ISO2));
+    })
+  }, []);
+
   return (
     <div className="App">
       <header className="App-header">
-        <p>Covid-19</p>
-        <h2>Line Example</h2>
+        <h1>Covid-19 tracker</h1>
+        {/* <button style={{width: '100px', height: '50px', "font-size": '0.7em'}} onClick={() => testFetch()}>click me!</button> */}
+
+        <div>{countries.length}: {countriesProcessed}</div>
+        <div>{(countriesProcessed < countries.length ) ? 'data..TBC.....' : <CountriesList />}</div>
       </header>
+
+
+
 
       <div className="charts">
         <div className="chart">

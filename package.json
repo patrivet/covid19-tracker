@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/patrivet/covid19-tracker/issues"
   },
-  "homepage": "https://github.com/patrivet/covid19-tracker#readme"
+  "homepage": "https://github.com/patrivet/covid19-tracker#readme",
+  "devDependencies": {
+    "create-react-component-folder": "^0.3.4"
+  }
 }

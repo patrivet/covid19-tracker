@@ -1,4 +1,5 @@
-export const SET_LOADING = 'setLoading';
+export const SET_DATA_LOADED = 'setDataLoaded';
+export const INCREMENT_COUNTRY_COUNT = 'incrementCountryCount';
 
 /* Raw data from covid19 API */
 export const SET_COUNTRY_NAME = 'setCountryName';

@@ -1,14 +1,24 @@
 import * as actions from './actionTypes';
+import config from '../config';
 
-export const setLoading = (payload) => ({
-	type: actions.SET_LOADING,
+// API URLS
+const COVID_DAILY_DATE_API = config.COVID_DAILY_DATE_API;
+const COVID_HISTORICAL_DATE_API = config.COVID_DAILY_DATE_API;
+
+// ACTIONS
+export const setDataLoaded = (payload) => ({
+	type: actions.SET_DATA_LOADED,
 	payload,
 });
 
-export const setCountryData = (id, countryData) => ({
+export const incrementCountryCount = () => ({
+	type: actions.INCREMENT_COUNTRY_COUNT,
+});
+
+export const setCountryData = (countryCode, countryData) => ({
 	type: actions.SET_COUNTRY_DATA,
 	payload: {
-		countryId: id,
+		countryCode,
 		countryData
 	},
 })
@@ -43,25 +53,25 @@ export const setCountryTotalDeaths = (payload) => ({
 
 /* Other actions to be placed here.. */
 
-/* Async fetch data function */
-export function fetchCountryCovidData (countryCode) {
+/* FETCH ACTION : Async data function */
+export function fetchCovidData (countryIso2) {
 	return function (dispatch) {
-		const BASE_URL = 'https://api.thevirustracker.com/free-api';
-		/* Toggle state fetching data flag */
-		dispatch(setLoading(true));
-		const url = `${BASE_URL}?countryTimeline=${countryCode}`;
-		fetch(url, {
-			headers : { Accept: 'application/json' }
-		})
+
+		// Place the country ID and day to fetch into the URL
+		let url = COVID_DAILY_DATE_API.replace('<PREVIOUS_DAYS>', '0').replace('<COUNTRY_CODE>', countryIso2);
+
+		const headers = { headers : { Accept: 'application/json' }};
+		fetch(url, headers)
 			.then( (res) => (res.ok ? res : Promise.reject(res)))
-			.then( (res) => {  console.log(typeof res); return res; })
 			.then( (res) => res.json())
 			.then( (res) => {
-				let countryId = res.countrytimelinedata[0].info.code;
-				dispatch(setCountryName(countryId, res.countrytimelinedata));
-				dispatch(setCountryData(countryId, res.timelineitems));
+				/* FIX ME: set multiple Country fields via N actions here
+				but for testing - use just ONE action for now. */
+				dispatch(setCountryData(countryIso2, res));
 			}).finally(() => {
-				dispatch(setLoading(false))
+				//dispatch(setDataLoaded(true));
+				dispatch(incrementCountryCount());
+
 			}).catch( (err) => {
 				console.error(`Error fetching GET to =${url} error =${err}`)
 			})
