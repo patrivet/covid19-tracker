@@ -20,7 +20,6 @@ export default function (state = initalState, action) {
     //       state.countries.map( country => country.Slug === action.payload.countryId ? (country.name = action.payload.countryInfo[0].info.title, country) : country )
     //     }
     case actions.SET_COUNTRY_DATA:
-      console.log('INFO: reducer -set ctry data for =' + action.payload.countryCode);
       return {
         ...state,
         countries:

@@ -54,11 +54,11 @@ export const setCountryTotalDeaths = (payload) => ({
 /* Other actions to be placed here.. */
 
 /* FETCH ACTION : Async data function */
-export function fetchCovidData (countryIso2) {
+export function fetchCovidData (countryIso2, yesterdayFlag = false) {
 	return function (dispatch) {
 
-		// Place the country ID and day to fetch into the URL
-		let url = COVID_DAILY_DATE_API.replace('<PREVIOUS_DAYS>', '0').replace('<COUNTRY_CODE>', countryIso2);
+		// Substitute fetch date & country code into URL
+		let url = COVID_DAILY_DATE_API.replace('<YESTERDAY>', yesterdayFlag).replace('<COUNTRY_CODE>', countryIso2);
 
 		const headers = { headers : { Accept: 'application/json' }};
 		fetch(url, headers)

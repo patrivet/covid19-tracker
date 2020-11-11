@@ -85,6 +85,11 @@ function App() {
   let countriesProcessed = useSelector( store => store.countriesProcessed);
 
   React.useEffect( () => {
+    // Get data for yesterday
+    countries.forEach( country => {
+      store.dispatch(fetchCovidData(country.ISO2, true));
+    });
+    // Get data for today.
     countries.forEach( country => {
       store.dispatch(fetchCovidData(country.ISO2));
     })
@@ -96,8 +101,9 @@ function App() {
         <h1>Covid-19 tracker</h1>
         {/* <button style={{width: '100px', height: '50px', "font-size": '0.7em'}} onClick={() => testFetch()}>click me!</button> */}
 
-        <div>{countries.length}: {countriesProcessed}</div>
-        <div>{(countriesProcessed < countries.length ) ? 'data..TBC.....' : <CountriesList />}</div>
+        <div>Processed {countriesProcessed} of:{countries.length * 2}</div>
+        {/* Show spinner until countries processed is twice  */}
+        <div>{(countriesProcessed < (countries.length * 2) ) ? 'data..TBC.....' : <CountriesList />}</div>
       </header>
 
 
