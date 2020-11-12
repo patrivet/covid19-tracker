@@ -3,7 +3,10 @@ export const INCREMENT_COUNTRY_COUNT = 'incrementCountryCount';
 
 /* Raw data from covid19 API */
 export const SET_COUNTRY_NAME = 'setCountryName';
-export const SET_COUNTRY_DATA = 'setCountryData';
+
+export const SET_COUNTRY_TODAY_DATA = 'setCountryTodayData';
+export const SET_COUNTRY_YESTERDAY_DATA = 'setCountryYesterdayData';
+
 export const SET_COUNTRY_DAILY_CASES = 'setCountryDailyCases';
 export const SET_COUNTRY_DAILY_DEATHS = 'setCountryDailyDeaths';
 export const SET_COUNTRY_TOTAL_CASES = 'setCountryTotalCases';
@@ -12,7 +15,7 @@ export const SET_COUNTRY_TOTAL_DEATHS = 'setCountryTotalDeaths';
 /* Derived data from API data */
 export const SET_COUNTRY_CASES_DELTA = 'setCountryCasesDelta';
 export const SET_COUNTRY_CASES_TREND = 'setCountryCasesTrend';
-export const SET_COUNTRY_DEATH_DELTA = 'setCountryDeathDelta';
+export const SET_COUNTRY_DEATHS_DELTA = 'setCountryDeathsDelta';
 export const SET_COUNTRY_DEATH_TREND = 'setCountryDeathTrend';
 
 /* Menu bar */

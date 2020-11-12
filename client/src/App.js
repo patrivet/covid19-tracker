@@ -85,14 +85,15 @@ function App() {
   let countriesProcessed = useSelector( store => store.countriesProcessed);
 
   React.useEffect( () => {
+    // Get data for today.
+    countries.forEach( country => {
+      store.dispatch(fetchCovidData(country.ISO2));
+    });
+
     // Get data for yesterday
     countries.forEach( country => {
       store.dispatch(fetchCovidData(country.ISO2, true));
     });
-    // Get data for today.
-    countries.forEach( country => {
-      store.dispatch(fetchCovidData(country.ISO2));
-    })
   }, []);
 
   return (

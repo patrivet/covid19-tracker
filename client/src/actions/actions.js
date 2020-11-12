@@ -15,8 +15,16 @@ export const incrementCountryCount = () => ({
 	type: actions.INCREMENT_COUNTRY_COUNT,
 });
 
-export const setCountryData = (countryCode, countryData) => ({
-	type: actions.SET_COUNTRY_DATA,
+export const setCountryTodayData = (countryCode, countryData) => ({
+	type: actions.SET_COUNTRY_TODAY_DATA,
+	payload: {
+		countryCode,
+		countryData
+	},
+})
+
+export const setCountryYesterdayData = (countryCode, countryData) => ({
+	type: actions.SET_COUNTRY_YESTERDAY_DATA,
 	payload: {
 		countryCode,
 		countryData
@@ -31,24 +39,52 @@ export const setCountryName = (id, countryInfo) => ({
 	},
 })
 
-export const setCountryDailyCases = (payload) => ({
+export const setCountryDailyCases = (countryCode, covidData) => ({
 	type: actions.SET_COUNTRY_DAILY_CASES,
-	payload,
+	payload: {
+		countryCode,
+		covidData
+	},
 })
 
-export const setCountryDailyDeaths = (payload) => ({
+export const setCountryDailyDeaths = (countryCode, covidData) => ({
 	type: actions.SET_COUNTRY_DAILY_DEATHS,
-	payload,
+	payload: {
+		countryCode,
+		covidData
+	},
 })
 
-export const setCountryTotalCases = (payload) => ({
+export const setCountryTotalCases = (countryCode, covidData) => ({
 	type: actions.SET_COUNTRY_TOTAL_CASES,
-	payload,
+	payload: {
+		countryCode,
+		covidData
+	},
 })
 
-export const setCountryTotalDeaths = (payload) => ({
+export const setCountryTotalDeaths = (countryCode, covidData) => ({
 	type: actions.SET_COUNTRY_TOTAL_DEATHS,
-	payload,
+	payload: {
+		countryCode,
+		covidData
+	},
+})
+
+export const setCountryCasesDelta = (countryCode, covidData) => ({
+	type: actions.SET_COUNTRY_CASES_DELTA,
+	payload: {
+		countryCode,
+		covidData
+	},
+})
+
+export const setCountryDeathsDelta = (countryCode, covidData) => ({
+	type: actions.SET_COUNTRY_DEATHS_DELTA,
+	payload: {
+		countryCode,
+		covidData
+	},
 })
 
 /* Other actions to be placed here.. */
@@ -65,9 +101,20 @@ export function fetchCovidData (countryIso2, yesterdayFlag = false) {
 			.then( (res) => (res.ok ? res : Promise.reject(res)))
 			.then( (res) => res.json())
 			.then( (res) => {
-				/* FIX ME: set multiple Country fields via N actions here
-				but for testing - use just ONE action for now. */
-				dispatch(setCountryData(countryIso2, res));
+
+				if (!yesterdayFlag) {
+					// Process data for Today's data
+					dispatch(setCountryTodayData(countryIso2, res));
+					// dispatch(setCountryDailyCases(countryIso2, res));
+					// dispatch(setCountryDailyDeaths(countryIso2, res));
+					// dispatch(setCountryTotalCases(countryIso2, res));
+					// dispatch(setCountryTotalDeaths(countryIso2, res));
+				} else {
+					// Process Data for yesterday
+					dispatch(setCountryYesterdayData(countryIso2, res));
+					// dispatch(setCountryCasesDelta(countryIso2, res));
+					// dispatch(setCountryDeathsDelta(countryIso2, res));
+				}
 			}).finally(() => {
 				//dispatch(setDataLoaded(true));
 				dispatch(incrementCountryCount());
