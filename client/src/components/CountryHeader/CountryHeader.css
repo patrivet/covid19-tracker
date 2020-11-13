@@ -1,0 +1,17 @@
+.header {
+  display: flex;
+  font-weight: 300;
+  text-transform: uppercase;
+  align-items: center;
+}
+
+.header__img {
+  margin-top: 2px;
+  width: 26px;
+  height: 26px;
+}
+
+.header__name {
+  padding-left: 5px;
+  font-size: 19px;
+}
