@@ -15,8 +15,8 @@ const CountryCard = ({country}) => {
       <div className="CountryCard__StatsContainer">
         <CovidDailyCases todayCases={country.todayData.todayCases} yesterdayCases={country.yesterdayData.todayCases}/>
         {/* <CovidDailyDeaths dailyDeaths={country.todayData.todayDeaths} />
-        <CovidTotalCases totalCases={country.totalCases} />
-        <CovidTotalCases totalCases={country.totalCases} /> */}
+        <CovidTotalCases totalCases={country.totalCases} />*/}
+        <CovidTotalCases totalCases={country.todayData.cases} />
       </div>
     </>
   );
