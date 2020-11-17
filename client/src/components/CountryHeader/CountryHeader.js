@@ -1,6 +1,6 @@
 import React from 'react';
 import './CountryHeader.css';
-const FLAG_URL = 'https://www.countryflags.io/:country_code/flat/64.png';
+const FLAG_URL = 'https://www.countryflags.io/:country_code/flat/32.png';
 
 const CountryHeader = ({name, countryCode}) => {
   return (
