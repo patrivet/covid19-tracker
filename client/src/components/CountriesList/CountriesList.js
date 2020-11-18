@@ -8,9 +8,11 @@ const CountriesList = () => {
 
   const countries = useSelector(store => store.countries);
   return (
-    countries.map(country => {
-      return <CountryCard key={nextId++} country={country} />
-    })
+    <div className="countriesList">
+      {countries.map(country => {
+        return <CountryCard key={nextId++} country={country} />
+      })}
+    </div>
   );
 };
 
