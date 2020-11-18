@@ -1,0 +1,8 @@
+.dailyDeaths {
+  font-weight: 600;
+  text-align: right;
+}
+
+.dailyDeaths__delta {
+  font-size: 0.7em;
+}
