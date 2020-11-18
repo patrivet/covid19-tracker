@@ -1,8 +1,7 @@
 .deathsLabel {
   height: 20px;
-  border: 1px solid pink;
   text-transform: uppercase;
   color: grey;
-  font-size: 0.9em;
+  font-size: 0.7em;
   grid-area: DeathsLabel;
 }

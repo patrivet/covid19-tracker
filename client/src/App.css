@@ -8,10 +8,6 @@ p {
   margin: 0 0;
 }
 
-.App {
-  text-align: center;
-}
-
 .charts {
   display: flex;
   flex-direction: row;
