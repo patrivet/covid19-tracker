@@ -1,16 +1,27 @@
 .CountryCard {
-  height: auto;
-  min-height: 150px;
-  max-height: 150px;
+  height: 150px;
+  width: 260px;
+  margin-right: 25px;
+  border-top: 1px solid lightgrey;
 }
 
 .CountryCard__statsContainer {
   display: grid;
   grid-template-columns: 55% auto;
-  grid-template-rows: 70% auto;
+  grid-template-rows: auto 70% auto;
   grid-template-areas:
+    'CasesLabel DeathsLabel'
     'DailyCases DailyDeaths'
     'TotalCases TotalDeaths';
+  border-top: 1px solid lightgrey;
+}
+
+.casesLabel {
+  grid-area: CasesLabel;
+}
+
+.deathsLabel {
+  grid-area: DeathsLabel;
 }
 
 .dailyCases {

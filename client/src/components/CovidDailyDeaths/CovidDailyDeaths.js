@@ -3,8 +3,6 @@ import './CovidDailyDeaths.css';
 import NumberFormat from 'react-number-format';
 
 const CovidDailyDeaths = ({todayDeaths, yesterdayDeaths}) => {
-  console.log("CovidDailyDeaths -> yesterdayDeaths", yesterdayDeaths)
-  console.log("CovidDailyDeaths -> todayDeaths", todayDeaths)
   /* Show deaths number (show as 0 if value is null) and, if non-null, show trend arrow
   of delta from yesterday deaths */
   const todayDataExists = todayDeaths != null;
