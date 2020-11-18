@@ -3,7 +3,8 @@ import config from '../config';
 
 // API URLS
 const COVID_DAILY_DATE_API = config.COVID_DAILY_DATE_API;
-const COVID_HISTORICAL_DATE_API = config.COVID_DAILY_DATE_API;
+// Un-used for now.
+// const COVID_HISTORICAL_DATE_API = config.COVID_DAILY_DATE_API;
 
 // ACTIONS
 export const setDataLoaded = (payload) => ({
@@ -96,7 +97,7 @@ export function fetchCovidData (countryIso2, yesterdayFlag = false) {
 		// Substitute fetch date & country code into URL
 		let url = COVID_DAILY_DATE_API.replace('<YESTERDAY>', yesterdayFlag).replace('<COUNTRY_CODE>', countryIso2);
 
-		const headers = { headers : { Accept: 'application/json' }};
+		const headers = { headers : { Accept: 'application/json', 'cache-control': 'no-cache' }};
 		fetch(url, headers)
 			.then( (res) => (res.ok ? res : Promise.reject(res)))
 			.then( (res) => res.json())
