@@ -1,4 +1,5 @@
 import React from 'react';
+import './CountryCard.css';
 import CountryHeader from '../CountryHeader';
 import CovidDailyCases from '../CovidDailyCases';
 import CovidDailyDeaths from '../CovidDailyDeaths';
@@ -7,15 +8,15 @@ import CovidTotalDeaths from '../CovidTotalDeaths';
 
 const CountryCard = ({country}) => {
   return (
-    <>
+    <div className="CountryCard">
       <CountryHeader name={country.name} countryCode={country.ISO2}/>
-      <div className="CountryCard__StatsContainer">
+      <div className="CountryCard__statsContainer">
         <CovidDailyCases todayCases={country.todayData.todayCases} yesterdayCases={country.yesterdayData.todayCases}/>
         <CovidDailyDeaths todayDeaths={country.todayData.todayDeaths}  yesterdayDeaths={country.yesterdayData.todayDeaths} />
-        <CovidTotalCases totalCases={country.todayData.deaths} />
+        <CovidTotalDeaths totalDeaths={country.todayData.deaths} />
         <CovidTotalCases totalCases={country.todayData.cases} />
       </div>
-    </>
+    </div>
   );
 };
 

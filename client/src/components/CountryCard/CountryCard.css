@@ -1,0 +1,31 @@
+.CountryCard {
+  height: auto;
+  min-height: 150px;
+}
+
+.CountryCard__statsContainer {
+  display: grid;
+  grid-template-columns: 55% auto;
+  grid-template-rows: 70% auto;
+  grid-template-areas:
+    'DailyCases DailyDeaths'
+    'TotalCases TotalDeaths';
+}
+
+.dailyCases {
+  grid-area: DailyCases;
+  margin-bottom: 15px;
+}
+
+.dailyDeaths {
+  grid-area: DailyDeaths;
+  margin-bottom: 15px;
+}
+
+.totalCases {
+  grid-area: TotalCases;
+}
+
+.totalDeaths {
+  grid-area: TotalDeaths;
+}
