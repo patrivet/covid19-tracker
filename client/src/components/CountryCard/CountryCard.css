@@ -1,6 +1,7 @@
 .CountryCard {
   height: auto;
   min-height: 150px;
+  max-height: 150px;
 }
 
 .CountryCard__statsContainer {
@@ -14,12 +15,10 @@
 
 .dailyCases {
   grid-area: DailyCases;
-  margin-bottom: 15px;
 }
 
 .dailyDeaths {
   grid-area: DailyDeaths;
-  margin-bottom: 15px;
 }
 
 .totalCases {

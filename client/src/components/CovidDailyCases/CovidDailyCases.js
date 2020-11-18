@@ -30,7 +30,7 @@ const CovidDailyCases = ({todayCases, yesterdayCases}) => {
 
   return (
     <div className="dailyCases">
-      <div>New Cases:
+      <div>
         <NumberFormat value={todayCases} thousandSeparator={true} displayType={'text'}/>
       </div>
       <div className="dailyCases__delta">{getDeltaCases()}</div>
