@@ -1,5 +1,8 @@
 .dailyCases {
   font-weight: 600;
+  /* Note: height set here so both cards with and without deltas will have the same height
+  and thus the totals components will be vertically aligned. */
+  height: 45px;
 }
 
 .dailyCases__delta {
