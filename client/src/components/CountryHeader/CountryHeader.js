@@ -6,7 +6,7 @@ const CountryHeader = ({name, countryCode}) => {
   return (
     <div className="header">
       <img className="header__img" src={FLAG_URL.replace(':country_code', countryCode.toLowerCase())} alt=""></img>
-      <p className="header__name">{name}</p>
+      <p className={`header__name ${(name.length > 17) ? 'longName' : ''}`}>{name}</p>
     </div>
   )
 };

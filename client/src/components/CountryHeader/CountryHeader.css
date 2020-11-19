@@ -15,3 +15,8 @@
   padding-left: 5px;
   font-size: 19px;
 }
+
+.header__name.longName {
+  /* Use a smaller font for a long country name */
+  font-size: 17px;
+}

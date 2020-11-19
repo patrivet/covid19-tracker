@@ -192,11 +192,6 @@ export default {
       ISO2: 'TW'
     },
     {
-      name: 'Korea (North)',
-      slug: 'korea-north',
-      ISO2: 'KP'
-    },
-    {
       name: 'Paraguay',
       slug: 'paraguay',
       ISO2: 'PY'
@@ -277,19 +272,9 @@ export default {
       ISO2: 'NG'
     },
     {
-      name: 'Niue',
-      slug: 'niue',
-      ISO2: 'NU'
-    },
-    {
       name: 'Sweden',
       slug: 'sweden',
       ISO2: 'SE'
-    },
-    {
-      name: 'Tokelau',
-      slug: 'tokelau',
-      ISO2: 'TK'
     },
     {
       name: 'United Arab Emirates',
@@ -340,11 +325,6 @@ export default {
       name: 'Tanzania, United Republic of',
       slug: 'tanzania',
       ISO2: 'TZ'
-    },
-    {
-      name: 'Tuvalu',
-      slug: 'tuvalu',
-      ISO2: 'TV'
     },
     {
       name: 'Japan',
@@ -435,11 +415,6 @@ export default {
       name: 'Lesotho',
       slug: 'lesotho',
       ISO2: 'LS'
-    },
-    {
-      name: 'Puerto Rico',
-      slug: 'puerto-rico',
-      ISO2: 'PR'
     },
     {
       name: 'Benin',
@@ -542,11 +517,6 @@ export default {
       ISO2: 'GF'
     },
     {
-      name: 'Kiribati',
-      slug: 'kiribati',
-      ISO2: 'KI'
-    },
-    {
       name: 'Netherlands',
       slug: 'netherlands',
       ISO2: 'NL'
@@ -560,11 +530,6 @@ export default {
       name: 'Viet Nam',
       slug: 'vietnam',
       ISO2: 'VN'
-    },
-    {
-      name: 'British Indian Ocean Territory',
-      slug: 'british-indian-ocean-territory',
-      ISO2: 'IO'
     },
     {
       name: 'Moldova',
@@ -587,11 +552,6 @@ export default {
       ISO2: 'JE'
     },
     {
-      name: 'Palau',
-      slug: 'palau',
-      ISO2: 'PW'
-    },
-    {
       name: 'Slovenia',
       slug: 'slovenia',
       ISO2: 'SI'
@@ -600,11 +560,6 @@ export default {
       name: 'Botswana',
       slug: 'botswana',
       ISO2: 'BW'
-    },
-    {
-      name: 'Micronesia, Federated States of',
-      slug: 'micronesia',
-      ISO2: 'FM'
     },
     {
       name: 'Burkina Faso',
@@ -667,11 +622,6 @@ export default {
       ISO2: 'NA'
     },
     {
-      name: 'Netherlands Antilles',
-      slug: 'netherlands-antilles',
-      ISO2: 'AN'
-    },
-    {
       name: 'Suriname',
       slug: 'suriname',
       ISO2: 'SR'
@@ -692,11 +642,6 @@ export default {
       ISO2: 'YT'
     },
     {
-      name: 'Tonga',
-      slug: 'tonga',
-      ISO2: 'TO'
-    },
-    {
       name: 'Singapore',
       slug: 'singapore',
       ISO2: 'SG'
@@ -715,11 +660,6 @@ export default {
       name: 'Montenegro',
       slug: 'montenegro',
       ISO2: 'ME'
-    },
-    {
-      name: 'Turkmenistan',
-      slug: 'turkmenistan',
-      ISO2: 'TM'
     },
     {
       name: 'Latvia',
@@ -755,11 +695,6 @@ export default {
       name: 'France',
       slug: 'france',
       ISO2: 'FR'
-    },
-    {
-      name: 'Samoa',
-      slug: 'samoa',
-      ISO2: 'WS'
     },
     {
       name: 'Burundi',
@@ -862,16 +797,6 @@ export default {
       ISO2: 'BN'
     },
     {
-      name: 'Norfolk Island',
-      slug: 'norfolk-island',
-      ISO2: 'NF'
-    },
-    {
-      name: 'Guam',
-      slug: 'guam',
-      ISO2: 'GU'
-    },
-    {
       name: 'Yemen',
       slug: 'yemen',
       ISO2: 'YE'
@@ -880,11 +805,6 @@ export default {
       name: 'Bosnia and Herzegovina',
       slug: 'bosnia-and-herzegovina',
       ISO2: 'BA'
-    },
-    {
-      name: 'Republic of Kosovo',
-      slug: 'kosovo',
-      ISO2: 'XK'
     },
     {
       name: 'Western Sahara',
@@ -937,19 +857,9 @@ export default {
       ISO2: 'GB'
     },
     {
-      name: 'Bouvet Island',
-      slug: 'bouvet-island',
-      ISO2: 'BV'
-    },
-    {
       name: 'Czech Republic',
       slug: 'czech-republic',
       ISO2: 'CZ'
-    },
-    {
-      name: 'Nauru',
-      slug: 'nauru',
-      ISO2: 'NR'
     },
     {
       name: 'Tajikistan',
@@ -1017,11 +927,6 @@ export default {
       ISO2: 'MX'
     },
     {
-      name: 'Saint Helena',
-      slug: 'saint-helena',
-      ISO2: 'SH'
-    },
-    {
       name: 'Saudi Arabia',
       slug: 'saudi-arabia',
       ISO2: 'SA'
@@ -1047,19 +952,9 @@ export default {
       ISO2: 'TG'
     },
     {
-      name: 'American Samoa',
-      slug: 'american-samoa',
-      ISO2: 'AS'
-    },
-    {
       name: 'Bolivia',
       slug: 'bolivia',
       ISO2: 'BO'
-    },
-    {
-      name: 'Guernsey',
-      slug: 'guernsey',
-      ISO2: 'GG'
     },
     {
       name: 'Israel',
@@ -1140,16 +1035,6 @@ export default {
       name: 'Pakistan',
       slug: 'pakistan',
       ISO2: 'PK'
-    },
-    {
-      name: 'Virgin Islands, US',
-      slug: 'virgin-islands',
-      ISO2: 'VI'
-    },
-    {
-      name: 'Cook Islands',
-      slug: 'cook-islands',
-      ISO2: 'CK'
     },
     {
       name: 'Myanmar',
