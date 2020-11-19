@@ -1,3 +1,5 @@
 .totalDeaths {
+  border-left: solid 1px lightgrey;
+  padding-left: 20px;
   font-weight: 600;
 }

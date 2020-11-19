@@ -5,7 +5,7 @@ import store from './store';
 import { fetchCovidData } from './actions/actions';
 import { useSelector } from 'react-redux';
 import CountriesList from './components/CountriesList';
-
+import Spinner from './components/Spinner';
 
 
 const data = {
@@ -81,7 +81,6 @@ const data = {
 
 function App() {
   const countries = useSelector( store => store.countries);
-  let dataLoaded = useSelector( store => store.dataLoaded);
   let countriesProcessed = useSelector( store => store.countriesProcessed);
 
   React.useEffect( () => {
@@ -102,9 +101,9 @@ function App() {
         <h1>Covid-19 tracker</h1>
         {/* <button style={{width: '100px', height: '50px', "font-size": '0.7em'}} onClick={() => testFetch()}>click me!</button> */}
 
-        <div>Processed {countriesProcessed} of:{countries.length * 2}</div>
+        {/* <div>Processed {countriesProcessed} of:{countries.length * 2}</div> */}
         {/* Show spinner until countries processed is twice  */}
-        <div>{(countriesProcessed < (countries.length * 2) ) ? 'data..TBC.....' : <CountriesList />}</div>
+        <div>{(countriesProcessed < (countries.length * 2) ) ? <Spinner/> : <CountriesList />}</div>
       </header>
 
 

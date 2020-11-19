@@ -97,6 +97,7 @@ export function fetchCovidData (countryIso2, yesterdayFlag = false) {
 		// Substitute fetch date & country code into URL
 		let url = COVID_DAILY_DATE_API.replace('<YESTERDAY>', yesterdayFlag).replace('<COUNTRY_CODE>', countryIso2);
 
+		// UFN: Headers set to use 'cache-control' - no cache, so disk cache is not used.
 		const headers = { headers : { Accept: 'application/json', 'cache-control': 'no-cache' }};
 		fetch(url, headers)
 			.then( (res) => (res.ok ? res : Promise.reject(res)))

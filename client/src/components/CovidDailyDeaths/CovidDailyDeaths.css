@@ -1,5 +1,7 @@
 .dailyDeaths {
   font-weight: 600;
+  border-left: solid 1px lightgrey;
+  padding-left: 20px;
 }
 
 .dailyDeaths__delta {
