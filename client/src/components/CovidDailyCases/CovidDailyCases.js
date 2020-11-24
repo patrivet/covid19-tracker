@@ -17,14 +17,14 @@ const CovidDailyCases = ({todayCases, yesterdayCases}) => {
   // Delta cases from yesterday
   const getDeltaCases = () => {
     return todayDataExists
-    ? (<div>{getDeltaTrend()}<NumberFormat value={yesterdayDelta} thousandSeparator={true} displayType={'text'}/></div>)
+    ? (<div><NumberFormat value={yesterdayCases} thousandSeparator={true} displayType={'text'}/></div>)
     : (null)
   }
 
   const getDeltaTrend = () => {
-    if (yesterdayDelta > 0) return '⬆️'
-    else if (yesterdayDelta === 0) return '↔️'
-    else if (yesterdayDelta < 0) return '⬇️'
+    if (yesterdayDelta > 0) return ' ⬆️'
+    else if (yesterdayDelta === 0) return ' ↔️'
+    else if (yesterdayDelta < 0) return ' ⬇️'
     else return ''
   }
 
@@ -32,6 +32,7 @@ const CovidDailyCases = ({todayCases, yesterdayCases}) => {
     <div className="dailyCases">
       <div>
         <NumberFormat value={todayCases} thousandSeparator={true} displayType={'text'}/>
+        <span className="dailyCases__deltaSymbol">{getDeltaTrend()}</span>
       </div>
       <div className="dailyCases__delta">{getDeltaCases()}</div>
 

@@ -1,6 +1,8 @@
 import React from 'react';
 import './CovidDeathsLabel.css';
 
-const CovidDeathsLabel = () => (<div className="deathsLabel">New Deaths</div>)
+const CovidDeathsLabel = () => (
+  <label className="deathsLabel">New Deaths</label>
+);
 
 export default CovidDeathsLabel;
