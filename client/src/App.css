@@ -18,3 +18,11 @@ p {
   width: 250px;
   height: 100px;
 }
+
+.statsNumber {
+  font-weight: 600;
+}
+
+.deltaNumber {
+  font-size: 0.7em;
+}

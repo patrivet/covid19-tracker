@@ -2,11 +2,15 @@ import React from 'react';
 import './CovidTotalCases.css';
 import NumberFormat from 'react-number-format';
 
-const CovidTotalCases = ({totalCases}) => {
+const CovidTotalCases = ({ totalCases }) => {
   return (
-    <div className="totalCases">
+    <div className="totalCases statsNumber">
       <div>
-        <NumberFormat value={totalCases} thousandSeparator={true} displayType={'text'}/>
+        <NumberFormat
+          value={totalCases}
+          thousandSeparator={true}
+          displayType={'text'}
+        />
       </div>
     </div>
   );
