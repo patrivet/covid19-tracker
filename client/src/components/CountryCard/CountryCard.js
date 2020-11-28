@@ -1,38 +1,34 @@
 import React from 'react';
 import './CountryCard.css';
 import CountryHeader from '../CountryHeader';
-import CovidDailyDeaths from '../CovidDailyDeaths';
-import CovidTotalCases from '../CovidTotalCases';
-import CovidDailyCases from '../CovidDailyCases';
-import CovidTotalDeaths from '../CovidTotalDeaths';
-import CovidCasesLabel from '../CovidCasesLabel';
-import CovidDeathsLabel from '../CovidDeathsLabel';
-import CovidYesterdayCases from '../CovidYesterdayCases';
-import CovidYesterdayDeaths from '../CovidYesterdayDeaths';
+import DeathsToday from '../DeathsToday';
+import CasesTotal from '../CasesTotal';
+import CasesToday from '../CasesToday';
+import DeathsTotal from '../DeathsTotal';
+import CasesLabel from '../CasesLabel';
+import DeathsLabel from '../DeathsLabel';
+import CasesYesterday from '../CasesYesterday';
+import DeathsYesterday from '../DeathsYesterday';
 
 const CountryCard = ({ country }) => {
   return (
     <div className="CountryCard">
       <CountryHeader name={country.name} countryCode={country.ISO2} />
       <div className="CountryCard__statsContainer">
-        <CovidCasesLabel />
-        <CovidDeathsLabel />
-        <CovidDailyCases
+        <CasesLabel />
+        <DeathsLabel />
+        <CasesToday
           todayCases={country.todayData.todayCases}
           yesterdayCases={country.yesterdayData.todayCases}
         />
-        <CovidDailyDeaths
+        <DeathsToday
           todayDeaths={country.todayData.todayDeaths}
           yesterdayDeaths={country.yesterdayData.todayDeaths}
         />
-        <CovidTotalDeaths totalDeaths={country.todayData.deaths} />
-        <CovidYesterdayCases
-          yesterdayCases={country.yesterdayData.todayCases}
-        />
-        <CovidYesterdayDeaths
-          yesterdayDeaths={country.yesterdayData.todayDeaths}
-        />
-        <CovidTotalCases totalCases={country.todayData.cases} />
+        <DeathsTotal totalDeaths={country.todayData.deaths} />
+        <CasesYesterday yesterdayCases={country.yesterdayData.todayCases} />
+        <DeathsYesterday yesterdayDeaths={country.yesterdayData.todayDeaths} />
+        <CasesTotal totalCases={country.todayData.cases} />
       </div>
     </div>
   );
