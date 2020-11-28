@@ -19,10 +19,28 @@ p {
   height: 100px;
 }
 
-.statsNumber {
+.cases {
   font-weight: 600;
 }
 
-.deltaNumber {
+.deaths {
+  border-left: solid 1px lightgrey;
+  padding-left: 20px;
+}
+
+*[class*='statsNumber'] {
+  font-weight: 600;
+}
+
+*[class*='deltaNumber'] {
+  font-size: 0.7em;
+}
+
+*[class*='deltaSymbol'] {
+  font-size: 0.7em;
+}
+
+*[class*='yesterday'] {
+  /* Smaller font for yesterday stats */
   font-size: 0.7em;
 }

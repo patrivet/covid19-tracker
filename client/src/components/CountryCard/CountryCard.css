@@ -29,26 +29,26 @@
   grid-area: DeathsLabel;
 }
 
-.dailyCases {
+.cases {
   grid-area: DailyCases;
 }
 
-.dailyDeaths {
+.deaths {
   grid-area: DailyDeaths;
 }
 
-.yesterdayCases {
+.cases.cases--yesterday {
   grid-area: YesterdayCases;
 }
 
-.yesterdayDeaths {
+.deaths.deaths--yesterday {
   grid-area: YesterdayDeaths;
 }
 
-.totalCases {
+.cases.cases--total {
   grid-area: TotalCases;
 }
 
-.totalDeaths {
+.deaths.deaths--total {
   grid-area: TotalDeaths;
 }

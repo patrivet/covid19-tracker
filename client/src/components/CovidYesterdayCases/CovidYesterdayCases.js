@@ -3,7 +3,7 @@ import NumberFormat from 'react-number-format';
 
 const CovidYesterdayCases = ({ yesterdayCases }) => {
   return (
-    <div className="yesterdayCases statsNumber">
+    <div className="cases__statsNumber cases--yesterday">
       <NumberFormat
         value={yesterdayCases}
         thousandSeparator={true}

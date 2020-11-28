@@ -4,14 +4,13 @@ import NumberFormat from 'react-number-format';
 
 const CovidTotalDeaths = ({ totalDeaths }) => {
   return (
-    <div className="totalDeaths statsNumber">
-      <div>
-        <NumberFormat
-          value={totalDeaths}
-          thousandSeparator={true}
-          displayType={'text'}
-        />
-      </div>
+    <div className="deaths deaths--total">
+      <NumberFormat
+        className="deaths__statsNumber"
+        value={totalDeaths}
+        thousandSeparator={true}
+        displayType={'text'}
+      />
     </div>
   );
 };
