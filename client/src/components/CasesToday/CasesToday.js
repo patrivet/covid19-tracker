@@ -33,7 +33,7 @@ const CasesToday = ({ todayCases, yesterdayCases }) => {
   };
 
   return (
-    <div className="cases">
+    <div className="cases cases--today">
       <div className="cases__statsNumber">
         <NumberFormat
           value={todayCases}
@@ -42,7 +42,8 @@ const CasesToday = ({ todayCases, yesterdayCases }) => {
         />
         <span className="cases__deltaSymbol">{getDeltaTrend()}</span>
       </div>
-      <div className="cases__deltaNumber">{getDeltaCases()}</div>
+      <h6 className="cases__label">Today</h6>
+      <div className="cases__seperatorDiv"></div>
     </div>
   );
 };

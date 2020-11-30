@@ -10,6 +10,8 @@ const DeathsYesterday = ({ yesterdayDeaths }) => {
         thousandSeparator={true}
         displayType={'text'}
       />
+      <h6 className="deaths__label">Yesterday</h6>
+      <div className="deaths__seperatorDiv"></div>
     </div>
   );
 };

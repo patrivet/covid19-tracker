@@ -4,7 +4,8 @@ body {
 }
 
 /* Stylesheet Reset settings */
-p {
+p,
+h6 {
   margin: 0 0;
 }
 
@@ -25,7 +26,6 @@ p {
 
 .deaths {
   border-left: solid 1px lightgrey;
-  padding-left: 20px;
 }
 
 *[class*='statsNumber'] {
@@ -43,4 +43,15 @@ p {
 *[class*='yesterday'] {
   /* Smaller font for yesterday stats */
   font-size: 0.7em;
+}
+
+*[class$='__label'] {
+  text-transform: uppercase;
+  font-size: 12px;
+  padding-bottom: 1px;
+}
+
+*[class$='seperatorDiv'] {
+  width: 70%;
+  border-bottom: 1px solid lightgrey;
 }

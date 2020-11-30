@@ -11,6 +11,7 @@ const CasesTotal = ({ totalCases }) => {
         thousandSeparator={true}
         displayType={'text'}
       />
+      <h6 className="cases__label">Total</h6>
     </div>
   );
 };

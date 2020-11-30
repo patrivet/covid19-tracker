@@ -27,9 +27,9 @@ const DeathsToday = ({ todayDeaths, yesterdayDeaths }) => {
   };
 
   const getDeltaTrend = () => {
-    if (yesterdayDelta > 0) return '⬆️';
-    else if (yesterdayDelta === 0) return '↔️';
-    else if (yesterdayDelta < 0) return '⬇️';
+    if (yesterdayDelta > 0) return ' ⬆️';
+    else if (yesterdayDelta === 0) return ' ↔️';
+    else if (yesterdayDelta < 0) return ' ⬇️';
     else return '';
   };
 
@@ -41,8 +41,10 @@ const DeathsToday = ({ todayDeaths, yesterdayDeaths }) => {
           thousandSeparator={true}
           displayType={'text'}
         />
+        <span className="deaths__deltaNumber">{getDeltaTrend()}</span>
       </div>
-      <div className="deaths__deltaNumber">{getDeltaDeaths()}</div>
+      <h6 className="deaths__label">Today</h6>
+      <div className="deaths__seperatorDiv"></div>
     </div>
   );
 };

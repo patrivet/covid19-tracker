@@ -1,5 +1,6 @@
 import React from 'react';
 import NumberFormat from 'react-number-format';
+import './CasesYesterday.css';
 
 const CasesYesterday = ({ yesterdayCases }) => {
   return (
@@ -9,6 +10,8 @@ const CasesYesterday = ({ yesterdayCases }) => {
         thousandSeparator={true}
         displayType={'text'}
       />
+      <h6 className="cases__label">Yesterday</h6>
+      <div className="cases__seperatorDiv"></div>
     </div>
   );
 };
