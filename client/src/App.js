@@ -97,7 +97,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Covid-19 Global Tracker</h1>
+        <h4>Covid-19 Global Tracker</h4>
         {/* <button style={{width: '100px', height: '50px', "font-size": '0.7em'}} onClick={() => testFetch()}>click me!</button> */}
 
         {/* <div>Processed {countriesProcessed} of:{countries.length * 2}</div> */}
