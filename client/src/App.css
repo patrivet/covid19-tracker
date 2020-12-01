@@ -9,6 +9,13 @@ h6 {
   margin: 0 0;
 }
 
+h1 {
+  font-family: 'Lato', sans-serif;
+  /* text-transform: uppercase; */
+  padding-left: 15px;
+  color: darkblue;
+}
+
 .charts {
   display: flex;
   flex-direction: row;
@@ -35,10 +42,6 @@ h6 {
   border-left: solid 1px lightgrey;
 }
 
-.deaths__label {
-  color: rgb(77, 77, 77);
-}
-
 *[class*='statsNumber'] {
   font-weight: 600;
 }
@@ -55,6 +58,7 @@ h6 {
   text-transform: uppercase;
   font-size: 12px;
   padding-bottom: 1px;
+  color: rgb(77, 77, 77);
 }
 
 /* Smaller font for yesterday stats & label */

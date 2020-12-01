@@ -7,7 +7,6 @@ import { useSelector } from 'react-redux';
 import CountriesList from './components/CountriesList';
 import Spinner from './components/Spinner';
 
-
 const data = {
   labels: [
     '8 Oct',
@@ -80,17 +79,17 @@ const data = {
 };
 
 function App() {
-  const countries = useSelector( store => store.countries);
-  let countriesProcessed = useSelector( store => store.countriesProcessed);
+  const countries = useSelector(store => store.countries);
+  let countriesProcessed = useSelector(store => store.countriesProcessed);
 
-  React.useEffect( () => {
+  React.useEffect(() => {
     // Get data for today.
-    countries.forEach( country => {
+    countries.forEach(country => {
       store.dispatch(fetchCovidData(country.ISO2));
     });
 
     // Get data for yesterday
-    countries.forEach( country => {
+    countries.forEach(country => {
       store.dispatch(fetchCovidData(country.ISO2, true));
     });
   }, []);
@@ -98,16 +97,19 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Covid-19 tracker</h1>
+        <h1>Covid-19 Global Tracker</h1>
         {/* <button style={{width: '100px', height: '50px', "font-size": '0.7em'}} onClick={() => testFetch()}>click me!</button> */}
 
         {/* <div>Processed {countriesProcessed} of:{countries.length * 2}</div> */}
         {/* Show spinner until countries processed is twice  */}
-        <div>{(countriesProcessed < (countries.length * 2) ) ? <Spinner/> : <CountriesList />}</div>
+        <div>
+          {countriesProcessed < countries.length * 2 ? (
+            <Spinner />
+          ) : (
+            <CountriesList />
+          )}
+        </div>
       </header>
-
-
-
 
       <div className="charts">
         <div className="chart">
