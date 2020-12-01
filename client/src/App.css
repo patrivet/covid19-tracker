@@ -22,10 +22,21 @@ h6 {
 
 .cases {
   font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
+/* Deaths container divs: use flexbox and center content. */
 .deaths {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   border-left: solid 1px lightgrey;
+}
+
+.deaths__label {
+  color: rgb(77, 77, 77);
 }
 
 *[class*='statsNumber'] {
@@ -40,15 +51,18 @@ h6 {
   font-size: 0.7em;
 }
 
-*[class*='yesterday'] {
-  /* Smaller font for yesterday stats */
-  font-size: 0.7em;
-}
-
-*[class$='__label'] {
+*[class*='__label'] {
   text-transform: uppercase;
   font-size: 12px;
   padding-bottom: 1px;
+}
+
+/* Smaller font for yesterday stats & label */
+*[class*='yesterday'] {
+  font-size: 0.7em;
+}
+*[class$='--yesterday'] > *[class*='__label'] {
+  font-size: 0.7em;
 }
 
 *[class$='seperatorDiv'] {

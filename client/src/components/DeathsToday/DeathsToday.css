@@ -1,9 +1,0 @@
-.deaths {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.cases__label {
-  color: rgb(77, 77, 77);
-}

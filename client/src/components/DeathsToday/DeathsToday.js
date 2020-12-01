@@ -1,5 +1,4 @@
 import React from 'react';
-import './DeathsToday.css';
 import NumberFormat from 'react-number-format';
 
 const DeathsToday = ({ todayDeaths, yesterdayDeaths }) => {

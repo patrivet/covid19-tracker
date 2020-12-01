@@ -1,5 +1,4 @@
 import React from 'react';
-import './DeathsTotal.css';
 import NumberFormat from 'react-number-format';
 
 const DeathsTotal = ({ totalDeaths }) => {
@@ -11,6 +10,7 @@ const DeathsTotal = ({ totalDeaths }) => {
         thousandSeparator={true}
         displayType={'text'}
       />
+      <h6 className="deaths__label">Total</h6>
     </div>
   );
 };

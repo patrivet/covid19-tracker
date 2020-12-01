@@ -1,9 +1,0 @@
-.deaths--yesterday {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.deaths__label {
-  color: rgb(77, 77, 77);
-}

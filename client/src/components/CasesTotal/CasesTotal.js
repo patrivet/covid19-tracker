@@ -1,5 +1,4 @@
 import React from 'react';
-import './CasesTotal.css';
 import NumberFormat from 'react-number-format';
 
 const CasesTotal = ({ totalCases }) => {

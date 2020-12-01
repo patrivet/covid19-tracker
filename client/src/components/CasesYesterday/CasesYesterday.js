@@ -4,8 +4,9 @@ import './CasesYesterday.css';
 
 const CasesYesterday = ({ yesterdayCases }) => {
   return (
-    <div className="cases__statsNumber cases--yesterday">
+    <div className="cases cases--yesterday">
       <NumberFormat
+        className="cases__statsNumber"
         value={yesterdayCases}
         thousandSeparator={true}
         displayType={'text'}
