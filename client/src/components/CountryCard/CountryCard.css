@@ -11,6 +11,7 @@
   /* Set Country card width to 100% */
   .CountryCard {
     width: 100%;
+    height: auto;
     margin-right: 0px;
     margin-bottom: 12px;
   }

@@ -73,3 +73,14 @@ h4 {
   width: 70%;
   border-bottom: 1px solid lightgrey;
 }
+
+/* Media Queries */
+@media screen and (max-width: 600px) {
+  body {
+    /* Increase body font size -from 19px to 7.5vw -(viewport width)*/
+    font-size: 7.5vw;
+  }
+  [class*='__label'] {
+    font-size: 4.5vw;
+  }
+}

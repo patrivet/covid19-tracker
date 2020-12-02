@@ -6,3 +6,11 @@
   grid-area: CasesLabel;
   text-align: center;
 }
+
+/* Media Queries */
+@media screen and (max-width: 600px) {
+  /* Remove height - to account for larger font. */
+  .casesLabel {
+    height: auto;
+  }
+}
