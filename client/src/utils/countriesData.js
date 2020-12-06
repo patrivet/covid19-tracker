@@ -41,6 +41,26 @@ export default {
       slug: 'Spain',
       ISO2: 'ES',
     },
+    {
+      name: 'Korea (South)',
+      slug: 'korea-south',
+      ISO2: 'KR',
+    },
+    {
+      name: 'Belgium',
+      slug: 'belgium',
+      ISO2: 'BE',
+    },
+    {
+      name: 'Netherlands',
+      slug: 'netherlands',
+      ISO2: 'NL',
+    },
+    {
+      name: 'India',
+      slug: 'india',
+      ISO2: 'IN',
+    },
   ],
   countries2: [
     {
