@@ -61,6 +61,16 @@ export default {
       slug: 'india',
       ISO2: 'IN',
     },
+    {
+      name: 'China',
+      slug: 'china',
+      ISO2: 'CN',
+    },
+    {
+      name: 'Canada',
+      slug: 'canada',
+      ISO2: 'CA',
+    },
   ],
   countries2: [
     {

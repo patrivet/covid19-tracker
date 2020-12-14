@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-import { Line } from 'react-chartjs-2';
 import store from './store';
 import { fetchCovidData } from './actions/actions';
 import { useSelector } from 'react-redux';
