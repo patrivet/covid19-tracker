@@ -1,0 +1,13 @@
+:root {
+  --body-font-size: 19px;
+  --header-font-size: 16px;
+}
+
+/* Media Query- Tablet and mobile screens: */
+@media screen and (max-width: 600px) {
+  body {
+    /* Increase body & header font size -from 19px to 7.5vw -(viewport width)*/
+    --body-font-size: 7.5vw;
+    --header-font-size: 7.5vw;
+  }
+}

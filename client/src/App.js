@@ -25,7 +25,6 @@ function App() {
   return (
     <div className='App'>
       <header className='App-header'>
-        <h4>Covid-19 Global Tracker</h4>
         {/* Show spinner until countries processed is twice  */}
         <div>
           {countriesProcessed < countries.length * 2 ? (

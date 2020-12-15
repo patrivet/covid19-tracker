@@ -2,6 +2,10 @@ import React from 'react';
 import './CasesToday.css';
 import NumberFormat from 'react-number-format';
 
+// Images
+import UpArrow from '../../assets/imgs/up_arrow.png';
+import DownArrow from '../../assets/imgs/down_arrow.png';
+
 const CasesToday = ({ todayCases, yesterdayCases }) => {
   /* Show cases number (show as 0 if value is null) and, if non-null, show trend arrow
   of delta from yesterday cases */
@@ -26,24 +30,30 @@ const CasesToday = ({ todayCases, yesterdayCases }) => {
   };
 
   const getDeltaTrend = () => {
-    if (yesterdayDelta > 0) return ' ⬆️';
+    if (yesterdayDelta > 0)
+      return (
+        <img className='cases__deltaSymbol cases--upArrow' src={UpArrow} />
+      );
     else if (yesterdayDelta === 0) return ' ↔️';
-    else if (yesterdayDelta < 0) return ' ⬇️';
+    else if (yesterdayDelta < 0)
+      return (
+        <img className='cases__deltaSymbol cases--downArrow' src={DownArrow} />
+      );
     else return '';
   };
 
   return (
-    <div className="cases cases--today">
-      <div className="cases__statsNumber">
+    <div className='cases cases--today'>
+      <div className='cases__statsNumber'>
         <NumberFormat
           value={todayCases}
           thousandSeparator={true}
           displayType={'text'}
         />
-        <span className="cases__deltaSymbol">{getDeltaTrend()}</span>
+        {getDeltaTrend()}
       </div>
-      <h6 className="cases__label">Today</h6>
-      <div className="cases__seperatorDiv"></div>
+      <h6 className='cases__label'>Today</h6>
+      <div className='cases__seperatorDiv'></div>
     </div>
   );
 };

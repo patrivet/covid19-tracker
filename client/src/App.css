@@ -1,6 +1,9 @@
+@import './_GlobalVariables.css';
+
 body {
   font-family: 'Lato', sans-serif;
-  font-size: 19px;
+  font-size: var(--body-font-size);
+  background-color: #f5f7f9;
 }
 
 /* Stylesheet Reset settings */
@@ -44,6 +47,7 @@ h4 {
 
 *[class*='statsNumber'] {
   font-weight: 600;
+  display: flex;
 }
 
 *[class*='deltaNumber'] {
@@ -52,6 +56,22 @@ h4 {
 
 *[class*='deltaSymbol'] {
   font-size: 0.7em;
+  /* margin-top: 2px; 2px top to align with stats number */
+  width: 20px;
+  height: 20px;
+}
+
+/* For delta arrows - apply margin-top - more for the down arrow */
+*[class$='--upArrow'] {
+  margin-top: 1px;
+}
+*[class$='--downArrow'] {
+  margin-top: 2px;
+}
+
+*[class$='--levelArrow'] {
+  margin-left: 2px;
+  transform: rotate(45deg);
 }
 
 *[class*='__label'] {
@@ -69,17 +89,8 @@ h4 {
   font-size: 0.7em;
 }
 
-*[class$='seperatorDiv'] {
-  width: 70%;
-  border-bottom: 1px solid lightgrey;
-}
-
 /* Media Queries */
 @media screen and (max-width: 600px) {
-  body {
-    /* Increase body font size -from 19px to 7.5vw -(viewport width)*/
-    font-size: 7.5vw;
-  }
   [class*='__label'] {
     font-size: 4.5vw;
   }

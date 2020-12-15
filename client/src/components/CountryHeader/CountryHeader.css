@@ -1,21 +1,25 @@
+@import '../../_GlobalVariables.css';
+
 .header {
   display: flex;
-  font-weight: 300;
+  font-weight: 400;
   text-transform: uppercase;
   align-items: center;
+  font-size: 14px;
+  font-size: var(--header-font-size);
 }
 
 .header__img {
   margin-top: 2px;
-  width: 26px;
-  height: 26px;
+  width: 24px;
+  height: 24px;
 }
 
 .header__name {
   padding-left: 5px;
 }
 
-.header__name.longName {
+.header--smallFont {
   /* Use a smaller font for a long country name */
-  font-size: 17px;
+  font-size: 13px;
 }
