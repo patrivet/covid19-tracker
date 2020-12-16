@@ -1,8 +1,8 @@
 .CountryCard {
   height: 175px;
-  width: 305px;
-  margin-left: 36px;
-  margin-right: 36px;
+  width: 305px; /* ? Could be better as 420x228 (w * h) */
+  margin-left: 20px;
+  margin-right: 20px;
   margin-top: 8px;
   margin-bottom: 8px;
   /* margin-bottom: 16px; */

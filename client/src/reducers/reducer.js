@@ -5,9 +5,13 @@ const initalState = {
   sorting: '',
   search: '',
   chartPeriod: 'Last 7 Days',
+  globalStats: {
+    todayData: {},
+    yesterdayData: {},
+  },
   countries: countries_data.countries, // this is an []
   dataLoaded: false,
-  countriesProcessed: 0
+  dataProcessed: 0,
 };
 
 export default function (state = initalState, action) {
@@ -23,70 +27,111 @@ export default function (state = initalState, action) {
     case actions.SET_COUNTRY_TODAY_DATA:
       return {
         ...state,
-        countries:
-          state.countries.map( country => country.ISO2 === action.payload.countryCode ? (country.todayData = action.payload.countryData, country) : country )
-        }
+        countries: state.countries.map(country =>
+          country.ISO2 === action.payload.countryCode
+            ? ((country.todayData = action.payload.countryData), country)
+            : country
+        ),
+      };
 
     case actions.SET_COUNTRY_YESTERDAY_DATA:
       return {
         ...state,
-        countries:
-          state.countries.map( country => country.ISO2 === action.payload.countryCode ? (country.yesterdayData = action.payload.countryData, country) : country )
-        }
-    case actions.SET_COUNTRY_DAILY_CASES:
+        countries: state.countries.map(country =>
+          country.ISO2 === action.payload.countryCode
+            ? ((country.yesterdayData = action.payload.countryData), country)
+            : country
+        ),
+      };
 
+    case actions.SET_GLOBAL_DATA:
+      // Determine if today or yesterday data- and add to the applicable prop.
+      const propName = action.payload.fetchYesterday
+        ? 'todayData'
+        : 'yesterdayData';
       return {
         ...state,
-        countries:
-          state.countries.map( country => country.ISO2 === action.payload.countryCode ? (country.dailyCases = action.payload.covidData.todayCases, country) : country )
-        }
+        globalStats: {
+          ...state.globalStats,
+          [propName]: action.payload.data,
+        },
+      };
+
+    case actions.SET_COUNTRY_DAILY_CASES:
+      return {
+        ...state,
+        countries: state.countries.map(country =>
+          country.ISO2 === action.payload.countryCode
+            ? ((country.dailyCases = action.payload.covidData.todayCases),
+              country)
+            : country
+        ),
+      };
 
     case actions.SET_COUNTRY_DAILY_DEATHS:
       return {
         ...state,
-        countries:
-          state.countries.map( country => country.ISO2 === action.payload.countryCode ? (country.dailyDeaths = action.payload.covidData.todayDeaths, country) : country )
-        }
+        countries: state.countries.map(country =>
+          country.ISO2 === action.payload.countryCode
+            ? ((country.dailyDeaths = action.payload.covidData.todayDeaths),
+              country)
+            : country
+        ),
+      };
 
     case actions.SET_COUNTRY_TOTAL_CASES:
       return {
         ...state,
-        countries:
-          state.countries.map( country => country.ISO2 === action.payload.countryCode ? (country.totalCases = action.payload.covidData.cases, country) : country )
-        }
+        countries: state.countries.map(country =>
+          country.ISO2 === action.payload.countryCode
+            ? ((country.totalCases = action.payload.covidData.cases), country)
+            : country
+        ),
+      };
 
     case actions.SET_COUNTRY_TOTAL_DEATHS:
       return {
         ...state,
-        countries:
-          state.countries.map( country => country.ISO2 === action.payload.countryCode ? (country.totalDeaths = action.payload.covidData.deaths, country) : country )
-        }
+        countries: state.countries.map(country =>
+          country.ISO2 === action.payload.countryCode
+            ? ((country.totalDeaths = action.payload.covidData.deaths), country)
+            : country
+        ),
+      };
 
     case actions.SET_COUNTRY_CASES_DELTA:
       return {
         ...state,
-        countries:
-          state.countries.map( country => country.ISO2 === action.payload.countryCode ? (country.yesterdayCases = action.payload.covidData.todayCases, country) : country )
-        }
+        countries: state.countries.map(country =>
+          country.ISO2 === action.payload.countryCode
+            ? ((country.yesterdayCases = action.payload.covidData.todayCases),
+              country)
+            : country
+        ),
+      };
 
     case actions.SET_COUNTRY_DEATHS_DELTA:
       return {
         ...state,
-        countries:
-          state.countries.map( country => country.ISO2 === action.payload.countryCode ? (country.yesterdayDeaths = action.payload.covidData.todayDeaths, country) : country )
-        }
+        countries: state.countries.map(country =>
+          country.ISO2 === action.payload.countryCode
+            ? ((country.yesterdayDeaths = action.payload.covidData.todayDeaths),
+              country)
+            : country
+        ),
+      };
 
     case actions.SET_DATA_LOADED:
       return {
         ...state,
         dataLoaded: action.payload,
-      }
+      };
 
-    case actions.INCREMENT_COUNTRY_COUNT:
+    case actions.INCREMENT_DATA_PROCESSED:
       return {
         ...state,
-        countriesProcessed: ++state.countriesProcessed,
-      }
+        dataProcessed: ++state.dataProcessed,
+      };
 
     default:
       return state;
