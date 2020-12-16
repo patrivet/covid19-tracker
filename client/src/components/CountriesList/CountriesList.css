@@ -1,5 +1,6 @@
 .countriesList {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-evenly;
   margin: 0 25px;
 }
