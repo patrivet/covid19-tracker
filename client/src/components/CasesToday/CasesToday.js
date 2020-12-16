@@ -44,6 +44,7 @@ const CasesToday = ({ todayCases, yesterdayCases }) => {
 
   return (
     <div className='cases cases--today'>
+      <h6 className='cases__label'>Today</h6>
       <div className='cases__statsNumber'>
         <NumberFormat
           value={todayCases}
@@ -52,8 +53,6 @@ const CasesToday = ({ todayCases, yesterdayCases }) => {
         />
         {getDeltaTrend()}
       </div>
-      <h6 className='cases__label'>Today</h6>
-      <div className='cases__seperatorDiv'></div>
     </div>
   );
 };

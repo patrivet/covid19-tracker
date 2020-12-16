@@ -3,14 +3,14 @@ import NumberFormat from 'react-number-format';
 
 const DeathsTotal = ({ totalDeaths }) => {
   return (
-    <div className="deaths deaths--total">
+    <div className='deaths deaths--total'>
+      <h6 className='deaths__label'>Total</h6>
       <NumberFormat
-        className="deaths__statsNumber"
+        className='deaths__statsNumber'
         value={totalDeaths}
         thousandSeparator={true}
         displayType={'text'}
       />
-      <h6 className="deaths__label">Total</h6>
     </div>
   );
 };
