@@ -17,8 +17,6 @@ const DeathsToday = ({ todayDeaths, yesterdayDeaths }) => {
   // Adjust deaths to 0 if currently null.
   todayDeaths = todayDataExists ? todayDeaths : 0;
 
-  const yesterdayDelta = todayDataExists ? todayDeaths - yesterdayDeaths : null;
-
   return (
     <div className='deaths'>
       <h6 className='deaths__label'>Today</h6>
@@ -28,7 +26,7 @@ const DeathsToday = ({ todayDeaths, yesterdayDeaths }) => {
           thousandSeparator={true}
           displayType={'text'}
         />
-        {helpers.getDeltaTrendImg(todayDeaths, 'deaths')}
+        {helpers.getDeltaTrendImg(todayDeaths, yesterdayDeaths, 'deaths')}
       </div>
     </div>
   );

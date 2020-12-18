@@ -20,7 +20,11 @@ const CasesGlobal = ({ globalStats }) => {
       <p className='gCases__today-label'>today</p>
       <p className='gCases__todayValue gCases__todayValue--statsNumber'>
         {getNumberFormatted(today.todayCases)}
-        {helpers.getDeltaTrendImg(today.todayCases, 'cases')}
+        {helpers.getDeltaTrendImg(
+          today.todayCases,
+          yesterday.todayCases,
+          'cases'
+        )}
       </p>
       <p className='gCases__prev-label'>yesterday</p>
       <p className='gCases__prevValue gCases__prevValue--statsNumber'>

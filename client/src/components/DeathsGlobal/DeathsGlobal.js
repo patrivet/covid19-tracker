@@ -20,7 +20,11 @@ const DeathsGlobal = ({ globalStats }) => {
       <p className='gDeaths__today-label'>today</p>
       <p className='gDeaths__todayValue gDeaths__todayValue--statsNumber'>
         {getNumberFormatted(today.todayDeaths)}
-        {helpers.getDeltaTrendImg(today.todayDeaths, 'deaths')}
+        {helpers.getDeltaTrendImg(
+          today.todayDeaths,
+          yesterday.todayDeaths,
+          'deaths'
+        )}
       </p>
       <p className='gDeaths__prev-label'>yesterday</p>
       <p className='gDeaths__prevValue gDeaths__prevValue--statsNumber'>

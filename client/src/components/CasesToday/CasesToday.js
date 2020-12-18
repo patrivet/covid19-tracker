@@ -18,21 +18,6 @@ const CasesToday = ({ todayCases, yesterdayCases }) => {
   // Adjust cases to 0 if currently null.
   todayCases = todayDataExists ? todayCases : 0;
 
-  const yesterdayDelta = todayDataExists ? todayCases - yesterdayCases : null;
-
-  // Delta cases from yesterday
-  const getDeltaCases = () => {
-    return todayDataExists ? (
-      <div>
-        <NumberFormat
-          value={yesterdayCases}
-          thousandSeparator={true}
-          displayType={'text'}
-        />
-      </div>
-    ) : null;
-  };
-
   return (
     <div className='cases cases--today'>
       <h6 className='cases__label'>Today</h6>
@@ -42,7 +27,7 @@ const CasesToday = ({ todayCases, yesterdayCases }) => {
           thousandSeparator={true}
           displayType={'text'}
         />
-        {helpers.getDeltaTrendImg(todayCases, 'cases')}
+        {helpers.getDeltaTrendImg(todayCases, yesterdayCases, 'cases')}
       </div>
     </div>
   );
