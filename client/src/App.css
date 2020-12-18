@@ -16,6 +16,22 @@ h4 {
   font-family: 'Lato', sans-serif;
 }
 
+.App_scrollToTop {
+  background-color: white;
+  right: 10px;
+  bottom: 10px;
+  position: fixed;
+  z-index: 2;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 25px;
+  height: 25px;
+  transition: opacity 1s ease-in-out;
+  box-shadow: 0 9px 25px 0 rgba(132, 128, 177, 0.28);
+  border: none;
+  outline: none;
+}
+
 .charts {
   display: flex;
   flex-direction: row;

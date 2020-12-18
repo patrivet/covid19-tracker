@@ -3,6 +3,7 @@ import './App.css';
 import store from './store';
 import { fetchCovidData, fetchCovidGlobalData } from './actions/actions';
 import { useSelector } from 'react-redux';
+import ScrollToTop from 'react-scroll-to-top';
 
 // Custom components
 import GlobalCard from './components/GlobalCard';
@@ -42,6 +43,7 @@ function App() {
             <>
               <GlobalCard />
               <CountriesList />
+              <ScrollToTop smooth className='App_scrollToTop' />
             </>
           )}
         </div>
