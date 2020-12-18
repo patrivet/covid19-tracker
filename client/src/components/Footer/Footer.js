@@ -8,7 +8,7 @@ const Footer = () => {
   let updated = useSelector(store => store.updated);
 
   return (
-    <div className='footer footer--small-label'>
+    <div className='footer'>
       <p className='footer__dark-mode'></p>
       <div className='footer__source-and-attribution'>
         <p>
