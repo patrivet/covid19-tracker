@@ -5,6 +5,10 @@ import NumberFormat from 'react-number-format';
 // Images
 import UpArrow from '../../assets/imgs/up_arrow.png';
 import DownArrow from '../../assets/imgs/down_arrow.png';
+import LevelArrow from '../../assets/imgs/level_arrow.png';
+
+// Custom components & utils
+import * as helpers from '../../utils/helperFunctions.js';
 
 const CasesToday = ({ todayCases, yesterdayCases }) => {
   /* Show cases number (show as 0 if value is null) and, if non-null, show trend arrow
@@ -29,19 +33,6 @@ const CasesToday = ({ todayCases, yesterdayCases }) => {
     ) : null;
   };
 
-  const getDeltaTrend = () => {
-    if (yesterdayDelta > 0)
-      return (
-        <img className='cases__deltaSymbol cases--upArrow' src={UpArrow} />
-      );
-    else if (yesterdayDelta === 0) return ' ↔️';
-    else if (yesterdayDelta < 0)
-      return (
-        <img className='cases__deltaSymbol cases--downArrow' src={DownArrow} />
-      );
-    else return '';
-  };
-
   return (
     <div className='cases cases--today'>
       <h6 className='cases__label'>Today</h6>
@@ -51,7 +42,7 @@ const CasesToday = ({ todayCases, yesterdayCases }) => {
           thousandSeparator={true}
           displayType={'text'}
         />
-        {getDeltaTrend()}
+        {helpers.getDeltaTrendImg(todayCases, 'cases')}
       </div>
     </div>
   );

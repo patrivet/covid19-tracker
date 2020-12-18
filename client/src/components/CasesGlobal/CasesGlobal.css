@@ -1,0 +1,38 @@
+.gCases {
+  display: grid;
+  grid-template-rows: auto 12px auto;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas:
+    'Title Title Title'
+    'TodayLabel YesterdayLabel TotalLabel'
+    'TodayValue YesterdayValue TotalValue';
+  padding: 5px;
+  margin: 5px;
+  gap: 0px 30px;
+  width: 440px;
+}
+
+/* Grid Area */
+.gCases__title {
+  grid-area: Title;
+  text-align: left;
+  padding-bottom: 5px;
+}
+.gCases__todayLabel {
+  grid-area: TodayLabel;
+}
+.gCases__todayValue {
+  grid-area: TodayValue;
+}
+.gCases__prevLabel {
+  grid-area: YesterdayLabel;
+}
+.gCases__prevValue {
+  grid-area: YesterdayValue;
+}
+.gCases__totalLabel {
+  grid-area: TotalLabel;
+}
+.gCases__totalValue {
+  grid-area: TotalValue;
+}

@@ -5,9 +5,11 @@
 
 /* Media Query- Tablet and mobile screens: */
 @media screen and (max-width: 600px) {
-  body {
-    /* Increase body & header font size -from 19px to 7.5vw -(viewport width)*/
-    --body-font-size: 7.5vw;
+  /* ! 18-Dec: deprecated for now - font size unnecessarily too large */
+  /* body {
+  // Increase body & header font size -from 19px to 7.5vw -(viewport width)
+
+   --body-font-size: 7.5vw;
     --header-font-size: 7.5vw;
-  }
+  } */
 }

@@ -3,12 +3,16 @@ import './App.css';
 import store from './store';
 import { fetchCovidData, fetchCovidGlobalData } from './actions/actions';
 import { useSelector } from 'react-redux';
+
+// Custom components
+import GlobalCard from './components/GlobalCard';
 import CountriesList from './components/CountriesList';
 import Spinner from './components/Spinner';
 
 function App() {
   const countries = useSelector(store => store.countries);
   let dataProcessed = useSelector(store => store.dataProcessed);
+  const globalStats = useSelector(store => store.globalStats);
 
   React.useEffect(() => {
     // Get Global stats data for today
@@ -35,7 +39,10 @@ function App() {
           {dataProcessed < countries.length * 2 + 2 ? (
             <Spinner />
           ) : (
-            <CountriesList />
+            <>
+              <GlobalCard />
+              <CountriesList />
+            </>
           )}
         </div>
       </header>

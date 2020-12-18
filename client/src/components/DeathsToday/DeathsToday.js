@@ -6,6 +6,9 @@ import UpArrow from '../../assets/imgs/up_arrow.png';
 import DownArrow from '../../assets/imgs/down_arrow.png';
 import LevelArrow from '../../assets/imgs/level_arrow.png';
 
+// Custom components & utils
+import * as helpers from '../../utils/helperFunctions.js';
+
 const DeathsToday = ({ todayDeaths, yesterdayDeaths }) => {
   /* Show deaths number (show as 0 if value is null) and, if non-null, show trend arrow
   of delta from yesterday deaths */
@@ -16,39 +19,6 @@ const DeathsToday = ({ todayDeaths, yesterdayDeaths }) => {
 
   const yesterdayDelta = todayDataExists ? todayDeaths - yesterdayDeaths : null;
 
-  // Delta deaths from yesterday
-  const getDeltaDeaths = () => {
-    return todayDataExists ? (
-      <div>
-        {getDeltaTrend()}
-        <NumberFormat
-          value={yesterdayDelta}
-          thousandSeparator={true}
-          displayType={'text'}
-        />
-      </div>
-    ) : null;
-  };
-
-  const getDeltaTrend = () => {
-    if (yesterdayDelta > 0)
-      return (
-        <img className='cases__deltaSymbol cases--upArrow' src={UpArrow} />
-      );
-    else if (yesterdayDelta === 0)
-      return (
-        <img
-          className='cases__deltaSymbol cases--levelArrow'
-          src={LevelArrow}
-        />
-      );
-    else if (yesterdayDelta < 0)
-      return (
-        <img className='cases__deltaSymbol cases--downArrow' src={DownArrow} />
-      );
-    else return '';
-  };
-
   return (
     <div className='deaths'>
       <h6 className='deaths__label'>Today</h6>
@@ -58,7 +28,7 @@ const DeathsToday = ({ todayDeaths, yesterdayDeaths }) => {
           thousandSeparator={true}
           displayType={'text'}
         />
-        {getDeltaTrend()}
+        {helpers.getDeltaTrendImg(todayDeaths, 'deaths')}
       </div>
     </div>
   );
