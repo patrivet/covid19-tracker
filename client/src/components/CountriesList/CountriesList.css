@@ -3,4 +3,7 @@
   flex-wrap: wrap;
   justify-content: space-evenly;
   margin: 0 25px;
+
+  /* Margin bottom to account for fixed footer below */
+  margin-bottom: 30px;
 }

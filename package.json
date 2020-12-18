@@ -18,5 +18,8 @@
   "homepage": "https://github.com/patrivet/covid19-tracker#readme",
   "devDependencies": {
     "create-react-component-folder": "^0.3.4"
+  },
+  "dependencies": {
+    "luxon": "^1.25.0"
   }
 }

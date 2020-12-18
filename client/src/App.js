@@ -1,19 +1,24 @@
 import React from 'react';
 import './App.css';
 import store from './store';
-import { fetchCovidData, fetchCovidGlobalData } from './actions/actions';
+import {
+  fetchCovidData,
+  fetchCovidGlobalData,
+  setUpdateTimestamp,
+} from './actions/actions';
 import { useSelector } from 'react-redux';
 import ScrollToTop from 'react-scroll-to-top';
+import { DateTime } from 'luxon';
 
 // Custom components
 import GlobalCard from './components/GlobalCard';
 import CountriesList from './components/CountriesList';
 import Spinner from './components/Spinner';
+import Footer from './components/Footer';
 
 function App() {
   const countries = useSelector(store => store.countries);
   let dataProcessed = useSelector(store => store.dataProcessed);
-  const globalStats = useSelector(store => store.globalStats);
 
   React.useEffect(() => {
     // Get Global stats data for today
@@ -30,6 +35,8 @@ function App() {
     countries.forEach(country => {
       store.dispatch(fetchCovidData(country.ISO2, true));
     });
+
+    store.dispatch(setUpdateTimestamp(DateTime.local()));
   }, []);
 
   return (
@@ -44,6 +51,7 @@ function App() {
               <GlobalCard />
               <CountriesList />
               <ScrollToTop smooth className='App_scrollToTop' />
+              <Footer />
             </>
           )}
         </div>

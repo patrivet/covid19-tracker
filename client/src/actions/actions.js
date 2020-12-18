@@ -42,6 +42,11 @@ export const setGlobalData = (data, fetchYesterday) => ({
   },
 });
 
+export const setUpdateTimestamp = payload => ({
+  type: actions.SET_UPDATE_TIMESTAMP,
+  payload,
+});
+
 export const setCountryName = (id, countryInfo) => ({
   type: actions.SET_COUNTRY_NAME,
   payload: {

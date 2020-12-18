@@ -1,5 +1,6 @@
 import countries_data from '../utils/countriesData';
 import * as actions from '../actions/actionTypes';
+import { DateTime } from 'luxon';
 
 const initalState = {
   sorting: '',
@@ -12,6 +13,7 @@ const initalState = {
   countries: countries_data.countries, // this is an []
   dataLoaded: false,
   dataProcessed: 0,
+  updated: '',
 };
 
 export default function (state = initalState, action) {
@@ -131,6 +133,12 @@ export default function (state = initalState, action) {
       return {
         ...state,
         dataProcessed: ++state.dataProcessed,
+      };
+
+    case actions.SET_UPDATE_TIMESTAMP:
+      return {
+        ...state,
+        updated: action.payload.toLocaleString(DateTime.DATETIME_MED),
       };
 
     default:

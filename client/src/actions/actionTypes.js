@@ -8,6 +8,8 @@ export const SET_COUNTRY_TODAY_DATA = 'setCountryTodayData';
 export const SET_COUNTRY_YESTERDAY_DATA = 'setCountryYesterdayData';
 export const SET_GLOBAL_DATA = 'setGlobalData';
 
+export const SET_UPDATE_TIMESTAMP = 'setUpdateTimestamp';
+
 export const SET_COUNTRY_DAILY_CASES = 'setCountryDailyCases';
 export const SET_COUNTRY_DAILY_DEATHS = 'setCountryDailyDeaths';
 export const SET_COUNTRY_TOTAL_CASES = 'setCountryTotalCases';
