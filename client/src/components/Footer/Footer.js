@@ -9,14 +9,14 @@ const Footer = () => {
 
   return (
     <div className='footer'>
-      <p className='footer__dark-mode'></p>
-      <div className='footer__source-and-attribution'>
-        <p>
-          Sources: Worldometers.info and John Hopkins Uni via{' '}
-          <a href='https://disease.sh/docs' target='_blank'>
-            disease.sh
-          </a>
-        </p>
+      <p className='footer__source'>
+        Source:{' '}
+        <a href='https://disease.sh/docs' target='_blank'>
+          disease.sh
+        </a>
+      </p>
+
+      <div className='footer__attribution'>
         <p>
           Built by{' '}
           <a href='http://github.com/patrivet' target='_blank'>
@@ -24,7 +24,7 @@ const Footer = () => {
           </a>
         </p>
       </div>
-      <p className='footer__updated'>Last Updated: {updated}</p>
+      <p className='footer__updated'>Updated: {updated}</p>
     </div>
   );
 };

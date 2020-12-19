@@ -29,7 +29,7 @@ a:visited {
 }
 
 a:hover {
-  color: blue;
+  color: darkblue;
   background-color: transparent;
   text-decoration: underline;
 }

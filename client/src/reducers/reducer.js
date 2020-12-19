@@ -138,7 +138,7 @@ export default function (state = initalState, action) {
     case actions.SET_UPDATE_TIMESTAMP:
       return {
         ...state,
-        updated: action.payload.toLocaleString(DateTime.DATETIME_MED),
+        updated: action.payload.toLocaleString(DateTime.TIME_24_WITH_SECONDS),
       };
 
     default:
