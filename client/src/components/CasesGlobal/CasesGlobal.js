@@ -32,7 +32,7 @@ const CasesGlobal = ({ globalStats }) => {
       </p>
       <p className='gCases__total-label'>total</p>
       <p className='gCases__totalValue gCases__totalValue--statsNumber'>
-        {getNumberFormatted(yesterday.cases)}
+        {getNumberFormatted(today.cases)}
       </p>
     </div>
   );

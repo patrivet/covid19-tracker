@@ -22,9 +22,10 @@ function App() {
 
   React.useEffect(() => {
     // Get Global stats data for today
-    store.dispatch(fetchCovidGlobalData(true));
+    let fetchToday = true;
+    store.dispatch(fetchCovidGlobalData(fetchToday));
     // Get Global stats data for yesterday
-    store.dispatch(fetchCovidGlobalData(false));
+    store.dispatch(fetchCovidGlobalData(!fetchToday));
 
     // Get data for today
     countries.forEach(country => {

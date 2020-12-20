@@ -49,8 +49,8 @@ export default function (state = initalState, action) {
     case actions.SET_GLOBAL_DATA:
       // Determine if today or yesterday data- and add to the applicable prop.
       const propName = action.payload.fetchYesterday
-        ? 'todayData'
-        : 'yesterdayData';
+        ? 'yesterdayData'
+        : 'todayData';
       return {
         ...state,
         globalStats: {
