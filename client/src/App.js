@@ -14,6 +14,7 @@ import { DateTime } from 'luxon';
 import GlobalCard from './components/GlobalCard';
 import CountriesList from './components/CountriesList';
 import Spinner from './components/Spinner';
+import Header from './components/Header';
 import Footer from './components/Footer';
 
 function App() {
@@ -49,6 +50,7 @@ function App() {
             <Spinner />
           ) : (
             <>
+              <Header />
               <GlobalCard />
               <CountriesList />
               <ScrollToTop smooth className='App_scrollToTop' />
