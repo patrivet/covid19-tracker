@@ -42,6 +42,11 @@ export default {
       ISO2: 'ES',
     },
     {
+      name: 'Australia',
+      slug: 'australia',
+      ISO2: 'AU',
+    },
+    {
       name: 'Korea (South)',
       slug: 'korea-south',
       ISO2: 'KR',
@@ -70,6 +75,11 @@ export default {
       name: 'Canada',
       slug: 'canada',
       ISO2: 'CA',
+    },
+    {
+      name: 'Mauritius',
+      slug: 'mauritius',
+      ISO2: 'MU',
     },
   ],
   countries2: [
