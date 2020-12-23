@@ -27,6 +27,11 @@ export default {
       ISO2: 'IT',
     },
     {
+      name: 'South Africa',
+      slug: 'south-africa',
+      ISO2: 'ZA',
+    },
+    {
       name: 'Brazil',
       slug: 'brazil',
       ISO2: 'BR',
