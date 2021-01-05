@@ -116,7 +116,10 @@ export function fetchCovidData(countryIso2, yesterdayFlag = false) {
 
     // UFN: Headers set to use 'cache-control' - no cache, so disk cache is not used.
     const headers = {
-      headers: { Accept: 'application/json', 'cache-control': 'no-cache' },
+      headers: {
+        Accept: 'application/json',
+        'cache-control': 'no-cache',
+      },
     };
     fetch(url, headers)
       .then(res => (res.ok ? res : Promise.reject(res)))
@@ -146,7 +149,10 @@ export function fetchCovidGlobalData(yesterdayFlag = false) {
     let url = COVID_GLOBAL_TOTALS_API.replace('<YESTERDAY>', yesterdayFlag);
 
     const headers = {
-      headers: { Accept: 'application/json', 'cache-control': 'no-cache' },
+      headers: {
+        Accept: 'application/json',
+        'cache-control': 'no-cache',
+      },
     };
     fetch(url, headers)
       .then(res => (res.ok ? res : Promise.reject(res)))

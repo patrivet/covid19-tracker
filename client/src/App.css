@@ -8,7 +8,8 @@ body {
 
 /* Stylesheet Reset settings */
 p,
-h6 {
+h6,
+h3 {
   margin: 0 0;
 }
 
