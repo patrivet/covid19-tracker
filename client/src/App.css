@@ -6,6 +6,11 @@ body {
   background-color: #f5f7f9; /* ? Or white - TBC */
 }
 
+/* Apply filter blur when body has blur class */
+.blur {
+  filter: blur(3px);
+}
+
 /* Stylesheet Reset settings */
 p,
 h6,

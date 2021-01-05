@@ -19,22 +19,37 @@
 
 .menu {
   position: absolute;
-  width: 75vw;
-  left: calc((25vw) / 2);
-  border: 1px solid blue;
+  width: 350px;
+  left: calc((100vw - 350px) / 2);
   background-color: white;
-  text-align: center;
+  padding: 18px;
+  padding-top: 5px;
+  border: 1px solid lightgrey;
+  border-radius: 10px;
+  z-index: 999;
+}
+
+.menu__header {
+  display: flex;
+  align-items: center;
+  color: #333333;
 }
 
 .menu__img {
   float: left;
+  padding-right: 15px;
 }
 
 .menu__close {
-  top: 0;
   float: right;
+  cursor: pointer;
 }
 
-.sortMenu__sortOptionItem {
+.sortMenu__sortOption {
+  margin-bottom: 5px;
   cursor: pointer;
+}
+
+.sortMenu__sortOption:hover {
+  background-color: #f5f7f9;
 }

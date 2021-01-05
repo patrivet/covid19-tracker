@@ -5,8 +5,8 @@ import './Sort.css';
 
 const Sort = () => {
   const sortOptions = [
-    'Country name (Ascending)',
-    'Country name (Descending)',
+    'Name (Ascending)',
+    'Name (Descending)',
     'Cases today (Ascending)',
     'Cases today (Descending)',
     /* TODO or have an arrow for click to change  from Ascending to Descending */
@@ -23,6 +23,12 @@ const Sort = () => {
   let sortOptionElements = [];
   const [sortOption, setSortOption] = useState(sortOptions[0]);
 
+  const toggleBlur = () => {
+    // Toggle blur class on main 2 components -filter blur is handled in App.css
+    document.querySelector('.globalCard').classList.toggle('blur');
+    document.querySelector('.countriesList').classList.toggle('blur');
+  };
+
   const showMenu = event => {
     event.preventDefault();
     setMenuShown(true);
@@ -37,12 +43,14 @@ const Sort = () => {
     ) {
       setMenuShown(false);
       document.removeEventListener('click', closeMenu);
+      toggleBlur();
     }
   };
 
   useEffect(() => {
     if (menuShown) {
       document.addEventListener('click', closeMenu);
+      toggleBlur();
     }
   }, [menuShown]);
 
@@ -56,40 +64,42 @@ const Sort = () => {
       {menuShown ? (
         <div
           className='menu'
-          /* store a  reference to the DOM element */
+          /* store a reference to the DOM element */
           ref={element => {
             sortModal = element;
           }}
         >
+          <div
+            ref={element => {
+              closeBtn = element;
+            }}
+            className='menu__close'
+          >
+            &times;
+          </div>
+          <br />
           <div>
-            <FontAwesomeIcon
-              icon={faSortAmountDown}
-              className='menu__img fa-2x'
-            />
+            <div className='menu__header'>
+              <FontAwesomeIcon
+                icon={faSortAmountDown}
+                className='menu__img fa-2x'
+              />
 
-            <p>
-              Sort Countries By:-{' '}
-              <span
-                ref={element => {
-                  closeBtn = element;
-                }}
-                className='menu__close'
-              >
-                &times;
-              </span>
-            </p>
+              <h3>Sort Countries by: </h3>
+            </div>
+
+            <br />
 
             {sortOptions.map(option => {
               return (
-                <div key={option}>
-                  <span
-                    className='sortMenu__sortOptionItem'
-                    ref={element => {
-                      sortOptionElements.push(element);
-                    }}
-                  >
-                    {option}
-                  </span>
+                <div
+                  key={option}
+                  className='sortMenu__sortOption'
+                  ref={element => {
+                    sortOptionElements.push(element);
+                  }}
+                >
+                  {option}
                 </div>
               );
             })}
