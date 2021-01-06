@@ -1,27 +1,20 @@
 import React, { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import store from '../../store';
+import { setSorting } from '../../actions/actions';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSortAmountDown } from '@fortawesome/free-solid-svg-icons';
 import './Sort.css';
 
-const Sort = () => {
-  const sortOptions = [
-    'Name (Ascending)',
-    'Name (Descending)',
-    'Cases today (Ascending)',
-    'Cases today (Descending)',
-    /* TODO or have an arrow for click to change  from Ascending to Descending */
-    'Deaths today (Ascending)',
-    'Deaths today (Descending)',
-    'Cases total (Ascending)',
-    'Cases total (Descending)',
-    'Deaths total (Ascending)',
-    'Deaths total (Descending)',
-  ];
+// Custom components
+import { sortOptions } from '../../utils/helperFunctions';
+/* TODO make sortOptions a shorter list by have an arrow for click to change from Ascending to Descending */
 
+const Sort = () => {
   let [menuShown, setMenuShown] = useState();
   let sortModal, closeBtn;
   let sortOptionElements = [];
-  const [sortOption, setSortOption] = useState(sortOptions[0]);
+  const activeSortOption = useSelector(store => store.sorting);
 
   const toggleBlur = () => {
     // Toggle blur class on main 2 components -filter blur is handled in App.css
@@ -34,17 +27,27 @@ const Sort = () => {
     setMenuShown(true);
   };
 
+  const applySort = sortOption => {
+    // Dispatch sorting action & then close modal
+    store.dispatch(setSorting(sortOption));
+    handleModalClose();
+  };
+
   const closeMenu = event => {
-    // Check the click event is the close button or a sort option or NOT inside the sort modal element.
-    if (
-      !sortModal.contains(event.target) ||
-      closeBtn === event.target ||
-      sortOptionElements.includes(event.target)
-    ) {
-      setMenuShown(false);
-      document.removeEventListener('click', closeMenu);
-      toggleBlur();
+    /* Check the click event is the close button or a sort option
+       or NOT inside the sort modal element. */
+
+    /* Handling click other than on a sort option - as longer the X or *outside* the modal -
+    close the modal. */
+    if (!sortModal.contains(event.target) || closeBtn === event.target) {
+      handleModalClose();
     }
+  };
+
+  const handleModalClose = () => {
+    setMenuShown(false);
+    document.removeEventListener('click', closeMenu);
+    toggleBlur();
   };
 
   useEffect(() => {
@@ -64,9 +67,8 @@ const Sort = () => {
       {menuShown ? (
         <div
           className='menu'
-          /* store a reference to the DOM element */
-          ref={element => {
-            sortModal = element;
+          ref={e => {
+            sortModal = e;
           }}
         >
           <div
@@ -84,22 +86,31 @@ const Sort = () => {
                 icon={faSortAmountDown}
                 className='menu__img fa-2x'
               />
-
               <h3>Sort Countries by: </h3>
             </div>
-
             <br />
 
             {sortOptions.map(option => {
+              let classNames = 'sortMenu__sortOption';
+              /* Mark the active sort option an 'active' class, all others add an 'inactive' class. */
+              classNames +=
+                activeSortOption.label === option.label
+                  ? ' active'
+                  : ' inactive';
               return (
                 <div
-                  key={option}
-                  className='sortMenu__sortOption'
+                  key={`${option.sortVal}_${option.direction}`}
+                  className={classNames}
                   ref={element => {
                     sortOptionElements.push(element);
                   }}
+                  onClick={() => {
+                    /* Only handle click if NOT the current sort option */
+                    if (activeSortOption.label !== option.label)
+                      applySort(option);
+                  }}
                 >
-                  {option}
+                  {option.label}
                 </div>
               );
             })}

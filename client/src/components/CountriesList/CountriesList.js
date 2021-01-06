@@ -1,17 +1,20 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import CountryCard from '../CountryCard';
+import { orderBy } from 'lodash';
+
 import './CountriesList.css';
-let nextId = 0;
+import CountryCard from '../CountryCard';
 
 const CountriesList = () => {
-
   const countries = useSelector(store => store.countries);
+  const sortOption = useSelector(store => store.sorting);
   return (
-    <div className="countriesList">
-      {countries.map(country => {
-        return <CountryCard key={nextId++} country={country} />
-      })}
+    <div className='countriesList'>
+      {orderBy(countries, [sortOption.sortVal], [sortOption.direction]).map(
+        country => {
+          return <CountryCard key={country.ISO2} country={country} />;
+        }
+      )}
     </div>
   );
 };

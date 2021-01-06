@@ -3,7 +3,7 @@ import * as actions from '../actions/actionTypes';
 import { DateTime } from 'luxon';
 
 const initalState = {
-  sorting: '',
+  sorting: { label: 'Name (Ascending)', sortVal: 'name', direction: 'asc' },
   search: '',
   chartPeriod: 'Last 7 Days',
   globalStats: {
@@ -139,6 +139,12 @@ export default function (state = initalState, action) {
       return {
         ...state,
         updated: action.payload.toLocaleString(DateTime.TIME_24_WITH_SECONDS),
+      };
+
+    case actions.SET_SORTING:
+      return {
+        ...state,
+        sorting: action.payload,
       };
 
     default:

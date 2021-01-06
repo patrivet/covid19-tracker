@@ -36,3 +36,69 @@ export const getDeltaTrendImg = (val1, val2, class_name) => {
       />
     );
 };
+
+/* Sorting options property */
+export const sortOptions = [
+  { label: 'Name (Ascending)', sortVal: 'name', direction: 'asc' },
+  { label: 'Name (Descending)', sortVal: 'name', direction: 'desc' },
+  {
+    label: 'Cases today (Ascending)',
+    sortVal: 'todayData.todayCases',
+    direction: 'asc',
+  },
+  {
+    label: 'Cases today (Descending)',
+    sortVal: 'todayData.todayCases',
+    direction: 'desc',
+  },
+  {
+    label: 'Deaths today (Ascending)',
+    sortVal: 'todayData.todayDeaths',
+    direction: 'asc',
+  },
+  {
+    label: 'Deaths today (Descending)',
+    sortVal: 'todayData.todayDeaths',
+    direction: 'desc',
+  },
+  {
+    label: 'Cases yesterday (Ascending)',
+    sortVal: 'yesterdayData.todayCases',
+    direction: 'asc',
+  },
+  {
+    label: 'Cases yesterday (Descending)',
+    sortVal: 'yesterdayData.todayCases',
+    direction: 'desc',
+  },
+  {
+    label: 'Deaths yesterday (Ascending)',
+    sortVal: 'yesterdayData.todayDeaths',
+    direction: 'asc',
+  },
+  {
+    label: 'Deaths yesterday (Descending)',
+    sortVal: 'yesterdayData.todayDeaths',
+    direction: 'desc',
+  },
+  {
+    label: 'Cases total (Ascending)',
+    sortVal: 'todayData.cases',
+    direction: 'asc',
+  },
+  {
+    label: 'Cases total (Descending)',
+    sortVal: 'todayData.cases',
+    direction: 'desc',
+  },
+  {
+    label: 'Deaths total (Ascending)',
+    sortVal: 'todayData.deaths',
+    direction: 'asc',
+  },
+  {
+    label: 'Deaths total (Descending)',
+    sortVal: 'todayData.deaths',
+    direction: 'desc',
+  },
+];

@@ -1,5 +1,4 @@
 import React from 'react';
-import { DateTime } from 'luxon';
 import { useSelector } from 'react-redux';
 
 import './Footer.css';
@@ -11,7 +10,11 @@ const Footer = () => {
     <div className='footer'>
       <p className='footer__source'>
         Source:{' '}
-        <a href='https://disease.sh/docs' target='_blank'>
+        <a
+          href='https://disease.sh/docs'
+          target='_blank'
+          rel='noopener noreferrer'
+        >
           disease.sh
         </a>
       </p>
@@ -19,7 +22,11 @@ const Footer = () => {
       <div className='footer__attribution'>
         <p>
           Built by{' '}
-          <a href='http://github.com/patrivet' target='_blank'>
+          <a
+            href='http://github.com/patrivet'
+            target='_blank'
+            rel='noopener noreferrer'
+          >
             Pat Rivet
           </a>
         </p>

@@ -20,10 +20,14 @@
 .menu {
   position: absolute;
   width: 350px;
-  left: calc((100vw - 350px) / 2);
+  max-width: 80vw;
+  /* Center the menu horizontally. (here margin: 0 auto and using vw don't work) */
+  left: 50%;
+  transform: translate(-50%, 0%);
   background-color: white;
   padding: 18px;
   padding-top: 5px;
+  padding-right: 10px;
   border: 1px solid lightgrey;
   border-radius: 10px;
   z-index: 999;
@@ -47,9 +51,22 @@
 
 .sortMenu__sortOption {
   margin-bottom: 5px;
+}
+
+/* Highlight curret sort option and disable pointer */
+.sortMenu__sortOption.active {
+  background-color: #d1d4d5;
+  cursor: not-allowed;
+}
+
+.sortMenu__sortOption.inactive:hover {
   cursor: pointer;
 }
 
-.sortMenu__sortOption:hover {
+.sortMenu__sortOption.inactive:hover {
   background-color: #f5f7f9;
+}
+
+.sortMenu__sortOption.inactive:active {
+  background-color: #d1d4d5;
 }

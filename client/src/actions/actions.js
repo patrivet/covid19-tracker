@@ -103,7 +103,10 @@ export const setCountryDeathsDelta = (countryCode, covidData) => ({
   },
 });
 
-/* Other actions to be placed here.. */
+export const setSorting = payload => ({
+  type: actions.SET_SORTING,
+  payload,
+});
 
 /* FETCH ACTION : Async data function */
 export function fetchCovidData(countryIso2, yesterdayFlag = false) {
