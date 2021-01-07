@@ -108,6 +108,11 @@ export const setSorting = payload => ({
   payload,
 });
 
+export const toggleCountryToFavourites = payload => ({
+  type: actions.TOGGLE_COUNTRY_TO_FAVOURITES,
+  payload,
+});
+
 /* FETCH ACTION : Async data function */
 export function fetchCovidData(countryIso2, yesterdayFlag = false) {
   return function (dispatch) {

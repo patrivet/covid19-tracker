@@ -45,6 +45,14 @@
 .header__favouriteIcon {
   padding-left: 5px;
   padding-right: 2px;
+  color: #9c9c94;
+  cursor: pointer;
+  /* font-size - can be used to size icon. */
+}
+
+.header__favouriteIcon:hover {
+  color: #747471;
+  transform: scale(1.1);
 }
 
 /* ? These dimension setting aren't working? */

@@ -67,8 +67,9 @@ const Sort = () => {
       {menuShown ? (
         <div
           className='menu'
-          ref={e => {
-            sortModal = e;
+          /* Store a ref to the DOM element */
+          ref={element => {
+            sortModal = element;
           }}
         >
           <div

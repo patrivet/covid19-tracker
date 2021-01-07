@@ -17,6 +17,12 @@ import Spinner from './components/Spinner';
 import Header from './components/Header';
 import Footer from './components/Footer';
 
+// Fontawesome iconStyle
+import { library } from '@fortawesome/fontawesome-svg-core';
+import * as fas from '@fortawesome/free-solid-svg-icons';
+import * as far from '@fortawesome/free-regular-svg-icons';
+library.add(fas.faBookmark, far.faBookmark);
+
 function App() {
   const countries = useSelector(store => store.countries);
   let dataProcessed = useSelector(store => store.dataProcessed);

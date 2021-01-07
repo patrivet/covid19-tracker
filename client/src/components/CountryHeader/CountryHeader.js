@@ -1,15 +1,35 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './CountryHeader.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import store from '../../store';
+import { useSelector } from 'react-redux';
+import { toggleCountryToFavourites } from '../../actions/actions';
 
 // Images
-import FavouriteAdd from '../../assets/imgs/favourite_add.png';
-import FavouriteRemove from '../../assets/imgs/favourite_remove.png';
 import ExpandArrow from '../../assets/imgs/expand_arrow.png';
 
 const PUBLIC_URL = process.env.PUBLIC_URL;
-const iconStyle = { width: '16px', height: '16px' };
+const iconStyle = { width: '26px', height: '26px' };
+let favCountries = [];
 
 const CountryHeader = ({ name, countryCode }) => {
+  // Get the fav countries
+  favCountries = useSelector(store => store.favouriteCountries);
+  // Determine if country is fav and set in local state.
+  const [fav, setFav] = useState(favCountries.includes(countryCode));
+
+  const toggleFav = countryCode => {
+    // Toggle the country in store (array of fav countries).
+    store.dispatch(toggleCountryToFavourites(countryCode));
+    setFav(!fav); // toggle fav in local state.
+  };
+
+  const getFavIconStyle = () => {
+    return fav
+      ? ['fas', 'bookmark'] // favourite (solid) style
+      : ['far', 'bookmark']; // !
+  };
+
   return (
     <div className='header'>
       <div className='header__id'>
@@ -30,17 +50,19 @@ const CountryHeader = ({ name, countryCode }) => {
         </p>
       </div>
       <div className='header__icons'>
+        {/* NOTE: removed until in use.
         <img
           className='header__expandIcon'
           src={ExpandArrow}
           alt='Expand_CountryCard'
           style={iconStyle}
-        />
-        <img
+        /> */}
+
+        <FontAwesomeIcon
           className='header__favouriteIcon'
-          src={FavouriteAdd}
-          alt='Favourite_Add'
-          style={iconStyle}
+          icon={getFavIconStyle()}
+          style={{ iconStyle }}
+          onClick={() => toggleFav(countryCode)}
         />
       </div>
     </div>

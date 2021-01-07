@@ -11,6 +11,7 @@ const initalState = {
     yesterdayData: {},
   },
   countries: countries_data.countries, // this is an []
+  favouriteCountries: [],
   dataLoaded: false,
   dataProcessed: 0,
   updated: '',
@@ -145,6 +146,20 @@ export default function (state = initalState, action) {
       return {
         ...state,
         sorting: action.payload,
+      };
+
+    case actions.TOGGLE_COUNTRY_TO_FAVOURITES:
+      // Check if country is in favs
+      const favIndex = state.favouriteCountries.indexOf(action.payload);
+      let favsCopy = [...state.favouriteCountries];
+
+      favIndex === -1
+        ? favsCopy.push(action.payload) // country is not fav so add
+        : favsCopy.splice(favIndex, 1); // country already a fav - so remove
+
+      return {
+        ...state,
+        favouriteCountries: favsCopy,
       };
 
     default:

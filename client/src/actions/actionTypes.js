@@ -25,4 +25,6 @@ export const SET_COUNTRY_DEATH_TREND = 'setCountryDeathTrend';
 export const SET_SEARCH_TERM = 'setSearchTerm';
 export const SET_SORTING = 'setSorting';
 export const SET_CHART_DATE_RANGE = 'setChartDateRange';
-export const ADD_COUNTRY_TO_FAVS = 'addCountryToFavs';
+
+// Country actions
+export const TOGGLE_COUNTRY_TO_FAVOURITES = 'toggleCountryToFavourites';
