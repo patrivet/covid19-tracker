@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import store from './store';
+
 import {
   fetchCovidData,
   fetchCovidGlobalData,
@@ -16,6 +16,7 @@ import CountriesList from './components/CountriesList';
 import Spinner from './components/Spinner';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import store from './store';
 
 // Fontawesome iconStyle
 import { library } from '@fortawesome/fontawesome-svg-core';

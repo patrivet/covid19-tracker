@@ -8,12 +8,12 @@
 .appHeader__imgAndTitle {
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 
 .appHeader__img {
   width: 35px;
   height: 35px;
-  cursor: pointer;
 }
 
 .appHeader__title {
