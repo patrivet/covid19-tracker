@@ -113,6 +113,11 @@ export const toggleCountryToFavourites = payload => ({
   payload,
 });
 
+export const setDisplayMode = payload => ({
+  type: actions.SET_DISPLAY_MODE,
+  payload,
+});
+
 /* FETCH ACTION : Async data function */
 export function fetchCovidData(countryIso2, yesterdayFlag = false) {
   return function (dispatch) {

@@ -11,6 +11,7 @@ import './Header.css';
 
 // Custom components
 import Sort from '../Sort';
+import ShowMenuItem from '../ShowMenuItem';
 
 const Header = () => (
   <div className='appHeader'>
@@ -24,14 +25,13 @@ const Header = () => (
     </div>
     <div className='appHeader__icons'>
       <Sort />
-      <div className='showIcon'>
-        <FontAwesomeIcon icon={faGlasses} className='fa-2x' />
-        <p className='iconLabel'>Show</p>
-      </div>
-      <div className='settingsIcon'>
+      <ShowMenuItem />
+
+      {/* Note: Hidden until this is in use.
+        <div className='settingsIcon'>
         <FontAwesomeIcon icon={faCogs} className='fa-2x' />
         <p className='iconLabel'>Settings</p>
-      </div>
+      </div> */}
     </div>
   </div>
 );

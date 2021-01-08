@@ -27,7 +27,7 @@ const CountryHeader = ({ name, countryCode }) => {
   const getFavIconStyle = () => {
     return fav
       ? ['fas', 'bookmark'] // favourite (solid) style
-      : ['far', 'bookmark']; // !
+      : ['far', 'bookmark']; // non-favourite (regular) style
   };
 
   return (

@@ -15,18 +15,11 @@ const initalState = {
   dataLoaded: false,
   dataProcessed: 0,
   updated: '',
+  displayMode: 'All countries', // Default display mode: All Countries.
 };
 
 export default function (state = initalState, action) {
   switch (action.type) {
-    // case actions.SET_COUNTRY_NAME:
-    //   return {
-    //     ...state,
-    //     // Find the country whose code matches payload.countryId
-    //     countries:
-    //       state.countries.map( country => country.Slug === action.payload.countryId ? (country.name = action.payload.countryInfo[0].info.title, country) : country )
-    //     }
-
     case actions.SET_COUNTRY_TODAY_DATA:
       return {
         ...state,
@@ -152,14 +145,19 @@ export default function (state = initalState, action) {
       // Check if country is in favs
       const favIndex = state.favouriteCountries.indexOf(action.payload);
       let favsCopy = [...state.favouriteCountries];
-
+      // Add or remove country from favsCopy.
       favIndex === -1
         ? favsCopy.push(action.payload) // country is not fav so add
         : favsCopy.splice(favIndex, 1); // country already a fav - so remove
-
       return {
         ...state,
         favouriteCountries: favsCopy,
+      };
+
+    case actions.SET_DISPLAY_MODE:
+      return {
+        ...state,
+        displayMode: action.payload,
       };
 
     default:

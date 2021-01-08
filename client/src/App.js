@@ -21,7 +21,7 @@ import Footer from './components/Footer';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import * as fas from '@fortawesome/free-solid-svg-icons';
 import * as far from '@fortawesome/free-regular-svg-icons';
-library.add(fas.faBookmark, far.faBookmark);
+library.add(fas.faBookmark, far.faBookmark, fas.faGlasses);
 
 function App() {
   const countries = useSelector(store => store.countries);
