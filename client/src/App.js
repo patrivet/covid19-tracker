@@ -19,13 +19,16 @@ import Footer from './components/Footer';
 
 // Fontawesome iconStyle
 import { library } from '@fortawesome/fontawesome-svg-core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import * as fas from '@fortawesome/free-solid-svg-icons';
 import * as far from '@fortawesome/free-regular-svg-icons';
-library.add(fas.faBookmark, far.faBookmark, fas.faGlasses);
+library.add(fas.faBookmark, far.faBookmark, fas.faGlasses, fas.faBookOpen);
 
 function App() {
   const countries = useSelector(store => store.countries);
   let dataProcessed = useSelector(store => store.dataProcessed);
+  const areBookmarksShown =
+    useSelector(store => store.displayMode) === 'Favourite countries';
 
   React.useEffect(() => {
     // Get Global stats data for today
@@ -58,6 +61,17 @@ function App() {
             <>
               <Header />
               <GlobalCard />
+              <div className='App__bookmarkTitle'>
+                {areBookmarksShown ? (
+                  <>
+                    <FontAwesomeIcon
+                      icon={['fas', 'book-open']}
+                      className='App__bookmarkImg'
+                    />
+                    <p className='App__bookmarkText'>bookmarked countries</p>
+                  </>
+                ) : null}
+              </div>
               <CountriesList />
               <ScrollToTop smooth className='App_scrollToTop' />
               <Footer />

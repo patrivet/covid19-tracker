@@ -5,17 +5,13 @@ import { setDisplayMode } from '../../actions/actions';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './ShowMenuItem.css';
 
+import * as helpers from '../../utils/helperFunctions';
+
 const ShowMenuItem = () => {
   let [menuShown, setMenuShown] = useState();
   let displayModal, closeBtn;
   let showOptionElements = ['All countries', 'Favourite countries'];
   const currentDisplayOption = useSelector(store => store.displayMode);
-
-  const toggleBlur = () => {
-    // Toggle blur class on main 2 components -filter blur is handled in App.css
-    document.querySelector('.globalCard').classList.toggle('blur');
-    document.querySelector('.countriesList').classList.toggle('blur');
-  };
 
   const showMenu = event => {
     event.preventDefault();
@@ -42,13 +38,13 @@ const ShowMenuItem = () => {
   const handleModalClose = () => {
     setMenuShown(false);
     document.removeEventListener('click', closeMenu);
-    toggleBlur();
+    helpers.toggleBlurClasses();
   };
 
   useEffect(() => {
     if (menuShown) {
       document.addEventListener('click', closeMenu);
-      toggleBlur();
+      helpers.toggleBlurClasses();
     }
   }, [menuShown]);
 

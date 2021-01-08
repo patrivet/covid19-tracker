@@ -9,18 +9,13 @@ import './Sort.css';
 // Custom components
 import { sortOptions } from '../../utils/helperFunctions';
 /* TODO make sortOptions a shorter list by have an arrow for click to change from Ascending to Descending */
+import * as helpers from '../../utils/helperFunctions';
 
 const Sort = () => {
   let [menuShown, setMenuShown] = useState();
   let sortModal, closeBtn;
   let sortOptionElements = [];
   const activeSortOption = useSelector(store => store.sorting);
-
-  const toggleBlur = () => {
-    // Toggle blur class on main 2 components -filter blur is handled in App.css
-    document.querySelector('.globalCard').classList.toggle('blur');
-    document.querySelector('.countriesList').classList.toggle('blur');
-  };
 
   const showMenu = event => {
     event.preventDefault();
@@ -47,13 +42,13 @@ const Sort = () => {
   const handleModalClose = () => {
     setMenuShown(false);
     document.removeEventListener('click', closeMenu);
-    toggleBlur();
+    helpers.toggleBlurClasses();
   };
 
   useEffect(() => {
     if (menuShown) {
       document.addEventListener('click', closeMenu);
-      toggleBlur();
+      helpers.toggleBlurClasses();
     }
   }, [menuShown]);
 

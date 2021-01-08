@@ -62,15 +62,19 @@ a:active {
   outline: none;
 }
 
-.charts {
+.App__bookmarkTitle {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  font-size: 14.5px;
+  padding-left: 28px;
 }
-
-.chart {
-  width: 250px;
-  height: 100px;
+.App__bookmarkImg {
+  color: #d36767;
+  padding-right: 5px;
+}
+.App__bookmarkText {
+  color: #9c9c94;
+  text-transform: uppercase;
+  font-weight: bold;
 }
 
 .cases {

@@ -37,6 +37,13 @@ export const getDeltaTrendImg = (val1, val2, class_name) => {
     );
 };
 
+export const toggleBlurClasses = () => {
+  // Toggle blur class on main components -filter blur is handled in App.css
+  document.querySelector('.globalCard').classList.toggle('blur');
+  document.querySelector('.countriesList').classList.toggle('blur');
+  document.querySelector('.App__bookmarkTitle').classList.toggle('blur');
+};
+
 /* Sorting options property */
 export const sortOptions = [
   { label: 'Name (Ascending)', sortVal: 'name', direction: 'asc' },
