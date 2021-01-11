@@ -12,9 +12,9 @@ const CountriesList = () => {
   const favCountriesStrArr = useSelector(store => store.favouriteCountries);
 
   // DisplayMode handling.
-  //  (i) Get the fav countries if display mode is 'Favourite countries'
-  if (displayMode === 'Favourite countries') {
-    /* Filter master countries array for favourited countries. */
+  //  (i) Get the fav countries if display mode is 'Bookmarked countries'
+  if (displayMode === 'Bookmarked countries') {
+    /* Filter master countries array for bookmarked countries. */
     countries = countries.filter(ctry =>
       favCountriesStrArr.includes(ctry.ISO2)
     );

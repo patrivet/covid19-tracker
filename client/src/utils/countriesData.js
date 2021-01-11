@@ -1,93 +1,94 @@
 // Export Array of Country objects
 export default {
+  // countries: [
+  //   {
+  //     name: 'UK',
+  //     slug: 'UK',
+  //     ISO2: 'GB',
+  //   },
+  //   {
+  //     name: 'USA',
+  //     slug: 'USA',
+  //     ISO2: 'US',
+  //   },
+  // ],
+  //   {
+  //     name: 'Germany',
+  //     slug: 'Germany',
+  //     ISO2: 'DE',
+  //   },
+  //   {
+  //     name: 'France',
+  //     slug: 'France',
+  //     ISO2: 'FR',
+  //   },
+  //   {
+  //     name: 'Italy',
+  //     slug: 'Italy',
+  //     ISO2: 'IT',
+  //   },
+  //   {
+  //     name: 'South Africa',
+  //     slug: 'south-africa',
+  //     ISO2: 'ZA',
+  //   },
+  //   {
+  //     name: 'Brazil',
+  //     slug: 'brazil',
+  //     ISO2: 'BR',
+  //   },
+  //   {
+  //     name: 'Sweden',
+  //     slug: 'Sweden',
+  //     ISO2: 'SE',
+  //   },
+  //   {
+  //     name: 'Spain',
+  //     slug: 'Spain',
+  //     ISO2: 'ES',
+  //   },
+  //   {
+  //     name: 'Australia',
+  //     slug: 'australia',
+  //     ISO2: 'AU',
+  //   },
+  //   {
+  //     name: 'Korea (South)',
+  //     slug: 'korea-south',
+  //     ISO2: 'KR',
+  //   },
+  //   {
+  //     name: 'Belgium',
+  //     slug: 'belgium',
+  //     ISO2: 'BE',
+  //   },
+  //   {
+  //     name: 'Netherlands',
+  //     slug: 'netherlands',
+  //     ISO2: 'NL',
+  //   },
+  //   {
+  //     name: 'India',
+  //     slug: 'india',
+  //     ISO2: 'IN',
+  //   },
+  //   {
+  //     name: 'China',
+  //     slug: 'china',
+  //     ISO2: 'CN',
+  //   },
+  //   {
+  //     name: 'Canada',
+  //     slug: 'canada',
+  //     ISO2: 'CA',
+  //   },
+  //   {
+  //     name: 'Mauritius',
+  //     slug: 'mauritius',
+  //     ISO2: 'MU',
+  //   },
+  // ],
   countries: [
-    {
-      name: 'UK',
-      slug: 'UK',
-      ISO2: 'GB',
-    },
-    {
-      name: 'USA',
-      slug: 'USA',
-      ISO2: 'US',
-    },
-    {
-      name: 'Germany',
-      slug: 'Germany',
-      ISO2: 'DE',
-    },
-    {
-      name: 'France',
-      slug: 'France',
-      ISO2: 'FR',
-    },
-    {
-      name: 'Italy',
-      slug: 'Italy',
-      ISO2: 'IT',
-    },
-    {
-      name: 'South Africa',
-      slug: 'south-africa',
-      ISO2: 'ZA',
-    },
-    {
-      name: 'Brazil',
-      slug: 'brazil',
-      ISO2: 'BR',
-    },
-    {
-      name: 'Sweden',
-      slug: 'Sweden',
-      ISO2: 'SE',
-    },
-    {
-      name: 'Spain',
-      slug: 'Spain',
-      ISO2: 'ES',
-    },
-    {
-      name: 'Australia',
-      slug: 'australia',
-      ISO2: 'AU',
-    },
-    {
-      name: 'Korea (South)',
-      slug: 'korea-south',
-      ISO2: 'KR',
-    },
-    {
-      name: 'Belgium',
-      slug: 'belgium',
-      ISO2: 'BE',
-    },
-    {
-      name: 'Netherlands',
-      slug: 'netherlands',
-      ISO2: 'NL',
-    },
-    {
-      name: 'India',
-      slug: 'india',
-      ISO2: 'IN',
-    },
-    {
-      name: 'China',
-      slug: 'china',
-      ISO2: 'CN',
-    },
-    {
-      name: 'Canada',
-      slug: 'canada',
-      ISO2: 'CA',
-    },
-    {
-      name: 'Mauritius',
-      slug: 'mauritius',
-      ISO2: 'MU',
-    },
-  ],
-  countries2: [
     {
       name: 'Lao PDR',
       slug: 'lao-pdr',
@@ -939,7 +940,7 @@ export default {
       ISO2: 'RU',
     },
     {
-      name: 'United Kingdom',
+      name: 'UK',
       slug: 'united-kingdom',
       ISO2: 'GB',
     },
@@ -974,7 +975,7 @@ export default {
       ISO2: 'RE',
     },
     {
-      name: 'United States of America',
+      name: 'USA',
       slug: 'united-states',
       ISO2: 'US',
     },

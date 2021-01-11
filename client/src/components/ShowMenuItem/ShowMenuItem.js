@@ -10,7 +10,7 @@ import * as helpers from '../../utils/helperFunctions';
 const ShowMenuItem = () => {
   let [menuShown, setMenuShown] = useState();
   let displayModal, closeBtn;
-  let showOptionElements = ['All countries', 'Favourite countries'];
+  let showOptionElements = ['All countries', 'Bookmarked countries'];
   const currentDisplayOption = useSelector(store => store.displayMode);
 
   const showMenu = event => {
