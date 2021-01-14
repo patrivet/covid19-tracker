@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-
 import {
   fetchCovidData,
   fetchCovidGlobalData,
@@ -29,7 +28,7 @@ function App() {
   const countries = useSelector(store => store.countries);
   let dataProcessed = useSelector(store => store.dataProcessed);
   const areBookmarksShown =
-    useSelector(store => store.displayMode) === 'Favourite countries';
+    useSelector(store => store.displayMode) === 'Bookmarked countries';
 
   React.useEffect(() => {
     // Get Global stats data for today
