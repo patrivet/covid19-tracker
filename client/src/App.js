@@ -52,7 +52,7 @@ function App() {
 
     // Load data from local storage.
     const bookmarksInStore = JSON.parse(localStorage.getItem('bookmarks'));
-    if (bookmarksInStore.length && bookmarksInStore.length > 0) {
+    if (bookmarksInStore) {
       store.dispatch(setCountryBookmarks(bookmarksInStore));
     }
   }, []);
