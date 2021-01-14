@@ -9,10 +9,12 @@ import {
 import { useSelector } from 'react-redux';
 import ScrollToTop from 'react-scroll-to-top';
 import { DateTime } from 'luxon';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 // Custom components
 import GlobalCard from './components/GlobalCard';
 import CountriesList from './components/CountriesList';
+import CountryDrillView from './components/CountryDrillView';
 import Spinner from './components/Spinner';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -58,35 +60,44 @@ function App() {
   }, []);
 
   return (
-    <div className='App'>
-      <header className='App-header'>
-        {/* Show spinner until data processed count matches global stats x2 and countries x2. */}
-        <div>
-          {dataProcessed < countries.length * 2 + 2 ? (
-            <Spinner />
-          ) : (
+    <BrowserRouter>
+      <Header />
+      <Switch>
+        <Route
+          exact
+          path='/'
+          render={() => (
             <>
-              <Header />
-              <GlobalCard />
-              <div className='App__bookmarkTitle'>
-                {areBookmarksShown ? (
-                  <>
-                    <FontAwesomeIcon
-                      icon={['fas', 'book-open']}
-                      className='App__bookmarkImg'
-                    />
-                    <p className='App__bookmarkText'>bookmarked countries</p>
-                  </>
-                ) : null}
-              </div>
-              <CountriesList />
-              <ScrollToTop smooth className='App_scrollToTop' />
-              <Footer />
+              {/* Show spinner until data processed count matches global stats x2 and countries x2. */}
+              {dataProcessed < countries.length * 2 + 2 ? (
+                <Spinner />
+              ) : (
+                <>
+                  <GlobalCard />
+                  <div className='App__bookmarkTitle'>
+                    {areBookmarksShown ? (
+                      <>
+                        <FontAwesomeIcon
+                          icon={['fas', 'book-open']}
+                          className='App__bookmarkImg'
+                        />
+                        <p className='App__bookmarkText'>
+                          bookmarked countries
+                        </p>
+                      </>
+                    ) : null}
+                  </div>
+                  <CountriesList />
+                  <ScrollToTop smooth className='App_scrollToTop' />
+                </>
+              )}
             </>
           )}
-        </div>
-      </header>
-    </div>
+        />
+        <Route path='/country/:id' component={CountryDrillView} />
+      </Switch>
+      <Footer />
+    </BrowserRouter>
   );
 }
 

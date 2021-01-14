@@ -1,5 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 import './CountryCard.css';
+
+// Custom components
 import CountryHeader from '../CountryHeader';
 import DeathsToday from '../DeathsToday';
 import CasesTotal from '../CasesTotal';
@@ -11,10 +15,17 @@ import CasesYesterday from '../CasesYesterday';
 import DeathsYesterday from '../DeathsYesterday';
 
 const CountryCard = ({ country }) => {
+  const linkContent = {
+    pathname: `country/${country.ISO2}`,
+    state: country,
+  };
+
   return (
-    <div className="CountryCard">
-      <CountryHeader name={country.name} countryCode={country.ISO2} />
-      <div className="CountryCard__statsContainer">
+    <div className='CountryCard'>
+      <Link to={linkContent}>
+        <CountryHeader name={country.name} countryCode={country.ISO2} />
+      </Link>
+      <div className='CountryCard__statsContainer'>
         <CasesLabel />
         <DeathsLabel />
         <CasesToday

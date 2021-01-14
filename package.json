@@ -20,6 +20,7 @@
     "create-react-component-folder": "^0.3.4"
   },
   "dependencies": {
-    "luxon": "^1.25.0"
+    "luxon": "^1.25.0",
+    "react-router-dom": "^5.2.0"
   }
 }
