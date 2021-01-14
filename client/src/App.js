@@ -4,6 +4,7 @@ import {
   fetchCovidData,
   fetchCovidGlobalData,
   setUpdateTimestamp,
+  setCountryBookmarks,
 } from './actions/actions';
 import { useSelector } from 'react-redux';
 import ScrollToTop from 'react-scroll-to-top';
@@ -48,6 +49,12 @@ function App() {
     });
 
     store.dispatch(setUpdateTimestamp(DateTime.local()));
+
+    // Load data from local storage.
+    const bookmarksInStore = JSON.parse(localStorage.getItem('bookmarks'));
+    if (bookmarksInStore.length > 0) {
+      store.dispatch(setCountryBookmarks(bookmarksInStore));
+    }
   }, []);
 
   return (

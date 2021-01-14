@@ -44,6 +44,10 @@ export const toggleBlurClasses = () => {
   document.querySelector('.App__bookmarkTitle').classList.toggle('blur');
 };
 
+export function addFavsToLocalStorage(favsToSet) {
+  localStorage.setItem('bookmarks', JSON.stringify(favsToSet));
+}
+
 /* Sorting options property */
 export const sortOptions = [
   { label: 'Name (Ascending)', sortVal: 'name', direction: 'asc' },

@@ -118,6 +118,11 @@ export const setDisplayMode = payload => ({
   payload,
 });
 
+export const setCountryBookmarks = payload => ({
+  type: actions.SET_COUNTRY_BOOKMARKS,
+  payload,
+});
+
 /* FETCH ACTION : Async data function */
 export function fetchCovidData(countryIso2, yesterdayFlag = false) {
   return function (dispatch) {

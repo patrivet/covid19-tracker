@@ -1,6 +1,7 @@
 import countries_data from '../utils/countriesData';
 import * as actions from '../actions/actionTypes';
 import { DateTime } from 'luxon';
+import * as helperFunctions from '../utils/helperFunctions';
 
 const initalState = {
   sorting: { label: 'Name (Ascending)', sortVal: 'name', direction: 'asc' },
@@ -141,6 +142,12 @@ export default function (state = initalState, action) {
         sorting: action.payload,
       };
 
+    case actions.SET_COUNTRY_BOOKMARKS:
+      return {
+        ...state,
+        favouriteCountries: action.payload,
+      };
+
     case actions.TOGGLE_COUNTRY_TO_FAVOURITES:
       // Check if country is in favs
       const favIndex = state.favouriteCountries.indexOf(action.payload);
@@ -149,6 +156,10 @@ export default function (state = initalState, action) {
       favIndex === -1
         ? favsCopy.push(action.payload) // country is not fav so add
         : favsCopy.splice(favIndex, 1); // country already a fav - so remove
+
+      // Update list in local storage
+      helperFunctions.addFavsToLocalStorage(favsCopy);
+
       return {
         ...state,
         favouriteCountries: favsCopy,
