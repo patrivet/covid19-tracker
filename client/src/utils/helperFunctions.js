@@ -1,4 +1,5 @@
 import React from 'react';
+import NumberFormat from 'react-number-format';
 
 // Images
 import UpArrow from '../assets/imgs/up_arrow.png';
@@ -47,6 +48,11 @@ export const toggleBlurClasses = () => {
 export function addFavsToLocalStorage(favsToSet) {
   localStorage.setItem('bookmarks', JSON.stringify(favsToSet));
 }
+
+// Return a formatted number, seperated by thousands.
+export const getFormattedNum = num => (
+  <NumberFormat value={num} thousandSeparator={true} displayType={'text'} />
+);
 
 /* Sorting options property */
 export const sortOptions = [
