@@ -1,0 +1,15 @@
+.iconContainer {
+  display: flex;
+  text-align: left;
+  align-items: center;
+  padding-bottom: 5px;
+}
+
+/* Handling for optional class added for align of div */
+.iconContainer.rightAlign {
+  justify-content: flex-end;
+}
+
+.iconContainer.centerAlign {
+  justify-content: center;
+}

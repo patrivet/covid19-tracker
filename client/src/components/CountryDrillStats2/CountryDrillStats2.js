@@ -1,7 +1,8 @@
 import React from 'react';
+import './CountryDrillStats2.css';
 
-const CountryDrillStats2 = () => {
-  return <div>CountryDrillStats2</div>;
+const CountryDrillStats2 = ({ countryStats }) => {
+  return <></>;
 };
 
 export default CountryDrillStats2;

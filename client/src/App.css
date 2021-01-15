@@ -126,6 +126,13 @@ a:active {
 *[class*='yesterday'] {
   font-size: 0.7em;
 }
+/* ! NOTE: the next 2 rules designed as more generic rules to replace usage of '--yesterday' after refactor */
+*[class*='--smallerFont'] {
+  font-size: 0.7em;
+}
+*[class$='--smallerFont'] > *[class*='__label'] {
+  font-size: 0.7em;
+}
 
 /* Note: This rule states: select all elements with a class containing "__label" that are
  direct children(>) of elements with a class ending '--yesterday' */

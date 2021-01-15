@@ -1,0 +1,79 @@
+.stats {
+  padding: 5px;
+  margin: 5px;
+  width: 440px;
+}
+
+.stats__cases,
+.stats__other {
+  display: grid;
+  grid-template-rows: repeat(2, 50%);
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.stats__cases {
+  grid-template-areas:
+    'Title Title Title Title'
+    'Today Yesterday Total Per1Million';
+  padding-bottom: 15px;
+}
+
+.stats__other {
+  grid-template-areas:
+    'ActiveIcon ActiveTotal TestsIcon TestsTotal'
+    'ActiveIcon ActivePer1M TestsIcon TestsPer1M';
+  padding: 0 15px;
+}
+
+.stats__title {
+  grid-area: Title;
+  display: flex;
+  text-align: left;
+  padding-bottom: 5px;
+}
+
+.stats__today {
+  grid-area: Today;
+  padding-left: 15px;
+}
+.stats__yesterday {
+  grid-area: Yesterday;
+}
+.stats__total {
+  grid-area: Total;
+}
+
+.stats__per1M {
+  grid-area: Per1Million;
+  padding-right: 15px;
+}
+
+.stats__activeIcon {
+  grid-area: ActiveIcon;
+}
+
+.stats__activeIcon,
+.stats__testsIcon {
+  padding-right: 5px;
+}
+
+.stats__activeTotal {
+  grid-area: ActiveTotal;
+}
+
+.stats__activePer1M {
+  grid-area: ActivePer1M;
+}
+
+.stats__testsIcon {
+  grid-area: TestsIcon;
+  padding-left: 50px;
+}
+
+.stats__testsTotal {
+  grid-area: TestsTotal;
+}
+
+.stats__testsPer1M {
+  grid-area: TestsPer1M;
+}

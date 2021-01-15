@@ -1,11 +1,5 @@
 import React from 'react';
 import './CasesToday.css';
-import NumberFormat from 'react-number-format';
-
-// Images
-import UpArrow from '../../assets/imgs/up_arrow.png';
-import DownArrow from '../../assets/imgs/down_arrow.png';
-import LevelArrow from '../../assets/imgs/level_arrow.png';
 
 // Custom components & utils
 import * as helpers from '../../utils/helperFunctions.js';
@@ -22,11 +16,7 @@ const CasesToday = ({ todayCases, yesterdayCases }) => {
     <div className='cases cases--today'>
       <h6 className='cases__label'>Today</h6>
       <div className='cases__statsNumber'>
-        <NumberFormat
-          value={todayCases}
-          thousandSeparator={true}
-          displayType={'text'}
-        />
+        {helpers.getFormattedNum(todayCases)}
         {helpers.getDeltaTrendImg(todayCases, yesterdayCases, 'cases')}
       </div>
     </div>

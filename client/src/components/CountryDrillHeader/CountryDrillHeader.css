@@ -1,0 +1,8 @@
+.countryDrillHdr {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 15px;
+  padding-top: 3px;
+  align-items: center;
+  justify-content: center;
+}
