@@ -1,5 +1,6 @@
 import React from 'react';
 import CovidImg from '../../assets/imgs/coronavirus-sars-mers-flu-virus-influenza.png';
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faSortAmountDown,
@@ -23,14 +24,20 @@ const Header = () => {
 
   return (
     <div className='appHeader'>
-      <div className='appHeader__imgAndTitle' onClick={navHomeAndResetDisplay}>
-        <img className='appHeader__img' src={CovidImg} />
-        <h4 className='appHeader__title'>
-          <span className='title--firstLetter'>C</span>ovid-19{' '}
-          <span className='title--firstLetter'>G</span>lobal{' '}
-          <span className='title--firstLetter'>T</span>racker
-        </h4>
-      </div>
+      <Link to='/'>
+        <div
+          className='appHeader__imgAndTitle'
+          onClick={navHomeAndResetDisplay}
+        >
+          <img className='appHeader__img' src={CovidImg} />
+          <h4 className='appHeader__title'>
+            <span className='title--firstLetter'>C</span>ovid-19{' '}
+            <span className='title--firstLetter'>G</span>lobal{' '}
+            <span className='title--firstLetter'>T</span>racker
+          </h4>
+        </div>
+      </Link>
+
       <div className='appHeader__icons'>
         <Sort />
         <ShowMenuItem />

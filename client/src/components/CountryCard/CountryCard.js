@@ -1,6 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-
 import './CountryCard.css';
 
 // Custom components
@@ -15,16 +13,10 @@ import CasesYesterday from '../CasesYesterday';
 import DeathsYesterday from '../DeathsYesterday';
 
 const CountryCard = ({ country }) => {
-  const linkContent = {
-    pathname: `country/${country.ISO2}`,
-    state: country,
-  };
-
   return (
     <div className='CountryCard'>
-      <Link to={linkContent}>
-        <CountryHeader name={country.name} countryCode={country.ISO2} />
-      </Link>
+      <CountryHeader country={country} />
+
       <div className='CountryCard__statsContainer'>
         <CasesLabel />
         <DeathsLabel />

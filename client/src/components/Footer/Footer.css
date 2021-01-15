@@ -17,3 +17,23 @@
 .footer__updated {
   margin-right: 10px;
 }
+
+/* Anchor tag colours (footer anchor tags only UFN) */
+.footer a:link {
+  color: #9c9c94;
+  background-color: transparent;
+}
+
+.footer a:visited {
+  color: #9c9c94;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: darkblue;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+/* a:active - not set UFN */

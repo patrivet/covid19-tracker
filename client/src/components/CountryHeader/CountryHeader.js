@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import './CountryHeader.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import store from '../../store';
@@ -12,7 +13,10 @@ const PUBLIC_URL = process.env.PUBLIC_URL;
 const iconStyle = { width: '26px', height: '26px' };
 let favCountries = [];
 
-const CountryHeader = ({ name, countryCode }) => {
+const CountryHeader = ({ country }) => {
+  const name = country.name;
+  const countryCode = country.ISO2;
+
   // Get the fav countries
   favCountries = useSelector(store => store.favouriteCountries);
   // Determine if country is fav and set in local state.
@@ -30,25 +34,33 @@ const CountryHeader = ({ name, countryCode }) => {
       : ['far', 'bookmark']; // non-favourite (regular) style
   };
 
+  const linkContent = {
+    pathname: `country/${countryCode}`,
+    // pass the country as state for the link
+    state: country,
+  };
+
   return (
     <div className='header'>
-      <div className='header__id'>
-        <img
-          className='header__img'
-          src={`
-            ${PUBLIC_URL}
-          /imgs/flags/${countryCode.toLowerCase()}.svg`}
-          alt=''
-        ></img>
-        {/* If country name > 17 in length -add class to use smaller font. */}
-        <p
-          className={`header__name ${
-            name.length > 17 ? 'header--smallFont' : ''
-          }`}
-        >
-          {name}
-        </p>
-      </div>
+      <Link to={linkContent}>
+        <div className='header__id'>
+          <img
+            className='header__img'
+            src={`
+              ${PUBLIC_URL}
+            /imgs/flags/${countryCode.toLowerCase()}.svg`}
+            alt=''
+          ></img>
+          {/* If country name > 17 in length -add class to use smaller font. */}
+          <p
+            className={`header__name ${
+              name.length > 17 ? 'header--smallFont' : ''
+            }`}
+          >
+            {name}
+          </p>
+        </div>
+      </Link>
       <div className='header__icons'>
         {/* NOTE: removed until in use.
         <img

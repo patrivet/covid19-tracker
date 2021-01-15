@@ -22,28 +22,21 @@ h4 {
   font-family: 'Lato', sans-serif;
 }
 
-/* Anchor tag colours */
-a:link {
-  color: #9c9c94;
-  background-color: transparent;
-}
-
-a:visited {
-  color: #9c9c94;
-  background-color: transparent;
-  text-decoration: none;
-}
-
-a:hover {
-  color: darkblue;
-  background-color: transparent;
-  text-decoration: underline;
-}
-
+/* Anchor tags - turn off default underline and color */
+a,
+a:hover,
+a:focus,
 a:active {
-  color: yellow;
-  background-color: transparent;
-  text-decoration: underline;
+  text-decoration: none;
+  color: inherit;
+}
+
+.App_scrollToTop:hover {
+  background-color: grey;
+}
+
+.App_scrollToTop:hover svg {
+  fill: white;
 }
 
 .App_scrollToTop {
