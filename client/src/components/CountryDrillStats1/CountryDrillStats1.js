@@ -72,7 +72,7 @@ const CountryDrillStats1 = ({ countryStats }) => {
           containerClasslist='stats__testsTotal'
         />
         <StatisticValue
-          statName={'total'}
+          statName={'per 1M'}
           statValue={today.testsPerOneMillion}
           containerClasslist='stats__testsPer1M'
         />

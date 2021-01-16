@@ -82,6 +82,11 @@ a:active {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+/* Only apply left border to '.deaths' elements which are direct children
+of the CountryCard (global view) */
+.CountryCard__statsContainer > .deaths {
   border-left: solid 1px lightgrey;
 }
 
@@ -122,8 +127,9 @@ a:active {
   text-align: center;
 }
 
-/* Smaller font for yesterday stats & label */
-*[class*='yesterday'] {
+/* Smaller font for yesterday stats & label (only direct children of
+of the CountryCard) */
+.CountryCard__statsContainer > *[class*='yesterday'] {
   font-size: 0.7em;
 }
 /* ! NOTE: the next 2 rules designed as more generic rules to replace usage of '--yesterday' after refactor */

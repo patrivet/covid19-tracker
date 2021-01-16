@@ -18,21 +18,21 @@ export const getDeltaTrendImg = (val1, val2, class_name) => {
   if (delta > 0)
     return (
       <img
-        className={`${class_name}__deltaSymbol cases--upArrow`}
+        className={`${class_name}__deltaSymbol ${class_name}--upArrow`}
         src={UpArrow}
       />
     );
   else if (delta === 0)
     return (
       <img
-        className={`${class_name}__deltaSymbol cases--levelArrow`}
+        className={`${class_name}__deltaSymbol ${class_name}--levelArrow`}
         src={LevelArrow}
       />
     );
   else if (delta < 0)
     return (
       <img
-        className={`${class_name}__deltaSymbol cases--downArrow`}
+        className={`${class_name}__deltaSymbol ${class_name}--downArrow`}
         src={DownArrow}
       />
     );
