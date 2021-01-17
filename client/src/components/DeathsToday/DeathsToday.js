@@ -1,11 +1,6 @@
 import React from 'react';
 import NumberFormat from 'react-number-format';
 
-// Images
-import UpArrow from '../../assets/imgs/up_arrow.png';
-import DownArrow from '../../assets/imgs/down_arrow.png';
-import LevelArrow from '../../assets/imgs/level_arrow.png';
-
 // Custom components & utils
 import * as helpers from '../../utils/helperFunctions.js';
 

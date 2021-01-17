@@ -8,7 +8,8 @@
 .stats__other {
   display: grid;
   grid-template-rows: repeat(2, 50%);
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, 25%);
+  align-items: center;
 }
 
 .stats__cases {
@@ -22,7 +23,6 @@
   grid-template-areas:
     'ActiveIcon ActiveTotal TestsIcon TestsTotal'
     'ActiveIcon ActivePer1M TestsIcon TestsPer1M';
-  padding: 0 15px;
 }
 
 .stats__title {
@@ -34,7 +34,6 @@
 
 .stats__today {
   grid-area: Today;
-  padding-left: 15px;
 }
 .stats__yesterday {
   grid-area: Yesterday;
@@ -45,16 +44,10 @@
 
 .stats__per1M {
   grid-area: Per1Million;
-  padding-right: 15px;
 }
 
 .stats__activeIcon {
   grid-area: ActiveIcon;
-}
-
-.stats__activeIcon,
-.stats__testsIcon {
-  padding-right: 5px;
 }
 
 .stats__activeTotal {
@@ -67,7 +60,6 @@
 
 .stats__testsIcon {
   grid-area: TestsIcon;
-  padding-left: 50px;
 }
 
 .stats__testsTotal {
@@ -76,4 +68,42 @@
 
 .stats__testsPer1M {
   grid-area: TestsPer1M;
+}
+
+.stats__testsIcon,
+.stats__activeIcon {
+  padding-bottom: 0;
+}
+
+@media screen and (max-width: 600px) {
+  .stats__cases {
+    /* Change grid to a 3x2 (from a ?x?) */
+    grid-template-columns: auto auto auto;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-areas:
+      'Title Today Yesterday'
+      'Title Total Per1Million';
+    grid-column-gap: 35px;
+    /* increase 5px space from these stats and other stats */
+    padding-bottom: 20px;
+  }
+
+  .stats__other {
+    /* Change grid to a 3x2 */
+    grid-template-columns: auto auto auto;
+    grid-template-rows: repeat(2, 1fr);
+
+    grid-template-areas:
+      'ActiveIcon ActiveTotal ActivePer1M'
+      'TestsIcon TestsTotal TestsPer1M';
+    /* Space out the columns and rows */
+    grid-column-gap: 15px;
+    grid-row-gap: 10px;
+  }
+
+  .stats {
+    /* Stretch the div 100% - hide overflow to stop the div expanding beyond */
+    width: 100%;
+    overflow: hidden;
+  }
 }

@@ -8,7 +8,8 @@
 .stats2__other {
   display: grid;
   grid-template-rows: repeat(2, 50%);
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, 25%);
+  align-items: center;
 }
 
 .stats2__deaths {
@@ -22,16 +23,6 @@
   grid-template-areas:
     'CriticalIcon CriticalTotal RecoveredIcon RecoveredTotal'
     'CriticalIcon CriticalPer1M RecoveredIcon RecoveredPer1M';
-  padding: 0 15px;
-}
-
-@media screen and (max-width: 600px) {
-  .stats2__other {
-    grid-template-areas:
-      'CriticalIcon CriticalTotal RecoveredIcon RecoveredTotal'
-      'CriticalIcon CriticalPer1M RecoveredIcon RecoveredPer1M';
-    padding: 0 15px;
-  }
 }
 
 .stats2__title {
@@ -43,28 +34,22 @@
 
 .stats2__today {
   grid-area: Today;
-  padding-left: 15px;
-  border-left: none !important;
+  /* padding-left: 15px; */
 }
 .stats2__yesterday {
   grid-area: Yesterday;
 }
+
 .stats2__total {
   grid-area: Total;
 }
 
 .stats2__per1M {
   grid-area: Per1Million;
-  padding-right: 15px;
 }
 
 .stats2__criticalIcon {
   grid-area: CriticalIcon;
-}
-
-.stats2__criticalIcon,
-.stats2__recoveredIcon {
-  padding-right: 5px;
 }
 
 .stats2__criticalTotal {
@@ -77,7 +62,6 @@
 
 .stats2__recoveredIcon {
   grid-area: RecoveredIcon;
-  padding-left: 50px;
 }
 
 .stats2__recoveredTotal {
@@ -86,4 +70,43 @@
 
 .stats2__recoveredPer1M {
   grid-area: RecoveredPer1M;
+}
+
+.stats2__recoveredIcon,
+.stats2__criticalIcon {
+  padding-bottom: 0;
+}
+
+@media screen and (max-width: 600px) {
+  .stats2__deaths {
+    /* Change grid to a 3x2 (from a ?x?) */
+    grid-template-columns: auto auto auto;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-areas:
+      'Title Today Yesterday'
+      'Title Total Per1Million';
+    grid-column-gap: 35px;
+    /* increase 5px space from these stats and other stats */
+    padding-bottom: 20px;
+  }
+
+  .stats2__other {
+    /* Change grid to a 3x2 */
+    /* ! Possible alternative column setup */ /* grid-template-columns: 30% 35% 35%; */
+    grid-template-columns: auto auto auto;
+    grid-template-rows: repeat(2, 1fr);
+
+    grid-template-areas:
+      'CriticalIcon CriticalTotal CriticalPer1M'
+      'RecoveredIcon RecoveredTotal RecoveredPer1M';
+    /* Space out the columns and rows */
+    grid-column-gap: 15px;
+    grid-row-gap: 10px;
+  }
+
+  .stats2 {
+    /* Stretch the div 100% - hide overflow to stop the div expanding beyond */
+    width: 100%;
+    overflow: hidden;
+  }
 }

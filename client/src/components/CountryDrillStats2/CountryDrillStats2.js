@@ -12,15 +12,16 @@ import StatisticIcon from '../StatisticIcon';
 const CountryDrillStats2 = ({ countryStats }) => {
   const today = countryStats.today;
   const yesterday = countryStats.yesterday;
-
+  // FIX ME rename stats2 -better option?
   return (
     <div className='stats2 boxShadow'>
       <div className='stats2__deaths'>
         <StatisticIcon
           name={'deaths'}
           icon={deathsIcon}
-          containerClasslist={'stats2__title'}
+          containerClasslist={'stats2__title flexDirection-column'}
         />
+
         <div className='stats2__today'>
           <DeathsToday
             todayDeaths={today.todayDeaths}
@@ -48,7 +49,9 @@ const CountryDrillStats2 = ({ countryStats }) => {
           name={'critical'}
           icon={criticalIcon}
           /* Add class to right align this icon - handled by the component using flexbox */
-          containerClasslist={'stats2__criticalIcon rightAlign'}
+          containerClasslist={
+            'stats2__criticalIcon rightAlign flexDirection-column'
+          }
         />
         <StatisticValue
           statName={'total'}
@@ -64,7 +67,9 @@ const CountryDrillStats2 = ({ countryStats }) => {
         <StatisticIcon
           name={'recovered'}
           icon={recoveredIcon}
-          containerClasslist={'stats2__recoveredIcon rightAlign'}
+          containerClasslist={
+            'stats2__recoveredIcon rightAlign flexDirection-column'
+          }
         />
         <StatisticValue
           statName={'total'}

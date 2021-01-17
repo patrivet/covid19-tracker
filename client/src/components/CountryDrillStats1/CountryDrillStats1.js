@@ -19,7 +19,7 @@ const CountryDrillStats1 = ({ countryStats }) => {
         <StatisticIcon
           name={'cases'}
           icon={casesIcon}
-          containerClasslist={'stats__title'}
+          containerClasslist={'stats__title flexDirection-column'}
         />
         <div className='stats__today'>
           <CasesToday
@@ -47,8 +47,11 @@ const CountryDrillStats1 = ({ countryStats }) => {
         <StatisticIcon
           name={'active'}
           icon={activeIcon}
-          /* Add class to right align this icon - handled by the component using flexbox */
-          containerClasslist={'stats__activeIcon rightAlign'}
+          /* Add classes to right align this icon, set flex-direction to column...
+          - handled by StatisticIcon component using flexbox */
+          containerClasslist={
+            'stats__activeIcon rightAlign flexDirection-column'
+          }
         />
         <StatisticValue
           statName={'total'}
@@ -64,7 +67,9 @@ const CountryDrillStats1 = ({ countryStats }) => {
         <StatisticIcon
           name={'tests'}
           icon={testsIcon}
-          containerClasslist={'stats__testsIcon rightAlign'}
+          containerClasslist={
+            'stats__testsIcon rightAlign flexDirection-column'
+          }
         />
         <StatisticValue
           statName={'total'}

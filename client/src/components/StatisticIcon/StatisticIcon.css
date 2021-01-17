@@ -1,5 +1,6 @@
 .iconContainer {
   display: flex;
+
   text-align: left;
   align-items: center;
   padding-bottom: 5px;
@@ -12,4 +13,8 @@
 
 .iconContainer.centerAlign {
   justify-content: center;
+}
+
+.iconContainer.flexDirection-column {
+  flex-direction: column;
 }
