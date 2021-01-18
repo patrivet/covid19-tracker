@@ -8,7 +8,6 @@
 .appHeader__imgAndTitle {
   display: flex;
   align-items: center;
-  cursor: pointer;
 }
 
 .appHeader__img {

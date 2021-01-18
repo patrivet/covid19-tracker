@@ -20,10 +20,7 @@ const PUBLIC_URL = process.env.PUBLIC_URL;
 const Header = () => {
   const selectedCountry = useSelector(store => store.selectedCountry);
 
-  const navHomeAndResetDisplay = () => {
-    store.dispatch(setDisplayMode('All countries')); // FIX ME - this should be a const
-    store.dispatch(setSorting('Name (Ascending)')); // FIX ME - this should be a const
-
+  const resetSelectedCountry = () => {
     // Set the selected country (from a non-null value) to null.
     store.dispatch(setSelectedCountry(null));
   };
@@ -31,26 +28,21 @@ const Header = () => {
   return (
     <div className='appHeader'>
       {!selectedCountry ? (
-        <Link to='/'>
-          <div
-            className='appHeader__imgAndTitle'
-            onClick={navHomeAndResetDisplay}
-          >
-            <img className='appHeader__img' src={CovidImg} />
-            <h4 className='appHeader__title'>
-              <span className='title--firstLetter'>C</span>ovid-19{' '}
-              <span className='title--firstLetter'>G</span>lobal{' '}
-              <span className='title--firstLetter'>T</span>racker
-            </h4>
-          </div>
-        </Link>
+        <div className='appHeader__imgAndTitle'>
+          <img className='appHeader__img' src={CovidImg} />
+          <h4 className='appHeader__title'>
+            <span className='title--firstLetter'>C</span>ovid-19{' '}
+            <span className='title--firstLetter'>G</span>lobal{' '}
+            <span className='title--firstLetter'>T</span>racker
+          </h4>
+        </div>
       ) : (
         <div className='appHeader__country'>
           <Link to='/'>
             <FontAwesomeIcon
               icon={['fas', 'angle-left']}
               className='appHeader__back'
-              onClick={navHomeAndResetDisplay}
+              onClick={resetSelectedCountry}
             />
           </Link>
           <img

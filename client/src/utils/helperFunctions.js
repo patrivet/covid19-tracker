@@ -45,8 +45,8 @@ export const toggleBlurClasses = () => {
   document.querySelector('.App__bookmarkTitle').classList.toggle('blur');
 };
 
-export function addFavsToLocalStorage(favsToSet) {
-  localStorage.setItem('bookmarks', JSON.stringify(favsToSet));
+export function addToLocalStorageAsJSON(propName, value) {
+  localStorage.setItem(propName, JSON.stringify(value));
 }
 
 // Return a formatted number, seperated by thousands.

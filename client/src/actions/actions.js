@@ -118,11 +118,6 @@ export const setDisplayMode = payload => ({
   payload,
 });
 
-export const setCountryBookmarks = payload => ({
-  type: actions.SET_COUNTRY_BOOKMARKS,
-  payload,
-});
-
 export const setSelectedCountry = payload => ({
   type: actions.SET_SELECTED_COUNTRY,
   payload,

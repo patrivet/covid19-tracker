@@ -3,8 +3,18 @@ import * as actions from '../actions/actionTypes';
 import { DateTime } from 'luxon';
 import * as helperFunctions from '../utils/helperFunctions';
 
+const getLocalStorageJSONProp = propName => {
+  const localProp = JSON.parse(localStorage.getItem(propName));
+  return localProp ? localProp : null;
+};
+
 const initalState = {
-  sorting: { label: 'Name (Ascending)', sortVal: 'name', direction: 'asc' },
+  // Get the last set sorting setting (from local store) - or use default.
+  sorting: getLocalStorageJSONProp('sortingSetting') || {
+    label: 'Name (Ascending)',
+    sortVal: 'name',
+    direction: 'asc',
+  },
   search: '',
   chartPeriod: 'Last 7 Days',
   globalStats: {
@@ -12,11 +22,11 @@ const initalState = {
     yesterdayData: {},
   },
   countries: countries_data.countries, // this is an []
-  favouriteCountries: [],
+  favouriteCountries: getLocalStorageJSONProp('bookmarks'),
   dataLoaded: false,
   dataProcessed: 0,
   updated: '',
-  displayMode: 'All countries', // Default display mode: All Countries.
+  displayMode: getLocalStorageJSONProp('displayMode') || 'All countries', // Default display mode: All Countries.
   selectedCountry: null, // When set, is an Object with countryCode and name of selected country
 };
 
@@ -138,15 +148,11 @@ export default function (state = initalState, action) {
       };
 
     case actions.SET_SORTING:
+      // Update list in local storage
+      helperFunctions.addToLocalStorageAsJSON('sortingSetting', action.payload);
       return {
         ...state,
         sorting: action.payload,
-      };
-
-    case actions.SET_COUNTRY_BOOKMARKS:
-      return {
-        ...state,
-        favouriteCountries: action.payload,
       };
 
     case actions.TOGGLE_COUNTRY_TO_FAVOURITES:
@@ -159,7 +165,7 @@ export default function (state = initalState, action) {
         : favsCopy.splice(favIndex, 1); // country already a fav - so remove
 
       // Update list in local storage
-      helperFunctions.addFavsToLocalStorage(favsCopy);
+      helperFunctions.addToLocalStorageAsJSON('bookmarks', favsCopy);
 
       return {
         ...state,
@@ -167,6 +173,8 @@ export default function (state = initalState, action) {
       };
 
     case actions.SET_DISPLAY_MODE:
+      // Update list in local storage
+      helperFunctions.addToLocalStorageAsJSON('displayMode', action.payload);
       return {
         ...state,
         displayMode: action.payload,
