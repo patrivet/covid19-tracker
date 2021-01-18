@@ -123,6 +123,11 @@ export const setCountryBookmarks = payload => ({
   payload,
 });
 
+export const setSelectedCountry = payload => ({
+  type: actions.SET_SELECTED_COUNTRY,
+  payload,
+});
+
 /* FETCH ACTION : Async data function */
 export function fetchCovidData(countryIso2, yesterdayFlag = false) {
   return function (dispatch) {

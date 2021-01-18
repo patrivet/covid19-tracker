@@ -25,7 +25,13 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import * as fas from '@fortawesome/free-solid-svg-icons';
 import * as far from '@fortawesome/free-regular-svg-icons';
-library.add(fas.faBookmark, far.faBookmark, fas.faGlasses, fas.faBookOpen);
+library.add(
+  fas.faBookmark,
+  far.faBookmark,
+  fas.faGlasses,
+  fas.faBookOpen,
+  fas.faAngleLeft
+);
 
 function App() {
   const countries = useSelector(store => store.countries);

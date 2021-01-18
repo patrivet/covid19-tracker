@@ -17,6 +17,7 @@ const initalState = {
   dataProcessed: 0,
   updated: '',
   displayMode: 'All countries', // Default display mode: All Countries.
+  selectedCountry: null, // When set, is an Object with countryCode and name of selected country
 };
 
 export default function (state = initalState, action) {
@@ -169,6 +170,12 @@ export default function (state = initalState, action) {
       return {
         ...state,
         displayMode: action.payload,
+      };
+
+    case actions.SET_SELECTED_COUNTRY:
+      return {
+        ...state,
+        selectedCountry: action.payload,
       };
 
     default:

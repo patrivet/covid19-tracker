@@ -4,7 +4,10 @@ import './CountryHeader.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import store from '../../store';
 import { useSelector } from 'react-redux';
-import { toggleCountryToFavourites } from '../../actions/actions';
+import {
+  toggleCountryToFavourites,
+  setSelectedCountry,
+} from '../../actions/actions';
 
 // Images
 import ExpandArrow from '../../assets/imgs/expand_arrow.png';
@@ -40,9 +43,13 @@ const CountryHeader = ({ country }) => {
     state: country,
   };
 
+  const handleSetCountry = () => {
+    store.dispatch(setSelectedCountry({ name, countryCode }));
+  };
+
   return (
     <div className='header'>
-      <Link to={linkContent}>
+      <Link to={linkContent} onClick={handleSetCountry}>
         <div className='header__id'>
           <img
             className='header__img'

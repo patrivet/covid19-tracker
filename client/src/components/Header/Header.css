@@ -16,13 +16,35 @@
   height: 35px;
 }
 
-.appHeader__title {
+.appHeader__title,
+.appHeader__country {
   color: #9c9c94;
   text-emphasis: bold;
   text-transform: uppercase;
   font-weight: 1000;
   margin: 0 0;
   margin-left: 3px;
+}
+
+.appHeader__back {
+  color: #4d4e4e;
+  font-size: 40px;
+  padding-right: 30px;
+}
+
+.appHeader__country {
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+}
+
+.appHeader__countryImg {
+  width: 35px;
+  padding-right: 8px;
+}
+
+.appHeader__country > p::first-letter {
+  font-size: 1.35rem;
 }
 
 .title--firstLetter {

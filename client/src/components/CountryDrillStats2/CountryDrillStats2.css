@@ -34,7 +34,6 @@
 
 .stats2__today {
   grid-area: Today;
-  /* padding-left: 15px; */
 }
 .stats2__yesterday {
   grid-area: Yesterday;
