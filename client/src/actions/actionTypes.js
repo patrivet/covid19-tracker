@@ -1,5 +1,6 @@
 export const SET_DATA_LOADED = 'setDataLoaded';
 export const INCREMENT_DATA_PROCESSED = 'incrementDataProcessed';
+export const SET_LOADING = 'setLoading';
 
 /* Raw data from covid19 API */
 export const SET_COUNTRY_NAME = 'setCountryName';
@@ -7,6 +8,7 @@ export const SET_COUNTRY_NAME = 'setCountryName';
 export const SET_COUNTRY_TODAY_DATA = 'setCountryTodayData';
 export const SET_COUNTRY_YESTERDAY_DATA = 'setCountryYesterdayData';
 export const SET_GLOBAL_DATA = 'setGlobalData';
+export const SET_COUNTRY_HISTORICAL_DATA = 'setCountryHistoricalData';
 
 export const SET_UPDATE_TIMESTAMP = 'setUpdateTimestamp';
 

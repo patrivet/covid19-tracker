@@ -4,9 +4,7 @@ import config from '../config';
 // API URLS
 const COVID_DAILY_DATE_API = config.COVID_DAILY_DATE_API;
 const COVID_GLOBAL_TOTALS_API = config.COVID_GLOBAL_TOTALS_API;
-
-// Un-used for now.
-// const COVID_HISTORICAL_DATE_API = config.COVID_DAILY_DATE_API;
+const COVID_COUNTRY_HISTORICAL_API = config.COVID_COUNTRY_HISTORICAL_API;
 
 // ACTIONS
 export const setDataLoaded = payload => ({
@@ -14,8 +12,9 @@ export const setDataLoaded = payload => ({
   payload,
 });
 
-export const incrementDataProcessed = () => ({
+export const incrementDataProcessed = payload => ({
   type: actions.INCREMENT_DATA_PROCESSED,
+  payload,
 });
 
 export const setCountryTodayData = (countryCode, countryData) => ({
@@ -123,6 +122,21 @@ export const setSelectedCountry = payload => ({
   payload,
 });
 
+export const setCountryHistoricalData = (countryCode, covidData) => ({
+  type: actions.SET_COUNTRY_HISTORICAL_DATA,
+  payload: {
+    countryCode,
+    covidData,
+  },
+});
+
+export function setLoading(payload) {
+  return {
+    type: actions.SET_LOADING,
+    payload,
+  };
+}
+
 /* FETCH ACTION : Async data function */
 export function fetchCovidData(countryIso2, yesterdayFlag = false) {
   return function (dispatch) {
@@ -152,7 +166,7 @@ export function fetchCovidData(countryIso2, yesterdayFlag = false) {
         }
       })
       .finally(() => {
-        dispatch(incrementDataProcessed());
+        dispatch(incrementDataProcessed('dataProcessed'));
       })
       .catch(err => {
         console.error(`Error fetching GET to =${url} error =`);
@@ -180,7 +194,41 @@ export function fetchCovidGlobalData(yesterdayFlag = false) {
         dispatch(setGlobalData(res, yesterdayFlag));
       })
       .finally(() => {
-        dispatch(incrementDataProcessed());
+        dispatch(incrementDataProcessed('dataProcessed'));
+      })
+      .catch(err => {
+        console.error(`Error fetching GET to =${url} error =`);
+        console.table(err);
+      });
+  };
+}
+
+export function fetchCountryData(countryCode) {
+  return function (dispatch) {
+    dispatch(setLoading(true));
+
+    // Substitute fetch date into URL
+    let url = COVID_COUNTRY_HISTORICAL_API.replace(
+      '<COUNTRY_CODE>',
+      countryCode
+    );
+
+    const headers = {
+      headers: {
+        Accept: 'application/json',
+        'cache-control': 'no-cache',
+      },
+    };
+    fetch(url, headers)
+      .then(res => (res.ok ? res : Promise.reject(res)))
+      .then(res => res.json())
+      .then(res => {
+        dispatch(setCountryHistoricalData(countryCode, res));
+      })
+      .finally(() => {
+        setTimeout(() => {
+          dispatch(setLoading(false));
+        }, 5000);
       })
       .catch(err => {
         console.error(`Error fetching GET to =${url} error =`);

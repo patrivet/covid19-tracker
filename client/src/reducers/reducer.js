@@ -22,11 +22,12 @@ const initalState = {
     yesterdayData: {},
   },
   countries: countries_data.countries, // this is an []
-  favouriteCountries: getLocalStorageJSONProp('bookmarks'),
+  favouriteCountries: getLocalStorageJSONProp('bookmarks'), // Get local storage bookmarked countries. Returns a non null array or just null.
   dataLoaded: false,
   dataProcessed: 0,
+  loading: false,
   updated: '',
-  displayMode: getLocalStorageJSONProp('displayMode') || 'All countries', // Default display mode: All Countries.
+  displayMode: getLocalStorageJSONProp('displayMode') || 'All countries', // Get the last set display mode (from local store) - or use default.
   selectedCountry: null, // When set, is an Object with countryCode and name of selected country
 };
 
@@ -48,6 +49,26 @@ export default function (state = initalState, action) {
         countries: state.countries.map(country =>
           country.ISO2 === action.payload.countryCode
             ? ((country.yesterdayData = action.payload.countryData), country)
+            : country
+        ),
+      };
+
+    case actions.SET_COUNTRY_HISTORICAL_DATA:
+      // Update one country with historical data object.
+      const data = action.payload.covidData.timeline;
+
+      const updateCountryWithData = country => {
+        country.historicalCases = data.cases;
+        country.historicalDeaths = data.deaths;
+        country.historicalRecovered = data.recovered;
+        return country;
+      };
+
+      return {
+        ...state,
+        countries: state.countries.map(country =>
+          country.ISO2 === action.payload.countryCode
+            ? updateCountryWithData(country)
             : country
         ),
       };
@@ -136,9 +157,11 @@ export default function (state = initalState, action) {
       };
 
     case actions.INCREMENT_DATA_PROCESSED:
+      // Increments the passed prop name (held in the redux store)
+      const propToIncrement = action.payload;
       return {
         ...state,
-        dataProcessed: ++state.dataProcessed,
+        [propToIncrement]: ++state[propToIncrement],
       };
 
     case actions.SET_UPDATE_TIMESTAMP:
@@ -184,6 +207,12 @@ export default function (state = initalState, action) {
       return {
         ...state,
         selectedCountry: action.payload,
+      };
+
+    case actions.SET_LOADING:
+      return {
+        ...state,
+        loading: action.payload,
       };
 
     default:
