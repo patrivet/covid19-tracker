@@ -226,9 +226,7 @@ export function fetchCountryData(countryCode) {
         dispatch(setCountryHistoricalData(countryCode, res));
       })
       .finally(() => {
-        setTimeout(() => {
-          dispatch(setLoading(false));
-        }, 5000);
+        dispatch(setLoading(false));
       })
       .catch(err => {
         console.error(`Error fetching GET to =${url} error =`);
