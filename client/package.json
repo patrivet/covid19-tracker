@@ -12,6 +12,7 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "chart.js": "^2.9.4",
+    "highcharts": "^8.2.2",
     "lodash": "^4.17.20",
     "luxon": "^1.25.0",
     "prop-types": "^15.7.2",
