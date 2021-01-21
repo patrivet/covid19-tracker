@@ -19,7 +19,7 @@ import {
 const HighChart = props => {
   const showNav = false;
   return (
-    <div className='container boxShadow'>
+    <div className={`container boxShadow ${props.class}`}>
       <div className='highChart'>
         {/* highChart -div needed to contain chart and allow it to auto scale width. */}
         <div className='highChart__title'>

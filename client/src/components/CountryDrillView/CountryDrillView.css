@@ -1,16 +1,53 @@
-.countryCharts {
+/* .countryCharts {
   display: flex;
   flex-wrap: wrap;
 }
 
-.countryChart {
-  width: 50%;
+.container {
+  flex-grow: 1;
+  flex-shrink: 0;
+  flex-basis: 50%;
+} */
+.countryCharts {
+  display: grid;
+  grid-template-rows: repeat(4, 1fr);
+  grid-template-columns: 50% 50%;
+  grid-template-areas:
+    'CasesDailyChart CasesCumulativeChart'
+    'DeathsDailyChart DeathsCumulativeChart'
+    'RecoverDailyChart RecoverCumulativeChart'
+    'CasesAndDeathsChart CasesAndDeathsChart';
 }
 
 /* Media query for Mobile */
 @media screen and (max-width: 600px) {
+  .countryCharts {
+    display: block;
+  }
   /* Set Chart width to 100% */
-  .countryChart {
+  .container {
     width: 100%;
   }
+}
+
+.casesDailyChart {
+  grid-area: CasesDailyChart;
+}
+.casesCumulativeChart {
+  grid-area: CasesCumulativeChart;
+}
+.deathsDailyChart {
+  grid-area: DeathsDailyChart;
+}
+.deathsCumulativeChart {
+  grid-area: DeathsCumulativeChart;
+}
+.recoverDailyChart {
+  grid-area: RecoverDailyChart;
+}
+.recoverCumulativeChart {
+  grid-area: RecoverCumulativeChart;
+}
+.casesAndDeathsChart {
+  grid-area: CasesAndDeathsChart;
 }

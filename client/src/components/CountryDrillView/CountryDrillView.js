@@ -41,77 +41,69 @@ const CountryDrillView = props => {
         <Spinner />
       ) : (
         <div className='countryCharts'>
-          <div className='countryChart'>
-            <HighChart
-              seriesData={country.allCasesDaily}
-              seriesId={'cases'}
-              seriesLabel={'Cases'}
-              title={'Cases (Daily)'}
-              titleIcon={casesIcon}
-              type={''}
-            />
-          </div>
-          <div className='countryChart'>
-            <HighChart
-              seriesData={country.allCasesCumulative}
-              seriesId={'cases'}
-              seriesLabel={'Cases'}
-              title={'Cases (Cumulative)'}
-              titleIcon={casesIcon}
-            />
-          </div>
-          <div className='countryChart'>
-            <HighChart
-              seriesData={country.allDeathsDaily}
-              seriesId={'deaths'}
-              seriesLabel={'Deaths'}
-              title={'Deaths (Daily)'}
-              titleIcon={deathsIcon}
-            />
-          </div>
+          <HighChart
+            seriesData={country.allCasesDaily}
+            seriesId={'cases'}
+            seriesLabel={'Cases'}
+            title={'Cases (Daily)'}
+            titleIcon={casesIcon}
+            class='casesDailyChart'
+          />
+          <HighChart
+            seriesData={country.allCasesCumulative}
+            seriesId={'cases'}
+            seriesLabel={'Cases'}
+            title={'Cases (Cumulative)'}
+            titleIcon={casesIcon}
+            class='casesCumulativeChart'
+          />
+          <HighChart
+            seriesData={country.allDeathsDaily}
+            seriesId={'deaths'}
+            seriesLabel={'Deaths'}
+            title={'Deaths (Daily)'}
+            titleIcon={deathsIcon}
+            class='deathsDailyChart'
+          />
 
-          <div className='countryChart'>
-            <HighChart
-              seriesData={country.allDeathsCumulative}
-              seriesId={'deaths'}
-              seriesLabel={'Deaths'}
-              title={'Deaths (Cumulative)'}
-              titleIcon={deathsIcon}
-            />
-          </div>
-          <div className='countryChart'>
-            <HighChart
-              seriesData={country.allCasesDaily}
-              seriesId={'cases'}
-              seriesLabel={'Cases'}
-              series2Data={country.allDeathsDaily}
-              series2Id={'deaths'}
-              series2Label={'Deaths'}
-              title={'Cases vs. Deaths (Daily)'}
-              titleIcon={casesIcon}
-              title2Icon={deathsIcon}
-            />
-          </div>
+          <HighChart
+            seriesData={country.allDeathsCumulative}
+            seriesId={'deaths'}
+            seriesLabel={'Deaths'}
+            title={'Deaths (Cumulative)'}
+            titleIcon={deathsIcon}
+            class='deathsCumulativeChart'
+          />
 
-          <div className='countryChart'>
-            <HighChart
-              seriesData={country.allRecoveredDaily}
-              seriesId={'recoveries'}
-              seriesLabel={'Recoveries'}
-              title={'Recoveries (Daily)'}
-              titleIcon={recoveredIcon}
-            />
-          </div>
+          <HighChart
+            seriesData={country.allRecoveredDaily}
+            seriesId={'recoveries'}
+            seriesLabel={'Recoveries'}
+            title={'Recoveries (Daily)'}
+            titleIcon={recoveredIcon}
+            class='recoverDailyChart'
+          />
 
-          <div className='countryChart'>
-            <HighChart
-              seriesData={country.allRecoveredCumulative}
-              seriesId={'recoveries'}
-              seriesLabel={'Recoveries'}
-              title={'Recoveries (Cumulative)'}
-              titleIcon={recoveredIcon}
-            />
-          </div>
+          <HighChart
+            seriesData={country.allRecoveredCumulative}
+            seriesId={'recoveries'}
+            seriesLabel={'Recoveries'}
+            title={'Recoveries (Cumulative)'}
+            titleIcon={recoveredIcon}
+            class='recoverCumulativeChart'
+          />
+          <HighChart
+            seriesData={country.allCasesDaily}
+            seriesId={'cases'}
+            seriesLabel={'Cases'}
+            series2Data={country.allDeathsDaily}
+            series2Id={'deaths'}
+            series2Label={'Deaths'}
+            title={'Cases vs. Deaths (Daily)'}
+            titleIcon={casesIcon}
+            title2Icon={deathsIcon}
+            class='casesAndDeathsChart'
+          />
         </div>
       )}
     </div>
