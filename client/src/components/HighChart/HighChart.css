@@ -1,0 +1,17 @@
+.container {
+  margin: 25px;
+  border-radius: 8px;
+  background-color: white;
+}
+
+.highChart__chart {
+  border-radius: 8px;
+}
+
+.highChart__title {
+  display: flex;
+}
+
+.highChart__icon {
+  width: 25px;
+}
