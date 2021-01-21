@@ -9,13 +9,15 @@ import {
   YAxis,
   Legend,
   ColumnSeries,
+  AreaSplineSeries,
+  SplineSeries,
   Navigator,
   RangeSelector,
   Tooltip,
 } from 'react-jsx-highstock';
 
 const HighChart = props => {
-  const showNav = true;
+  const showNav = false;
   return (
     <div className='container boxShadow'>
       <div className='highChart'>
@@ -26,19 +28,29 @@ const HighChart = props => {
         </div>
         <HighchartsStockChart className='highChart__chart'>
           <Chart zoomType='x' />
-
           <Legend></Legend>
           <Tooltip />
           <XAxis></XAxis>
-
           <YAxis>
-            <ColumnSeries
+            {props.series2Data ? (
+              <YAxis.Title>{props.seriesLabel}</YAxis.Title>
+            ) : null}
+            <AreaSplineSeries
               id={props.seriesId}
               name={props.seriesLabel}
               data={props.seriesData}
             />
           </YAxis>
-
+          {props.series2Data ? (
+            <YAxis opposite>
+              <YAxis.Title>{props.series2Label}</YAxis.Title>
+              <SplineSeries
+                id={props.series2Id}
+                name={props.series2Label}
+                data={props.series2Data}
+              />
+            </YAxis>
+          ) : null}
           <RangeSelector selected={5}>
             <RangeSelector.Button count={1} type='week'>
               1w
@@ -57,9 +69,8 @@ const HighChart = props => {
             </RangeSelector.Button>
 
             <RangeSelector.Button type='all'>All</RangeSelector.Button>
-            <RangeSelector.Input boxBorderColor='#7cb5ec' />
+            <RangeSelector.Input boxBorderColor='#7cb5ec' enabled={true} />
           </RangeSelector>
-
           {showNav ? (
             <Navigator>
               <Navigator.Series seriesId={props.seriesId} />

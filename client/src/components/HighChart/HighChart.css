@@ -1,5 +1,5 @@
 .container {
-  margin: 25px;
+  margin: 5px;
   border-radius: 8px;
   background-color: white;
 }
@@ -14,4 +14,9 @@
 
 .highChart__icon {
   width: 25px;
+}
+
+/* Custom change to chart: Hide the time nav input */
+.highcharts-input-group {
+  display: none;
 }

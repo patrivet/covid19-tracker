@@ -1,0 +1,16 @@
+.countryCharts {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.countryChart {
+  width: 50%;
+}
+
+/* Media query for Mobile */
+@media screen and (max-width: 600px) {
+  /* Set Chart width to 100% */
+  .countryChart {
+    width: 100%;
+  }
+}
