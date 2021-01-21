@@ -1,5 +1,6 @@
 import React from 'react';
 import NumberFormat from 'react-number-format';
+import { DateTime } from 'luxon';
 
 // Images
 import UpArrow from '../assets/imgs/up_arrow.png';
@@ -53,6 +54,28 @@ export function addToLocalStorageAsJSON(propName, value) {
 export const getFormattedNum = num => (
   <NumberFormat value={num} thousandSeparator={true} displayType={'text'} />
 );
+
+// Convert passed date string, in passed format, into a timestamp
+export const convertToTimestamp = (dateStr, format) =>
+  DateTime.fromFormat(dateStr, format).ts;
+
+// Takes an array of arrays, and in inner array, -converts the 1st value (date as string) to a timestamp
+export function convertArrayDates(arr) {
+  return arr.map(([dateStr, val]) => [
+    convertToTimestamp(dateStr, 'M/d/yy'),
+    val,
+  ]);
+}
+
+// Takes an array of arrays, and in inner array, converts cumulative values to seperate values.
+export function generateDailyStats(statsArr) {
+  return statsArr.map(([date, val], i, arr) => {
+    if (i === 0) return [date, val];
+    // Calculate daily val as current day less the previous day's cumulative sum.
+    let res = val - arr[i - 1][1];
+    return [date, res];
+  });
+}
 
 /* Sorting options property */
 export const sortOptions = [

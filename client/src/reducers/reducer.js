@@ -54,13 +54,28 @@ export default function (state = initalState, action) {
       };
 
     case actions.SET_COUNTRY_HISTORICAL_DATA:
-      // Update one country with historical data object.
-      const data = action.payload.covidData.timeline;
+      // Extract the data into props
+      let { cases, deaths, recovered } = action.payload.covidData.timeline;
+
+      // Convert to arrays;
+      cases = Object.entries(cases);
+      deaths = Object.entries(deaths);
+      recovered = Object.entries(recovered);
+
+      // Convert date string inside data to timestamp:
+      cases = helperFunctions.convertArrayDates(cases);
+      deaths = helperFunctions.convertArrayDates(deaths);
+      recovered = helperFunctions.convertArrayDates(recovered);
 
       const updateCountryWithData = country => {
-        country.historicalCases = data.cases;
-        country.historicalDeaths = data.deaths;
-        country.historicalRecovered = data.recovered;
+        country.allCasesCumulative = cases;
+        country.allDeathsCumulative = deaths;
+        country.allRecoveredCumulative = recovered;
+        country.allCasesDaily = helperFunctions.generateDailyStats(cases);
+        country.allDeathsDaily = helperFunctions.generateDailyStats(deaths);
+        country.allRecoveredDaily = helperFunctions.generateDailyStats(
+          recovered
+        );
         return country;
       };
 
@@ -204,6 +219,10 @@ export default function (state = initalState, action) {
       };
 
     case actions.SET_SELECTED_COUNTRY:
+      // ! TEMP functionality - set country in local store. (so can restore selected country when lost of page refresh in country drill view)
+      // let val = action.payload ? action.payload.countryCode : null;
+      // helperFunctions.addToLocalStorageAsJSON('selectedCountry', val);
+
       return {
         ...state,
         selectedCountry: action.payload,
