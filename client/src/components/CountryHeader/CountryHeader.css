@@ -16,7 +16,6 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  width: 50%;
   float: left;
 }
 
@@ -24,7 +23,6 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  width: 50%;
   float: right;
 }
 
