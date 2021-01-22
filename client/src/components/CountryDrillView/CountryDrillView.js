@@ -27,86 +27,87 @@ const CountryDrillView = props => {
   }, []);
 
   return (
-    <div>
-      <CountryDrillHeader
-        countryStats={{
-          today: country.todayData,
-          yesterday: country.yesterdayData,
-        }}
-      />
-
+    <>
       {/* ---- Charts section ---- */}
       {/* When loading historical data -show spinner. */}
       {loading ? (
         <Spinner />
       ) : (
-        <div className='countryCharts'>
-          <HighChart
-            seriesData={country.allCasesDaily}
-            seriesId={'cases'}
-            seriesLabel={'Cases'}
-            title={'Cases (Daily)'}
-            titleIcon={casesIcon}
-            class='casesDailyChart'
+        <>
+          <CountryDrillHeader
+            countryStats={{
+              today: country.todayData,
+              yesterday: country.yesterdayData,
+            }}
           />
-          <HighChart
-            seriesData={country.allCasesCumulative}
-            seriesId={'cases'}
-            seriesLabel={'Cases'}
-            title={'Cases (Cumulative)'}
-            titleIcon={casesIcon}
-            class='casesCumulativeChart'
-          />
-          <HighChart
-            seriesData={country.allDeathsDaily}
-            seriesId={'deaths'}
-            seriesLabel={'Deaths'}
-            title={'Deaths (Daily)'}
-            titleIcon={deathsIcon}
-            class='deathsDailyChart'
-          />
+          <div className='countryCharts'>
+            <HighChart
+              seriesData={country.allCasesDaily}
+              seriesId={'cases'}
+              seriesLabel={'Cases'}
+              title={'Cases (Daily)'}
+              titleIcon={casesIcon}
+              class='casesDailyChart'
+            />
+            <HighChart
+              seriesData={country.allCasesCumulative}
+              seriesId={'cases'}
+              seriesLabel={'Cases'}
+              title={'Cases (Cumulative)'}
+              titleIcon={casesIcon}
+              class='casesCumulativeChart'
+            />
+            <HighChart
+              seriesData={country.allDeathsDaily}
+              seriesId={'deaths'}
+              seriesLabel={'Deaths'}
+              title={'Deaths (Daily)'}
+              titleIcon={deathsIcon}
+              class='deathsDailyChart'
+            />
 
-          <HighChart
-            seriesData={country.allDeathsCumulative}
-            seriesId={'deaths'}
-            seriesLabel={'Deaths'}
-            title={'Deaths (Cumulative)'}
-            titleIcon={deathsIcon}
-            class='deathsCumulativeChart'
-          />
+            <HighChart
+              seriesData={country.allDeathsCumulative}
+              seriesId={'deaths'}
+              seriesLabel={'Deaths'}
+              title={'Deaths (Cumulative)'}
+              titleIcon={deathsIcon}
+              class='deathsCumulativeChart'
+            />
 
-          <HighChart
-            seriesData={country.allRecoveredDaily}
-            seriesId={'recoveries'}
-            seriesLabel={'Recoveries'}
-            title={'Recoveries (Daily)'}
-            titleIcon={recoveredIcon}
-            class='recoverDailyChart'
-          />
+            <HighChart
+              seriesData={country.allRecoveredDaily}
+              seriesId={'recoveries'}
+              seriesLabel={'Recoveries'}
+              title={'Recoveries (Daily)'}
+              titleIcon={recoveredIcon}
+              class='recoverDailyChart'
+            />
 
-          <HighChart
-            seriesData={country.allRecoveredCumulative}
-            seriesId={'recoveries'}
-            seriesLabel={'Recoveries'}
-            title={'Recoveries (Cumulative)'}
-            titleIcon={recoveredIcon}
-            class='recoverCumulativeChart'
-          />
-          <HighChart
-            seriesData={country.allCasesDaily}
-            seriesId={'cases'}
-            seriesLabel={'Cases'}
-            series2Data={country.allDeathsDaily}
-            series2Id={'deaths'}
-            series2Label={'Deaths'}
-            title={'Cases vs. Deaths (Daily)'}
-            titleIcon={casesIcon}
-            title2Icon={deathsIcon}
-            class='casesAndDeathsChart'
-          />
-        </div>
+            <HighChart
+              seriesData={country.allRecoveredCumulative}
+              seriesId={'recoveries'}
+              seriesLabel={'Recoveries'}
+              title={'Recoveries (Cumulative)'}
+              titleIcon={recoveredIcon}
+              class='recoverCumulativeChart'
+            />
+            <HighChart
+              seriesData={country.allCasesDaily}
+              seriesId={'cases'}
+              seriesLabel={'Cases'}
+              series2Data={country.allDeathsDaily}
+              series2Id={'deaths'}
+              series2Label={'Deaths'}
+              title={'Cases vs. Deaths (Daily)'}
+              titleIcon={casesIcon}
+              title2Icon={deathsIcon}
+              class='casesAndDeathsChart'
+            />
+          </div>
+        </>
       )}
-    </div>
+    </>
   );
 };
 
