@@ -3,6 +3,11 @@
   margin: 10px;
   justify-content: space-between;
   font-size: 18px;
+  /* Position header top and make fixed/sticky */
+  position: sticky;
+  top: 0;
+  background-color: #f5f7f9;
+  z-index: 999;
 }
 
 .appHeader__imgAndTitle {
