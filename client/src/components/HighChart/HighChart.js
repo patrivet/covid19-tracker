@@ -17,6 +17,8 @@ import {
 } from 'react-jsx-highstock';
 
 const HighChart = props => {
+  const fontStyle = { fontSize: '16px', fontFamily: 'Lato' };
+
   const showNav = false;
   return (
     <div className={`container boxShadow ${props.class}`}>
@@ -24,7 +26,7 @@ const HighChart = props => {
         {/* highChart -div needed to contain chart and allow it to auto scale width. */}
         <div className='highChart__title'>
           <img className='highChart__icon' src={props.titleIcon} />
-          <p className='highChart__titleText'>{props.title}</p>
+          <p className='highChart__titleText label'>{props.title}</p>
         </div>
         <HighchartsStockChart className='highChart__chart'>
           <Chart zoomType='x' />
@@ -33,21 +35,23 @@ const HighChart = props => {
           <XAxis></XAxis>
           <YAxis>
             {props.series2Data ? (
-              <YAxis.Title>{props.seriesLabel}</YAxis.Title>
+              <YAxis.Title style={fontStyle}>{props.seriesLabel}</YAxis.Title>
             ) : null}
             <AreaSplineSeries
               id={props.seriesId}
               name={props.seriesLabel}
               data={props.seriesData}
+              color={props.seriesColor}
             />
           </YAxis>
           {props.series2Data ? (
             <YAxis opposite>
-              <YAxis.Title>{props.series2Label}</YAxis.Title>
+              <YAxis.Title style={fontStyle}>{props.series2Label}</YAxis.Title>
               <SplineSeries
                 id={props.series2Id}
                 name={props.series2Label}
                 data={props.series2Data}
+                color={props.series2Color}
               />
             </YAxis>
           ) : null}

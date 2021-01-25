@@ -45,6 +45,7 @@ const CountryDrillView = props => {
               seriesData={country.allCasesDaily}
               seriesId={'cases'}
               seriesLabel={'Cases'}
+              seriesColor={'#99C4ED'}
               title={'Cases (Daily)'}
               titleIcon={casesIcon}
               class='casesDailyChart'
@@ -53,6 +54,7 @@ const CountryDrillView = props => {
               seriesData={country.allCasesCumulative}
               seriesId={'cases'}
               seriesLabel={'Cases'}
+              seriesColor={'#99C4ED'}
               title={'Cases (Cumulative)'}
               titleIcon={casesIcon}
               class='casesCumulativeChart'
@@ -61,6 +63,7 @@ const CountryDrillView = props => {
               seriesData={country.allDeathsDaily}
               seriesId={'deaths'}
               seriesLabel={'Deaths'}
+              seriesColor={'#D36767'}
               title={'Deaths (Daily)'}
               titleIcon={deathsIcon}
               class='deathsDailyChart'
@@ -70,6 +73,7 @@ const CountryDrillView = props => {
               seriesData={country.allDeathsCumulative}
               seriesId={'deaths'}
               seriesLabel={'Deaths'}
+              seriesColor={'#D36767'}
               title={'Deaths (Cumulative)'}
               titleIcon={deathsIcon}
               class='deathsCumulativeChart'
@@ -79,6 +83,7 @@ const CountryDrillView = props => {
               seriesData={country.allRecoveredDaily}
               seriesId={'recoveries'}
               seriesLabel={'Recoveries'}
+              seriesColor={'#236d15'}
               title={'Recoveries (Daily)'}
               titleIcon={recoveredIcon}
               class='recoverDailyChart'
@@ -88,6 +93,7 @@ const CountryDrillView = props => {
               seriesData={country.allRecoveredCumulative}
               seriesId={'recoveries'}
               seriesLabel={'Recoveries'}
+              seriesColor={'#236d15'}
               title={'Recoveries (Cumulative)'}
               titleIcon={recoveredIcon}
               class='recoverCumulativeChart'
@@ -96,9 +102,11 @@ const CountryDrillView = props => {
               seriesData={country.allCasesDaily}
               seriesId={'cases'}
               seriesLabel={'Cases'}
+              seriesColor={'#99C4ED'}
               series2Data={country.allDeathsDaily}
               series2Id={'deaths'}
               series2Label={'Deaths'}
+              series2Color={'#D36767'}
               title={'Cases vs. Deaths (Daily)'}
               titleIcon={casesIcon}
               title2Icon={deathsIcon}
