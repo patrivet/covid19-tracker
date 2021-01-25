@@ -22,7 +22,7 @@ const initalState = {
     yesterdayData: {},
   },
   countries: countries_data.countries, // this is an []
-  favouriteCountries: getLocalStorageJSONProp('bookmarks'), // Get local storage bookmarked countries. Returns a non null array or just null.
+  favouriteCountries: getLocalStorageJSONProp('bookmarks') || [], // Get local storage bookmarked countries. Returns a non null array or just null.
   dataLoaded: false,
   dataProcessed: 0,
   loading: false,
