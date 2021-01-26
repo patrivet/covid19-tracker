@@ -1,8 +1,10 @@
+![](/assets/imgs/virus_logo.png)
 # Covid19 Global Tracker
 Single page application showing latest covid-19 statistics at global level and broken across 210 countries.
 The source of the data comes from [disease.sh API](https://disease.sh/), which in turn sources from John Hopkins University, Worldometers and others.
 
 ## Features
+- Positive test cases and deaths shown for current day, previous day, trend from current to previous day and totals at the global level and for each country.
 - Countries can be bookmarked, and the display changed to show bookmarked countries, or all countries.
 - Countries can be sorted by various metrics, such as daily cases descending/ascending.
 - Clicking on a country will show further statistics and detailed data in a serious of interative charts.
@@ -14,14 +16,15 @@ Current hosting status:
 [![Netlify Status](https://api.netlify.com/api/v1/badges/7db5857e-3244-44da-b0f5-478192d1ccd4/deploy-status)](https://app.netlify.com/sites/covid19-tracker-pr/deploys)
 
 ## Screenshots:
-Global view:
-![Screenshot one](/assets/screenshots/Screenshot_1.png)
 
-Sorting and display options:
-![Screenshot one](/assets/screenshots/Screenshot_1.png)
+![Global view:](/assets/screenshots/GlobalView.png)
+
+![Sorting options](/assets/screenshots/Sorting_Options.png)
+![display options](/assets/screenshots/Display_Options.png)
 
 Country view:
-![Screenshot one](/assets/screenshots/Screenshot_1.png)
+![Country view:](/assets/screenshots/Country_View1.png)
+![Country view 2:](/assets/screenshots/Country_View2.png)
 
 ## How to run:
 
