@@ -49,6 +49,15 @@ REACT_APP_COVID_HISTORICAL_DATA_API=https://disease.sh/v3/covid-19/historical/<C
 - [React Router](https://reactrouter.com/)
 - [FontAwesome for icons](https://fontawesome.com/)
 
+
+## Future enhancements:
+TBC
+
+## Contributing:
+Happy to have contributions. See listed enhancements or pick your own.
+Fork the repository, make your changes and then raise a pull request.
+Thanks! 💙
+
 ## Created by: 
 Pat Rivet: [Github](https://github.com/patrivet/) | [Linkedin](https://www.linkedin.com/in/pat-rivet/)
 
