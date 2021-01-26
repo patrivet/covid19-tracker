@@ -51,7 +51,8 @@ REACT_APP_COVID_HISTORICAL_DATA_API=https://disease.sh/v3/covid-19/historical/<C
 
 
 ## Future enhancements:
-TBC
+- Show some charts for global statistics, such as a pie charts for cases and deaths by continent.
+- Automatically fetch latest data and update statistics on screen.
 
 ## Contributing:
 Happy to have contributions. See listed enhancements or pick your own.
