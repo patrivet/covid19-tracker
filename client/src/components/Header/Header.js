@@ -19,7 +19,7 @@ const PUBLIC_URL = process.env.PUBLIC_URL;
 
 const Header = () => {
   const selectedCountry = useSelector(store => store.selectedCountry);
-  const loading = useSelector(store => store.loading);
+  const dataLoaded = useSelector(store => store.dataLoaded);
 
   const resetSelectedCountry = () => {
     // Set the selected country (from a non-null value) to null.
@@ -59,8 +59,8 @@ const Header = () => {
 
       <div className='appHeader__icons'>
         {/* Menu Options shown for global; hidden for country view (when selectedCountry is set) */}
-        {selectedCountry ? null : <Sort />}
-        {selectedCountry ? null : <ShowMenuItem />}
+        {selectedCountry || !dataLoaded ? null : <Sort />}
+        {selectedCountry || !dataLoaded ? null : <ShowMenuItem />}
 
         {/* Note: Hidden until this is in use.
           <div className='settingsIcon'>

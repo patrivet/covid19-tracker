@@ -4,6 +4,7 @@ import {
   fetchCovidData,
   fetchCovidGlobalData,
   setUpdateTimestamp,
+  setDataLoaded,
 } from './actions/actions';
 import { useSelector } from 'react-redux';
 import ScrollToTop from 'react-scroll-to-top';
@@ -58,6 +59,11 @@ function App() {
 
     store.dispatch(setUpdateTimestamp(DateTime.local()));
   }, []);
+
+  React.useEffect(() => {
+    if (dataProcessed >= countries.length * 2 + 2)
+      store.dispatch(setDataLoaded(true));
+  }, [dataProcessed]);
 
   return (
     <BrowserRouter>
