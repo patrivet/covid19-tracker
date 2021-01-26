@@ -12,7 +12,8 @@ The source of the data comes from [disease.sh API](https://disease.sh/), which i
 ## Hosting
 See the live app hosted [here](https://covid19-tracker-pr.netlify.app/)
 
-Current hosting status: 
+Current hosting status:
+
 [![Netlify Status](https://api.netlify.com/api/v1/badges/7db5857e-3244-44da-b0f5-478192d1ccd4/deploy-status)](https://app.netlify.com/sites/covid19-tracker-pr/deploys)
 
 ## Screenshots:
