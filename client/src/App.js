@@ -29,7 +29,8 @@ library.add(
   far.faBookmark,
   fas.faGlasses,
   fas.faBookOpen,
-  fas.faAngleLeft
+  fas.faAngleLeft,
+  fas.faVirus
 );
 
 function App() {
