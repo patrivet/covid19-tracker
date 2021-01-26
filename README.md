@@ -1,5 +1,5 @@
 ![](/assets/imgs/virus_logo.png)
-# Covid19 Global Tracker
+# Covid-19 Global Tracker
 Single page application showing latest covid-19 statistics at global level and broken across 210 countries.
 The source of the data comes from [disease.sh API](https://disease.sh/), which in turn sources from John Hopkins University, Worldometers and others.
 
