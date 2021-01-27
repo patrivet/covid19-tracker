@@ -8,6 +8,7 @@ The source of the data comes from [disease.sh API](https://disease.sh/), which i
 - Countries can be bookmarked, and the display changed to show bookmarked countries, or all countries.
 - Countries can be sorted by various metrics, such as daily cases descending/ascending.
 - Clicking on a country will show further statistics and detailed data in a serious of interative charts.
+- Responsive design for use on tablet and mobile devices.
 
 ## Hosting
 See the live app hosted [here](https://covid19-tracker-pr.netlify.app/)
