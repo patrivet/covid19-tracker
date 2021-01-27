@@ -42,12 +42,11 @@ REACT_APP_COVID_HISTORICAL_DATA_API=https://disease.sh/v3/covid-19/historical/<C
  
 ## Built using:
 - [React v17.0.1](https://reactjs.org/)
-- [Redux](https://redux.js.org/)
 - [Disease.sh API](https://disease.sh/docs/)
+- [React-Redux](https://react-redux.js.org/)
 - [Redux Thunk](https://www.npmjs.com/package/redux-thunk)
 - [React JSX Highcharts](https://www.npmjs.com/package/react-jsx-highcharts)
 - [React Router](https://reactrouter.com/)
-- [FontAwesome for icons](https://fontawesome.com/)
 
 
 ## Future enhancements:
