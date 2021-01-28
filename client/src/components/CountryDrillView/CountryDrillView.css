@@ -1,13 +1,4 @@
-/* .countryCharts {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.container {
-  flex-grow: 1;
-  flex-shrink: 0;
-  flex-basis: 50%;
-} */
+/* CountryDrillView.css */
 .countryCharts {
   display: grid;
   grid-template-rows: repeat(4, 1fr);
@@ -17,17 +8,6 @@
     'DeathsDailyChart DeathsCumulativeChart'
     'RecoverDailyChart RecoverCumulativeChart'
     'CasesAndDeathsChart CasesAndDeathsChart';
-}
-
-/* Media query for Mobile */
-@media screen and (max-width: 600px) {
-  .countryCharts {
-    display: block;
-  }
-  /* Set Chart width to 100% */
-  .container {
-    width: 100%;
-  }
 }
 
 .casesDailyChart {
@@ -50,4 +30,12 @@
 }
 .casesAndDeathsChart {
   grid-area: CasesAndDeathsChart;
+}
+
+/* Media query for Mobile */
+@media screen and (max-width: 600px) {
+  .countryCharts {
+    /* So each chart uses full available width */
+    display: block;
+  }
 }

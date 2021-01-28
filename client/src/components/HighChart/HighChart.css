@@ -1,5 +1,7 @@
+/* HighChart.css */
 .container {
-  margin: 5px;
+  margin: 5px 15px;
+  margin-bottom: 25px;
   border-radius: 8px;
   background-color: white;
 }
