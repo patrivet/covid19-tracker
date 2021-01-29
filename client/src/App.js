@@ -37,6 +37,7 @@ library.add(
 function App() {
   const countries = useSelector(store => store.countries);
   let dataProcessed = useSelector(store => store.dataProcessed);
+  const dataLoadingErrors = useSelector(store => store.dataLoadingErrors);
   const areBookmarksShown =
     useSelector(store => store.displayMode) === 'Bookmarked countries';
 
@@ -64,6 +65,11 @@ function App() {
     if (dataProcessed >= countries.length * 2 + 2)
       store.dispatch(setDataLoaded(true));
   }, [dataProcessed]);
+
+  const errors = () => {
+    console.log(dataLoadingErrors);
+    return false;
+  };
 
   return (
     <BrowserRouter>

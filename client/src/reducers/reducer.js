@@ -29,6 +29,7 @@ const initalState = {
   updated: '',
   displayMode: getLocalStorageJSONProp('displayMode') || 'All countries', // Get the last set display mode (from local store) - or use default.
   selectedCountry: null, // When set, is an Object with countryCode and name of selected country
+  dataLoadingErrors: [], // Holds array of possible exceptions thrown during REST calls.
 };
 
 export default function (state = initalState, action) {
@@ -232,6 +233,12 @@ export default function (state = initalState, action) {
       return {
         ...state,
         loading: action.payload,
+      };
+
+    case actions.ADD_API_ERROR:
+      return {
+        ...state,
+        dataLoadingErrors: [...state.dataLoadingErrors, action.payload],
       };
 
     default:

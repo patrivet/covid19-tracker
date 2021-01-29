@@ -137,6 +137,27 @@ export function setLoading(payload) {
   };
 }
 
+export function addAPIError(payload) {
+  return {
+    type: actions.ADD_API_ERROR,
+    payload,
+  };
+}
+
+// ! FIX ME: use the factory -and remove redundant code used in 3 functions further on...
+function fetchFactory(url) {
+  // UFN: Headers set to use 'cache-control' - no cache, so disk cache is not used.
+  const headers = {
+    headers: {
+      Accept: 'application/json',
+      'cache-control': 'no-cache',
+    },
+  };
+  return fetch(url, headers)
+    .then(res => (res.ok ? res : Promise.reject(res)))
+    .then(res => res.json());
+}
+
 /* FETCH ACTION : Async data function */
 export function fetchCovidData(countryIso2, yesterdayFlag = false) {
   return function (dispatch) {
@@ -169,6 +190,7 @@ export function fetchCovidData(countryIso2, yesterdayFlag = false) {
         dispatch(incrementDataProcessed('dataProcessed'));
       })
       .catch(err => {
+        dispatch(addAPIError(err));
         console.error(`Error fetching GET to =${url} error =`);
         console.table(err);
       });
@@ -197,6 +219,7 @@ export function fetchCovidGlobalData(yesterdayFlag = false) {
         dispatch(incrementDataProcessed('dataProcessed'));
       })
       .catch(err => {
+        dispatch(addAPIError(err));
         console.error(`Error fetching GET to =${url} error =`);
         console.table(err);
       });
@@ -229,6 +252,7 @@ export function fetchCountryData(countryCode) {
         dispatch(setLoading(false));
       })
       .catch(err => {
+        dispatch(addAPIError(err));
         console.error(`Error fetching GET to =${url} error =`);
         console.table(err);
       });

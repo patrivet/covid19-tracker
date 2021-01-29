@@ -9,6 +9,7 @@ export const SET_COUNTRY_TODAY_DATA = 'setCountryTodayData';
 export const SET_COUNTRY_YESTERDAY_DATA = 'setCountryYesterdayData';
 export const SET_GLOBAL_DATA = 'setGlobalData';
 export const SET_COUNTRY_HISTORICAL_DATA = 'setCountryHistoricalData';
+export const ADD_API_ERROR = 'addAPIError';
 
 export const SET_UPDATE_TIMESTAMP = 'setUpdateTimestamp';
 
