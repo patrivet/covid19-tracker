@@ -3,6 +3,8 @@
 An application showing latest covid-19 statistics at global level and broken across 210 countries.
 The source of the data comes from [disease.sh API](https://disease.sh/), which in turn sources from John Hopkins University, Worldometers and others.
 
+See the live app hosted [here](https://covid19-tracker-pr.netlify.app/)
+
 ## Features
 - Positive test cases and deaths shown for current day, previous day, trend from current to previous day and totals at the global level and for each country.
 - Countries can be bookmarked, and the display changed to show bookmarked countries, or all countries.
@@ -11,8 +13,6 @@ The source of the data comes from [disease.sh API](https://disease.sh/), which i
 - Responsive design for use on tablet and mobile devices.
 
 ## Hosting
-See the live app hosted [here](https://covid19-tracker-pr.netlify.app/)
-
 Current hosting status:
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/7db5857e-3244-44da-b0f5-478192d1ccd4/deploy-status)](https://app.netlify.com/sites/covid19-tracker-pr/deploys)
