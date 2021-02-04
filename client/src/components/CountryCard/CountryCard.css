@@ -22,6 +22,14 @@
     height: auto;
     margin-bottom: 12px;
   }
+  /* Show border around active country card */
+  .CountryCard:active {
+    border: 2px dotted #d36767;
+    transform: translateY(-8px);
+    /* Increase blur on box shadow */
+    box-shadow: 0px 3px 8px -2px rgba(0, 0, 0, 0.2),
+      0px 3px 9px 0px rgba(0, 0, 0, 0.14), 0px 1px 12px 0px rgba(0, 0, 0, 0.12);
+  }
 }
 
 @media screen and (min-width: 600px) {
