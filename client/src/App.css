@@ -160,8 +160,9 @@ of the CountryCard) */
 }
 
 /* Media Queries */
-@media screen and (max-width: 600px) {
+/* Font size change - no longer used */
+/* @media screen and (max-width: 600px) {
   [class*='__label'] {
     font-size: 4.5vw;
   }
-}
+} */

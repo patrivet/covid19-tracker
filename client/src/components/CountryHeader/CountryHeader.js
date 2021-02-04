@@ -57,6 +57,7 @@ const CountryHeader = ({ country }) => {
               ${PUBLIC_URL}
             /imgs/flags/${countryCode.toLowerCase()}.svg`}
             alt=''
+            loading='lazy'
           ></img>
           {/* If country name > 17 in length -add class to use smaller font. */}
           <p
@@ -69,7 +70,7 @@ const CountryHeader = ({ country }) => {
         </div>
       </Link>
       <div className='header__icons'>
-        {/* NOTE: removed until in use.
+        {/* NOTE: removed until in use.;|
         <img
           className='header__expandIcon'
           src={ExpandArrow}
