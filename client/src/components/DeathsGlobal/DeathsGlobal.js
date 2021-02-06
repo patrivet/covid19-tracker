@@ -14,7 +14,12 @@ const DeathsGlobal = ({ globalStats }) => {
   return (
     /* Note: gDeaths = global deaths. */
     <div className='gDeaths boxShadow'>
-      <p className='gDeaths__title gDeaths__title--label'>🌎 deaths</p>
+      <p className='gDeaths__title gDeaths__title--label'>
+        <span role='img' aria-label='earth'>
+          🌎
+        </span>{' '}
+        deaths
+      </p>
       <p className='gDeaths__today-label'>today</p>
       <p className='gDeaths__todayValue gDeaths__todayValue--statsNumber'>
         {getFormattedNum(today.todayDeaths)}

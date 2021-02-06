@@ -14,7 +14,12 @@ const CasesGlobal = ({ globalStats }) => {
   return (
     /* Note: gCases = global cases */
     <div className='gCases boxShadow'>
-      <p className='gCases__title gCases__title--label'>🌎 cases</p>
+      <p className='gCases__title gCases__title--label'>
+        <span role='img' aria-label='earth'>
+          🌎
+        </span>{' '}
+        cases
+      </p>
       <p className='gCases__today-label'>today</p>
       <p className='gCases__todayValue gCases__todayValue--statsNumber'>
         {getFormattedNum(today.todayCases)}

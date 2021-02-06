@@ -8,7 +8,6 @@ import {
   XAxis,
   YAxis,
   Legend,
-  ColumnSeries,
   AreaSplineSeries,
   SplineSeries,
   Navigator,
@@ -25,7 +24,7 @@ const HighChart = props => {
       <div className='highChart'>
         {/* highChart -div needed to contain chart and allow it to auto scale width. */}
         <div className='highChart__title'>
-          <img className='highChart__icon' src={props.titleIcon} />
+          <img className='highChart__icon' src={props.titleIcon} alt='' />
           <p className='highChart__titleText label'>{props.title}</p>
         </div>
         <HighchartsStockChart className='highChart__chart'>

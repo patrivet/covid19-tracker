@@ -14,6 +14,7 @@ const StatisticIcon = ({ name, icon, iconSize, containerClasslist }) => {
         src={icon}
         className='iconContainer__icon'
         style={{ width: `${iconSize}px`, height: `${iconSize}px` }}
+        alt=''
       />
       {name ? <p className='iconContainer__label'>{name}</p> : null}
     </div>

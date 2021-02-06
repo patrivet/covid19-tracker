@@ -10,11 +10,7 @@ import './Header.css';
 import Sort from '../Sort';
 import ShowMenuItem from '../ShowMenuItem';
 import store from '../../store';
-import {
-  setDisplayMode,
-  setSorting,
-  setSelectedCountry,
-} from '../../actions/actions';
+import { setSelectedCountry } from '../../actions/actions';
 const PUBLIC_URL = process.env.PUBLIC_URL;
 
 const Header = () => {
@@ -30,7 +26,11 @@ const Header = () => {
     <div className='appHeader'>
       {!selectedCountry ? (
         <div className='appHeader__imgAndTitle'>
-          <img className='appHeader__img' src={CovidImg} />
+          <img
+            className='appHeader__img'
+            src={CovidImg}
+            alt='Covid-19 virus icon'
+          />
           <h4 className='appHeader__title'>
             <span className='title--firstLetter'>C</span>ovid-19{' '}
             <span className='title--firstLetter'>G</span>lobal{' '}

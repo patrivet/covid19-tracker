@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './CountryHeader.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -8,9 +8,6 @@ import {
   toggleCountryToFavourites,
   setSelectedCountry,
 } from '../../actions/actions';
-
-// Images
-import ExpandArrow from '../../assets/imgs/expand_arrow.png';
 
 const PUBLIC_URL = process.env.PUBLIC_URL;
 const iconStyle = { width: '26px', height: '26px' };

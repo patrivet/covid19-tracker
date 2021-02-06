@@ -21,6 +21,7 @@ export const getDeltaTrendImg = (val1, val2, class_name) => {
       <img
         className={`${class_name}__deltaSymbol ${class_name}--upArrow`}
         src={UpArrow}
+        alt='Up trend arrow'
       />
     );
   else if (delta === 0)
@@ -28,6 +29,7 @@ export const getDeltaTrendImg = (val1, val2, class_name) => {
       <img
         className={`${class_name}__deltaSymbol ${class_name}--levelArrow`}
         src={LevelArrow}
+        alt='Level trend arrow'
       />
     );
   else if (delta < 0)
@@ -35,6 +37,7 @@ export const getDeltaTrendImg = (val1, val2, class_name) => {
       <img
         className={`${class_name}__deltaSymbol ${class_name}--downArrow`}
         src={DownArrow}
+        alt='Down trend arrow'
       />
     );
 };
