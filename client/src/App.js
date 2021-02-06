@@ -100,7 +100,6 @@ function App() {
                     ) : null}
                   </div>
                   <CountriesList />
-                  <ScrollToTop smooth className='App_scrollToTop' />
                 </>
               )}
             </>
@@ -108,6 +107,8 @@ function App() {
         />
         <Route path='/country/:id' component={CountryDrillView} />
       </Switch>
+      <ScrollToTop smooth className='App_scrollToTop' />
+
       <Footer />
     </BrowserRouter>
   );
