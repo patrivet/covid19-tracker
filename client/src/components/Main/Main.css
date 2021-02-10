@@ -1,0 +1,26 @@
+.App__bookmarkTitle {
+  display: flex;
+  font-size: 14.5px;
+  padding-left: 28px;
+}
+.App__bookmarkImg {
+  color: #d36767;
+  padding-right: 5px;
+}
+.App__bookmarkText {
+  color: #9c9c94;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.error__title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #9c9c94;
+  text-emphasis: bold;
+  text-transform: uppercase;
+  font-weight: 1000;
+  height: 80vh;
+}

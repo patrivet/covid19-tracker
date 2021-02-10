@@ -55,21 +55,6 @@ a:active {
   outline: none;
 }
 
-.App__bookmarkTitle {
-  display: flex;
-  font-size: 14.5px;
-  padding-left: 28px;
-}
-.App__bookmarkImg {
-  color: #d36767;
-  padding-right: 5px;
-}
-.App__bookmarkText {
-  color: #9c9c94;
-  text-transform: uppercase;
-  font-weight: bold;
-}
-
 .cases {
   font-weight: 600;
   display: flex;

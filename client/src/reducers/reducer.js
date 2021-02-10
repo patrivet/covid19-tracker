@@ -18,8 +18,8 @@ const initalState = {
   search: '',
   chartPeriod: 'Last 7 Days',
   globalStats: {
-    todayData: {},
-    yesterdayData: {},
+    // todayData: {},
+    // yesterdayData: {},
   },
   countries: countries_data.countries, // this is an []
   favouriteCountries: getLocalStorageJSONProp('bookmarks') || [], // Get local storage bookmarked countries. Returns a non null array or just null.
