@@ -9,6 +9,7 @@ import deathsIcon from '../../assets/imgs/17-R.I.P_5929228_deaths.svg';
 import recoveredIcon from '../../assets/imgs/30-Doctor_5929214_recovered1.svg';
 
 import CountryDrillHeader from '../CountryDrillHeader';
+import CountryDrillNav from '../CountryDrillNav';
 import HighChart from '../HighChart';
 import Spinner from '../Spinner';
 import store from '../../store';
@@ -28,6 +29,7 @@ const CountryDrillView = props => {
 
   return (
     <>
+      <CountryDrillNav country={country} />
       {/* ---- Charts section ---- */}
       {/* When loading historical data -show spinner. */}
       {loading ? (

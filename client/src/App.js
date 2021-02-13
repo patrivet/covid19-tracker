@@ -69,7 +69,6 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Header />
       <Switch>
         <Route
           exact
@@ -80,7 +79,10 @@ function App() {
               {dataProcessed < countries.length * 2 + 2 ? (
                 <Spinner />
               ) : (
-                <Main />
+                <>
+                  <Header />
+                  <Main />
+                </>
               )}
             </>
           )}

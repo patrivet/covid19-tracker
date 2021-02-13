@@ -1,0 +1,31 @@
+.drillNav {
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  /* Position header top and make fixed/sticky */
+  position: sticky;
+  top: 0;
+  background-color: #f5f7f9;
+  z-index: 999;
+  color: #9c9c94;
+  text-emphasis: bold;
+  text-transform: uppercase;
+  font-weight: 1000;
+  margin: 0 0;
+  margin-left: 12px;
+}
+
+.drillNav > p::first-letter {
+  font-size: 1.35rem;
+}
+
+.drillNav__back {
+  color: #4d4e4e;
+  font-size: 40px;
+  padding-right: 30px;
+}
+
+.drillNav__countryImg {
+  width: 35px;
+  padding-right: 8px;
+}
