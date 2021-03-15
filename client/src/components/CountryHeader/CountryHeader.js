@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './CountryHeader.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { CircleFlag } from 'react-circle-flags'
 import store from '../../store';
 import { useSelector } from 'react-redux';
 import {
@@ -48,14 +49,7 @@ const CountryHeader = ({ country }) => {
     <div className='header'>
       <Link to={linkContent} onClick={handleSetCountry}>
         <div className='header__id'>
-          <img
-            className='header__img'
-            src={`
-              ${PUBLIC_URL}
-            /imgs/flags/${countryCode.toLowerCase()}.svg`}
-            alt=''
-            loading='lazy'
-          ></img>
+          <CircleFlag className='header__img' countryCode={countryCode.toLowerCase()} />
           {/* If country name > 17 in length -add class to use smaller font. */}
           <p
             className={`header__name ${

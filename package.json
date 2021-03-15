@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "luxon": "^1.25.0",
+    "react-circle-flags": "^0.0.13",
     "react-router-dom": "^5.2.0"
   }
 }

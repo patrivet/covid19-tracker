@@ -3,6 +3,7 @@ import './CountryDrillNav.css';
 
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { CircleFlag } from 'react-circle-flags'
 
 // Custom components
 import store from '../../store';
@@ -24,13 +25,7 @@ const CountryDrillNav = ({ country }) => {
           onClick={resetSelectedCountry}
         />
       </Link>
-      <img
-        className='drillNav__countryImg'
-        src={`
-            ${PUBLIC_URL}
-          /imgs/flags/${country.ISO2.toLowerCase()}.svg`}
-        alt=''
-      ></img>
+      <CircleFlag className='drillNav__countryImg' countryCode={country.ISO2.toLowerCase()} />
       <p>{country.name}</p>
     </div>
   );
