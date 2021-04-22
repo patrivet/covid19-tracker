@@ -6,11 +6,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './ShowMenuItem.css';
 
 import * as helpers from '../../utils/helperFunctions';
+const continents = ["Africa","Asia", 'Europe', 'North America', 'Oceania', "South America"];
 
 const ShowMenuItem = () => {
   let [menuShown, setMenuShown] = useState();
   let displayModal, closeBtn;
-  let showOptionElements = ['All countries', 'Bookmarked countries'];
+  let showOptionElements = ['All countries', 'Bookmarked countries', ...continents];
   const currentDisplayOption = useSelector(store => store.displayMode);
 
   const showMenu = event => {
