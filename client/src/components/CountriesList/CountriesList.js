@@ -18,6 +18,12 @@ const CountriesList = () => {
     countries = countries.filter(ctry =>
       favCountriesStrArr.includes(ctry.ISO2)
     );
+  } else if (displayMode !== 'All countries') {
+    /* Filter countries by selected continent */
+    const selectedContinent = displayMode;
+    countries = countries.filter(ctry =>
+      ctry.continent === selectedContinent
+    );
   }
 
   return (
