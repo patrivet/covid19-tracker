@@ -1,5 +1,5 @@
 .CountryCard {
-  height: 175px;
+  height: 205px;
   width: 305px; /* ? Could be better as 420x228 (w * h) */
   margin-left: 20px;
   margin-right: 20px;
@@ -50,7 +50,8 @@
     'CasesLabel DeathsLabel'
     'DailyCases DailyDeaths'
     'YesterdayCases YesterdayDeaths'
-    'TotalCases TotalDeaths';
+    'TotalCases TotalDeaths'
+    'PerMillionCases PerMillionDeaths';
   /* (Below 2 settings ->)Seperation from the Country header */
   padding-top: 3px;
 }
@@ -63,11 +64,11 @@
   grid-area: DeathsLabel;
 }
 
-.cases {
+.cases--today {
   grid-area: DailyCases;
 }
 
-.deaths {
+.deaths--today {
   grid-area: DailyDeaths;
 }
 
@@ -85,4 +86,12 @@
 
 .deaths.deaths--total {
   grid-area: TotalDeaths;
+}
+
+.cases--perMillion {
+  grid-area: PerMillionCases
+}
+
+.deaths--perMillion {
+  grid-area: PerMillionDeaths
 }

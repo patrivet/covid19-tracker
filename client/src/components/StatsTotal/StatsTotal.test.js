@@ -1,10 +1,10 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import DeathsTotal from './DeathsTotal';
+import StatsTotal from './StatsTotal';
 
-describe('DeathsTotal', () => {
+describe('StatsTotal', () => {
   test('matches snapshot', () => {
-    const wrapper = shallow(<DeathsTotal />);
+    const wrapper = shallow(<StatsTotal />);
     expect(wrapper).toMatchSnapshot();
   });
 });

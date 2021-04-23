@@ -5,9 +5,8 @@ import './CountryCard.css';
 // Custom components
 import CountryHeader from '../CountryHeader';
 import DeathsToday from '../DeathsToday';
-import CasesTotal from '../CasesTotal';
+import StatsTotal from '../StatsTotal';
 import CasesToday from '../CasesToday';
-import DeathsTotal from '../DeathsTotal';
 import CasesLabel from '../CasesLabel';
 import DeathsLabel from '../DeathsLabel';
 import CasesYesterday from '../CasesYesterday';
@@ -46,12 +45,15 @@ const CountryCard = ({ country }) => {
             todayDeaths={country.todayData.todayDeaths}
             yesterdayDeaths={country.yesterdayData.todayDeaths}
           />
-          <DeathsTotal totalDeaths={country.todayData.deaths} />
+          <StatsTotal label="Total" value={country.todayData.cases} className='cases'  />
+          <StatsTotal label="Total" value={country.todayData.deaths} className='deaths' />
+
           <CasesYesterday yesterdayCases={country.yesterdayData.todayCases} />
           <DeathsYesterday
             yesterdayDeaths={country.yesterdayData.todayDeaths}
           />
-          <CasesTotal totalCases={country.todayData.cases} />
+          <StatsTotal label="Per 1M" value={country.todayData.deathsPerOneMillion} className='deaths' containerClassName='deaths--perMillion' />
+          <StatsTotal label="Per 1M" value={country.todayData.casesPerOneMillion} className='cases'  containerClassName='cases--perMillion'/>
         </div>
       </Link>
     </div>
