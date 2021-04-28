@@ -5,14 +5,19 @@ import './Main.css';
 // Custom components
 import GlobalCard from '../GlobalCard';
 import CountriesList from '../CountriesList';
+import CovidImg from '../../assets/imgs/coronavirus-sars-mers-flu-virus-influenza.png';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Main = () => {
   const globalStats = useSelector(store => store.globalStats);
 
-  const areBookmarksShown =
-    useSelector(store => store.displayMode) === 'Bookmarked countries';
+  const displayMode =
+  useSelector(store => store.displayMode);
+
+  const showingGlobal =
+  useSelector(store => store.displayMode) === 'All countries';
+
   return (
     <>
       {/* Show messsage if data not set on globalStats */}
@@ -24,16 +29,13 @@ const Main = () => {
       ) : (
         <>
           <GlobalCard />
-          <div className='App__bookmarkTitle'>
-            {areBookmarksShown ? (
-              <>
-                <FontAwesomeIcon
-                  icon={['fas', 'book-open']}
-                  className='App__bookmarkImg'
-                />
-                <p className='App__bookmarkText'>bookmarked countries</p>
-              </>
-            ) : null}
+          <div className='App__mainViewTitle'>
+          {!showingGlobal ? (
+            <>
+              <img src={CovidImg} className='App__mainViewImg' style={{ height: '25px'}} />
+              <p className='App__mainViewText'>{displayMode}</p>
+            </>
+          ) : null}
           </div>
           <CountriesList />
         </>
