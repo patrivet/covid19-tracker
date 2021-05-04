@@ -51,15 +51,21 @@
 
 .sortMenu__sortOption {
   margin-bottom: 5px;
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
 }
 
 /* Highlight curret sort option and disable pointer */
 .sortMenu__sortOption.active {
   background-color: #d1d4d5;
+}
+
+img.direction-active:hover {
   cursor: not-allowed;
 }
 
-.sortMenu__sortOption.inactive:hover {
+img.direction-inactive:hover {
   cursor: pointer;
 }
 

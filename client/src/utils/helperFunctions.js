@@ -82,66 +82,40 @@ export function generateDailyStats(statsArr) {
 
 /* Sorting options property */
 export const sortOptions = [
-  { label: 'Name (Ascending)', sortVal: 'name', direction: 'asc' },
-  { label: 'Name (Descending)', sortVal: 'name', direction: 'desc' },
   {
-    label: 'Cases today (Ascending)',
+    label: 'Cases today',
     sortVal: 'todayData.todayCases',
-    direction: 'asc',
   },
   {
-    label: 'Cases today (Descending)',
-    sortVal: 'todayData.todayCases',
-    direction: 'desc',
-  },
-  {
-    label: 'Deaths today (Ascending)',
-    sortVal: 'todayData.todayDeaths',
-    direction: 'asc',
-  },
-  {
-    label: 'Deaths today (Descending)',
-    sortVal: 'todayData.todayDeaths',
-    direction: 'desc',
-  },
-  {
-    label: 'Cases yesterday (Ascending)',
+    label: 'Cases yesterday',
     sortVal: 'yesterdayData.todayCases',
-    direction: 'asc',
   },
   {
-    label: 'Cases yesterday (Descending)',
-    sortVal: 'yesterdayData.todayCases',
-    direction: 'desc',
+    label: 'Deaths today',
+    sortVal: 'todayData.todayDeaths',
   },
   {
-    label: 'Deaths yesterday (Ascending)',
+    label: 'Deaths yesterday',
     sortVal: 'yesterdayData.todayDeaths',
-    direction: 'asc',
   },
   {
-    label: 'Deaths yesterday (Descending)',
-    sortVal: 'yesterdayData.todayDeaths',
-    direction: 'desc',
-  },
-  {
-    label: 'Cases total (Ascending)',
+    label: 'Cases total',
     sortVal: 'todayData.cases',
-    direction: 'asc',
   },
   {
-    label: 'Cases total (Descending)',
-    sortVal: 'todayData.cases',
-    direction: 'desc',
-  },
-  {
-    label: 'Deaths total (Ascending)',
+    label: 'Deaths total',
     sortVal: 'todayData.deaths',
-    direction: 'asc',
   },
   {
-    label: 'Deaths total (Descending)',
-    sortVal: 'todayData.deaths',
-    direction: 'desc',
+    label: 'Cases per 1M',
+    sortVal: 'todayData.casesPerOneMillion',
+  },
+  {
+    label: 'Deaths per 1M',
+    sortVal: 'todayData.deathsPerOneMillion',
+  },
+  {
+    label: 'Name',
+    sortVal: 'name',
   },
 ];

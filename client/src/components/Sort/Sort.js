@@ -8,7 +8,6 @@ import './Sort.css';
 
 // Custom components
 import { sortOptions } from '../../utils/helperFunctions';
-/* TODO make sortOptions a shorter list by have an arrow for click to change from Ascending to Descending */
 import * as helpers from '../../utils/helperFunctions';
 
 const Sort = () => {
@@ -23,10 +22,17 @@ const Sort = () => {
   };
 
   const applySort = sortOption => {
+    /* Only handle apply sort if NOT the current sort option */
+    if (isActiveSort(sortOption)) return
+
     // Dispatch sorting action & then close modal
     store.dispatch(setSorting(sortOption));
     handleModalClose();
   };
+
+  const isActiveSort = (sortToSet) => {
+    return activeSortOption.label === sortToSet.label && activeSortOption.direction === sortToSet.direction
+  }
 
   const closeMenu = event => {
     /* Check the click event is the close button or a sort option
@@ -51,6 +57,21 @@ const Sort = () => {
       helpers.toggleBlurClasses();
     }
   }, [menuShown]);
+
+  const getArrow = (direction, sortOption, classNames) => {
+    const sortOptionCopy = {...sortOption, direction};
+    const isActive = isActiveSort(sortOptionCopy);
+    const activeText = (isActive) ? '-active' : '';
+    classNames +=
+    (isActive)
+      ? ' direction-active'
+      : ' direction-inactive';
+    return (
+      <img src={`/caret-arrow-${direction}${activeText}.png`} className={classNames} onClick={() => {
+        applySort(sortOptionCopy)}}
+      ></img>
+    )
+  }
 
   return (
     <div className='sortMenu'>
@@ -86,6 +107,8 @@ const Sort = () => {
             </div>
             <br />
 
+            {/* THIS DOESN'T WORK SO USING FUNCTION INSTEAD OF COMPONENT <Arrow selected={true} sortOption={opt} /> */}
+
             {sortOptions.map(option => {
               let classNames = 'sortMenu__sortOption';
               /* Mark the active sort option an 'active' class, all others add an 'inactive' class. */
@@ -94,19 +117,17 @@ const Sort = () => {
                   ? ' active'
                   : ' inactive';
               return (
-                <div
-                  key={`${option.sortVal}_${option.direction}`}
-                  className={classNames}
-                  ref={element => {
-                    sortOptionElements.push(element);
-                  }}
-                  onClick={() => {
-                    /* Only handle click if NOT the current sort option */
-                    if (activeSortOption.label !== option.label)
-                      applySort(option);
-                  }}
-                >
-                  {option.label}
+                <div className={classNames} key={`${option.sortVal}`}>
+                  {getArrow('asc', option, classNames)}
+                  {getArrow('desc', option, classNames)}
+                  <div
+                    className={classNames}
+                    ref={element => {
+                      sortOptionElements.push(element);
+                    }}
+                  >
+                    {option.label}
+                  </div>
                 </div>
               );
             })}
