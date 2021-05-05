@@ -5,9 +5,6 @@ import './Main.css';
 // Custom components
 import GlobalCard from '../GlobalCard';
 import CountriesList from '../CountriesList';
-import CovidImg from '../../assets/imgs/coronavirus-sars-mers-flu-virus-influenza.png';
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Main = () => {
   const globalStats = useSelector(store => store.globalStats);
@@ -17,6 +14,8 @@ const Main = () => {
 
   const showingGlobal =
   useSelector(store => store.displayMode) === 'All countries';
+
+  const displayImageName = (displayMode === 'Bookmarked countries') ? 'bookmark' : displayMode;
 
   return (
     <>
@@ -32,7 +31,8 @@ const Main = () => {
           <div className='App__mainViewTitle'>
           {!showingGlobal ? (
             <>
-              <img src={CovidImg} className='App__mainViewImg' style={{ height: '25px'}} />
+              {/* Main header */}
+              <img src={`/${displayImageName}.png`} className='App__mainViewImg' style={{ height: '25px'}} />
               <p className='App__mainViewText'>{displayMode}</p>
             </>
           ) : null}
