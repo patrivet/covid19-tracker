@@ -1,13 +1,14 @@
 .App__mainViewTitle {
   display: flex;
-  font-size: 14.5px;
+  font-size: 18px;
   padding-left: 28px;
   align-items: center;
 }
+
 .App__mainViewImg {
-  color: #d36767;
-  padding-right: 5px;
+  padding-right: 10px;
 }
+
 .App__mainViewText {
   color: #9c9c94;
   text-transform: uppercase;
