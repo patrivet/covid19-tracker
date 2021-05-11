@@ -103,9 +103,21 @@ const Sort = () => {
                 icon={faSortAmountDown}
                 className='menu__img fa-2x'
               />
-              <h3>Sort Countries by: </h3>
+              <h3>Sort by: </h3>
             </div>
-            <br />
+
+            <div className="menu__key">
+              <p className="menu__key_label">Key:</p>
+              <img className="menu__key_asc" src={`/caret-arrow-asc.png`}></img>
+              <p className="menu__key_ascLabel" >Ascending</p>
+              <img className="menu__key_desc" src={`/caret-arrow-desc.png`}></img>
+              <p className="menu__key_descLabel" >Descending</p>
+              <div className="menu__key_active">
+                <img src={`/caret-arrow-asc-active.png`}></img>
+                <img src={`/caret-arrow-desc-active.png`}></img>
+              </div>
+              <p className="menu__key_activeLabel" >Active sort</p>
+            </div>
 
             {/* THIS DOESN'T WORK SO USING FUNCTION INSTEAD OF COMPONENT <Arrow selected={true} sortOption={opt} /> */}
 
