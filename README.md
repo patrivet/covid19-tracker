@@ -35,7 +35,7 @@ Country view:
  3. Install ```npm install```
  4. Inside the /client/src/ directory, create an '.env' environment file and populate with the following content:-
 ```
-REACT_APP_COVID_DAILY_DATA_API=https://disease.sh/v3/covid-19/countries/<COUNTRY_CODE>?yesterday=<YESTERDAY>&twoDaysAgo=false&strict=true&allowNull=false
+REACT_APP_COVID_DAILY_DATA_API=https://disease.sh/v3/covid-19/countries/<COUNTRY_CODE>?yesterday=<YESTERDAY>&twoDaysAgo=false&strict=true&allowNull=true
 REACT_APP_COVID_GLOBAL_TOTALS_API=https://disease.sh/v3/covid-19/all?yesterday=<YESTERDAY>&twoDaysAgo=false&allowNull=false
 REACT_APP_COVID_HISTORICAL_DATA_API=https://disease.sh/v3/covid-19/historical/<COUNTRY_CODE>?lastdays=all
 ```
