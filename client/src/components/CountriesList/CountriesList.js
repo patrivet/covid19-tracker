@@ -27,31 +27,23 @@ const CountriesList = () => {
   }
 
   const applySort = (countriesIn) => {
-    // if the sortVal is todaydata - cases or deaths-
-    // i) remove the values with null ii) apply sort & add the null values back to the end of the array.
+    // Filter countries to exclude -where the curernt sort is today cases or today deaths - those who have a null value, for those respective stats.
     let countriesToSort = [];
     let excludedFromSort = [];
     const currentSortVal = sortOption.sortVal;
-
-    // Filter countries array to exclude those with a null value for today's cases or today's deaths.
-    const sortIsTodayCases = currentSortVal === 'todayData.todayCases';
-    const sortIsTodayDeaths = currentSortVal === 'todayData.todayDeaths';
-
     countriesIn.forEach( nextCountry => {
-      if (sortIsTodayCases && !nextCountry.todayData.todayCases) {
+      if (currentSortVal === 'todayData.todayCases'&& !nextCountry.todayData.todayCases) {
         excludedFromSort.push(nextCountry);
         return;
       }
-      if (sortIsTodayDeaths && !nextCountry.todayData.todayDeaths) {
+      if (currentSortVal === 'todayData.todayDeaths'&& !nextCountry.todayData.todayDeaths) {
         excludedFromSort.push(nextCountry);
         return;
       }
-      // Add the country so included for sorting array
       return countriesToSort.push(nextCountry);
-    }, [])
-    // Order the included countries
+    });
+    // Order the included countries & add the excluded Countries to the end of the array
     countriesToSort = orderBy(countriesToSort, [sortOption.sortVal], [sortOption.direction])
-    // add the excluded Countries to the end of the array
     return [...countriesToSort, ...excludedFromSort]
   }
 
