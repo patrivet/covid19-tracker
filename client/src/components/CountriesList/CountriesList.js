@@ -26,9 +26,38 @@ const CountriesList = () => {
     );
   }
 
+  const applySort = (countriesIn) => {
+    // if the sortVal is todaydata - cases or deaths-
+    // i) remove the values with null ii) apply sort & add the null values back to the end of the array.
+    let countriesToSort = [];
+    let excludedFromSort = [];
+    const currentSortVal = sortOption.sortVal;
+
+    // Filter countries array to exclude those with a null value for today's cases or today's deaths.
+    const sortIsTodayCases = currentSortVal === 'todayData.todayCases';
+    const sortIsTodayDeaths = currentSortVal === 'todayData.todayDeaths';
+
+    countriesIn.forEach( nextCountry => {
+      if (sortIsTodayCases && !nextCountry.todayData.todayCases) {
+        excludedFromSort.push(nextCountry);
+        return;
+      }
+      if (sortIsTodayDeaths && !nextCountry.todayData.todayDeaths) {
+        excludedFromSort.push(nextCountry);
+        return;
+      }
+      // Add the country so included for sorting array
+      return countriesToSort.push(nextCountry);
+    }, [])
+    // Order the included countries
+    countriesToSort = orderBy(countriesToSort, [sortOption.sortVal], [sortOption.direction])
+    // add the excluded Countries to the end of the array
+    return [...countriesToSort, ...excludedFromSort]
+  }
+
   return (
     <div className='countriesList'>
-      {orderBy(countries, [sortOption.sortVal], [sortOption.direction]).map(
+      {applySort(countries).map(
         country => {
           return <CountryCard key={country.ISO2} country={country} />;
         }
