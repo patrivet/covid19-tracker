@@ -1,5 +1,6 @@
 import React from 'react';
 import { getFormattedNum } from '../../utils/helperFunctions.js';
+import MissingData from '../MissingData';
 
 const StatisticValue = ({
   statName,
@@ -14,12 +15,17 @@ const StatisticValue = ({
   if (displaySize === 'small')
     containerClasses += ' valueContainer--smallerFont';
 
+    // 2=used for yesterday ("No data reported") 1=used for today ("Awaiting data")
+    const messageTypeEnum = (statName === 'yesterday') ? 2 : 1;
+    const noDataReported = !statValue;
   return (
     <div className={containerClasses} style={{ marginBottom: '6px' }}>
       <h6 className='valueContainer__label'>{statName}</h6>
-      <div className='valueContainer__statsNumber'>
+      {noDataReported
+      ? <MissingData messageTypeEnum={messageTypeEnum}/>
+      : <div className='valueContainer__statsNumber'>
         {getFormattedNum(statValue)}
-      </div>
+      </div>}
     </div>
   );
 };

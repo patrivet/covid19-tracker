@@ -3,7 +3,7 @@ import NumberFormat from 'react-number-format';
 
 // Custom components & utils
 import * as helpers from '../../utils/helperFunctions.js';
-import AwaitingData from '../AwaitingData';
+import MissingData from '../MissingData';
 
 const DeathsToday = ({ todayDeaths, yesterdayDeaths }) => {
   /* Show deaths number (show 'Awaiting data' if value is null) and, if non-null, show trend arrow
@@ -14,7 +14,7 @@ const DeathsToday = ({ todayDeaths, yesterdayDeaths }) => {
     <div className='deaths'>
       <h6 className='deaths__label'>Today</h6>
       {nullData
-        ? <AwaitingData/>
+        ? <MissingData messageTypeEnum={1}/>
         :
         <div className='deaths__statsNumber'>
           <NumberFormat

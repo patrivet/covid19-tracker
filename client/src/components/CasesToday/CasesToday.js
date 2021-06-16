@@ -3,7 +3,7 @@ import './CasesToday.css';
 
 // Custom components & utils
 import * as helpers from '../../utils/helperFunctions.js';
-import AwaitingData from '../AwaitingData';
+import MissingData from '../MissingData';
 
 const CasesToday = ({ todayCases, yesterdayCases }) => {
   /* Show cases number (show as 'awaiting data' if value is null) and, if non-null, show trend arrow
@@ -14,7 +14,7 @@ const CasesToday = ({ todayCases, yesterdayCases }) => {
     <div className='cases cases--today'>
       <h6 className='cases__label'>Today</h6>
       {nullData
-      ? <AwaitingData/>
+      ? <MissingData messageTypeEnum={1}/>
       : <div className='cases__statsNumber'>
         {helpers.getFormattedNum(todayCases)}
         {helpers.getDeltaTrendImg(todayCases, yesterdayCases, 'cases')}
