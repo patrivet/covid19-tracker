@@ -1,5 +1,42 @@
 @import './_GlobalVariables.css';
 
+/* Reset stylesheet defaults */
+/* Button */
+button {
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  overflow: visible;
+  background: transparent;
+
+  /* inherit font & color from ancestor */
+  color: var(--button-color);
+  font: inherit;
+
+  /* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
+  line-height: normal;
+
+  /* Corrects font smoothing for webkit */
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+
+  /* Corrects inability to style clickable `input` types in iOS */
+  -webkit-appearance: none;
+  transform: 150ms ease;
+}
+
+button:hover {
+  color: var(--button-hover-color);
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+a,
+button {
+  touch-action: manipulation;
+}
+
 body {
   font-family: 'Lato', sans-serif;
   font-size: var(--body-font-size);

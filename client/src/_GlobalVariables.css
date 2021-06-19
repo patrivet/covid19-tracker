@@ -1,6 +1,8 @@
 :root {
   --body-font-size: 19px;
   --header-font-size: 16px;
+  --button-color: #4d4e4e;
+  --button-hover-color: #9c9c94;
 }
 
 /* Media Query- Tablet and mobile screens: */
