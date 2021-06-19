@@ -51,10 +51,10 @@ const ShowMenuItem = () => {
 
   return (
     <div className='showMenu'>
-      <div className='showMenu__icon' onClick={showMenu}>
+      <button className='showMenu__icon' onClick={showMenu}>
         <FontAwesomeIcon icon={['fas', 'glasses']} className='fa-2x' />
         <p className='showMenu__label'>Show</p>
-      </div>
+      </button>
       {/* Show or Hide Display choice modal */}
       {menuShown ? (
         <div
@@ -64,14 +64,13 @@ const ShowMenuItem = () => {
             displayModal = element;
           }}
         >
-          <div
-            ref={element => {
-              closeBtn = element;
-            }}
-            className='menu__close'
-          >
-            &times;
-          </div>
+        <button className='menu__close'
+          ref={element => {
+            closeBtn = element;
+          }}
+        >
+          &times;
+        </button>
           <br />
           <div>
             <div className='menu__header'>

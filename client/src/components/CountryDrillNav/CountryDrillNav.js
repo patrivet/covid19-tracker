@@ -18,13 +18,15 @@ const CountryDrillNav = ({ country }) => {
 
   return (
     <div className='drillNav'>
-      <Link to='/'>
-        <FontAwesomeIcon
-          icon={['fas', 'angle-left']}
-          className='drillNav__back'
-          onClick={resetSelectedCountry}
-        />
-      </Link>
+      <button>
+        <Link to='/'>
+          <FontAwesomeIcon
+            icon={['fas', 'angle-left']}
+            className='drillNav__back'
+            onClick={resetSelectedCountry}
+          />
+        </Link>
+      </button>
       <CircleFlag className='drillNav__countryImg' countryCode={country.ISO2.toLowerCase()} />
       <p>{country.name}</p>
     </div>

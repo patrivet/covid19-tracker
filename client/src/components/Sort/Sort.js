@@ -75,11 +75,9 @@ const Sort = () => {
 
   return (
     <div className='sortMenu'>
-      <button>
-        <div className='sortMenu__icon' onClick={showMenu}>
-          <FontAwesomeIcon icon={faSortAmountDown} className='fa-2x' />
-          <p className='sortMenu__label'>Sort</p>
-        </div>
+      <button className='sortMenu__icon' onClick={showMenu}>
+        <FontAwesomeIcon icon={faSortAmountDown} className='fa-2x' />
+        <p className='sortMenu__label'>Sort</p>
       </button>
       {/* Show or Hide Sorting options div */}
       {menuShown ? (
@@ -90,14 +88,14 @@ const Sort = () => {
             sortModal = element;
           }}
         >
-          <div
+          <button
             ref={element => {
               closeBtn = element;
             }}
             className='menu__close'
           >
             &times;
-          </div>
+          </button>
           <br />
           <div>
             <div className='menu__header'>

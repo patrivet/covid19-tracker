@@ -69,12 +69,14 @@ const CountryHeader = ({ country }) => {
           style={iconStyle}
         /> */}
 
-        <FontAwesomeIcon
-          className='header__favouriteIcon'
-          icon={getFavIconStyle()}
-          style={{ iconStyle }}
-          onClick={() => toggleFav(countryCode)}
-        />
+        <button>
+          <FontAwesomeIcon
+            className='header__favouriteIcon'
+            icon={getFavIconStyle()}
+            style={{ iconStyle }}
+            onClick={() => toggleFav(countryCode)}
+          />
+        </button>
       </div>
     </div>
   );

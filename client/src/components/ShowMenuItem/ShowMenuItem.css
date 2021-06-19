@@ -1,15 +1,5 @@
-.showMenu > *[class$='icon'] {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.showMenu__icon{
   margin-left: 20px;
-  cursor: pointer;
-  color: #4d4e4e;
-}
-
-.showMenu > *[class$='icon']:hover {
-  color: #9c9c94;
-  transform: scale(1.1);
 }
 
 .showMenu__label {
