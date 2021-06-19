@@ -50,7 +50,6 @@
 
 .header__favouriteIcon:hover {
   color: #747471;
-  transform: scale(1.1);
 }
 
 /* ? These dimension setting aren't working? */
