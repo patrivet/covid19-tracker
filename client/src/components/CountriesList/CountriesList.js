@@ -27,7 +27,7 @@ const CountriesList = () => {
   }
 
   const applySort = (countriesIn) => {
-    // Filter countries to exclude -where the curernt sort is today cases or today deaths - those who have a null value, for those respective stats.
+    // Filter countries to exclude -where the current sort is cases or deaths - those who have a null value, for those respective stats.
     let countriesToSort = [];
     let excludedFromSort = [];
     const currentSortVal = sortOption.sortVal;
@@ -37,6 +37,14 @@ const CountriesList = () => {
         return;
       }
       if (currentSortVal === 'todayData.todayDeaths'&& !nextCountry.todayData.todayDeaths) {
+        excludedFromSort.push(nextCountry);
+        return;
+      }
+      if (currentSortVal === 'yesterdayData.todayCases'&& !nextCountry.yesterdayData.todayCases) {
+        excludedFromSort.push(nextCountry);
+        return;
+      }
+      if (currentSortVal === 'yesterdayData.todayDeaths'&& !nextCountry.yesterdayData.todayDeaths) {
         excludedFromSort.push(nextCountry);
         return;
       }
