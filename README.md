@@ -21,9 +21,6 @@ Current hosting status:
 
 ![Global view:](/assets/screenshots/GlobalView.png)
 
-![Sorting options](/assets/screenshots/Sorting_Options.png)
-![display options](/assets/screenshots/Display_Options.png)
-
 Country view:
 ![Country view:](/assets/screenshots/Country_View1.png)
 ![Country view 2:](/assets/screenshots/Country_View2.png)
