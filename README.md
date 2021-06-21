@@ -19,7 +19,11 @@ Current hosting status:
 
 ## Screenshots:
 
+Global view
 ![Global view:](/assets/screenshots/GlobalView.png)
+
+![Sorting options](/assets/screenshots/Sorting_Options.png)
+![display options](/assets/screenshots/Display_Options.png)
 
 Country view:
 ![Country view:](/assets/screenshots/Country_View1.png)
