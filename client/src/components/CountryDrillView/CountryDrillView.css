@@ -4,10 +4,10 @@
   grid-template-rows: repeat(4, 1fr);
   grid-template-columns: 50% 50%;
   grid-template-areas:
+    'CasesAndDeathsChart CasesAndDeathsChart'
     'CasesDailyChart CasesCumulativeChart'
     'DeathsDailyChart DeathsCumulativeChart'
-    'RecoverDailyChart RecoverCumulativeChart'
-    'CasesAndDeathsChart CasesAndDeathsChart';
+    'RecoverDailyChart RecoverCumulativeChart';
 }
 
 .casesDailyChart {
