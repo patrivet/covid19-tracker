@@ -1,15 +1,17 @@
+@import '../../_GlobalVariables.css';
+
 .footer {
   position: fixed;
   left: 0;
   bottom: 0;
-  background-color: #f5f7f9;
+  background-color: var(--background-color);
   padding: 5px;
   margin-right: 15px;
   width: 100%;
   display: flex;
   justify-content: space-between;
   text-align: center;
-  color: #9c9c94;
+  color: var(--primary-label-color);
   font-size: 10px;
   align-items: flex-end;
   box-shadow: 0px 3px 3px -2px rgb(0 0 0 / 20%),
@@ -22,18 +24,18 @@
 
 /* Anchor tag colours (footer anchor tags only UFN) */
 .footer a:link {
-  color: #9c9c94;
+  color: var(--primary-label-color);
   background-color: transparent;
 }
 
 .footer a:visited {
-  color: #9c9c94;
+  color: var(--anchor-visited-color);
   background-color: transparent;
   text-decoration: none;
 }
 
 .footer a:hover {
-  color: darkblue;
+  color: var(--anchor-hover-color);
   background-color: transparent;
   text-decoration: underline;
 }

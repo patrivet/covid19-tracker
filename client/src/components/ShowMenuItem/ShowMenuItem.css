@@ -1,3 +1,5 @@
+@import '../../_GlobalVariables.css';
+
 .showMenu__icon{
   margin-left: 20px;
 }
@@ -26,7 +28,7 @@ menu {
 
 /* Highlight current display option and disable pointer */
 .showMenu__displayOption.active {
-  background-color: #d1d4d5;
+  background-color: var(--selected-item-color);
   cursor: not-allowed;
 }
 
@@ -35,9 +37,9 @@ menu {
 }
 
 .showMenu__displayOption.inactive:hover {
-  background-color: #f5f7f9;
+  background-color: var(--selectable-item-hover-color);
 }
 
 .sortMenu__displayOption.inactive:active {
-  background-color: #d1d4d5;
+  background-color: var(--selected-item-color);
 }

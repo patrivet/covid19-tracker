@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import {ReactComponent as SortArrow} from './arrow.svg';
 import { useSelector } from 'react-redux';
 import store from '../../store';
 import { setSorting } from '../../actions/actions';
@@ -61,15 +62,21 @@ const Sort = () => {
   const getArrow = (direction, sortOption, classNames) => {
     const sortOptionCopy = {...sortOption, direction};
     const isActive = isActiveSort(sortOptionCopy);
-    const activeText = (isActive) ? '-active' : '';
-    classNames +=
-    (isActive)
+    classNames +=    (isActive)
       ? ' direction-active'
       : ' direction-inactive';
+
+    // Add the arrow direction
+    classNames += ` ${direction}`;
+
     return (
-      <img src={`/caret-arrow-${direction}${activeText}.png`} className={classNames} onClick={() => {
+      // Replace <img> with <ReactComponent>
+      // <img src={`/caret-arrow-${direction}${activeText}.png`} className={classNames} onClick={() => {
+      //   applySort(sortOptionCopy)}}
+      // ></img>
+      <SortArrow height="24" className={classNames} onClick={() => {
         applySort(sortOptionCopy)}}
-      ></img>
+      />
     )
   }
 

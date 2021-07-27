@@ -1,3 +1,5 @@
+@import '../../_GlobalVariables.css';
+
 .sortMenu__label {
   font-size: 10px;
   margin-top: 3px;
@@ -10,11 +12,11 @@
   /* Center the menu horizontally. (here margin: 0 auto and using vw don't work) */
   left: 50%;
   transform: translate(-50%, 0%);
-  background-color: white;
+  background-color: var(--card-background-color);
   padding: 18px;
   padding-top: 5px;
   padding-right: 10px;
-  border: 1px solid lightgrey;
+  border: 1px solid var(--border-color);
   border-radius: 10px;
   z-index: 999;
 }
@@ -24,7 +26,7 @@
   grid-template: 1fr 1fr / max-content repeat(3, 1fr);
   align-items: center;
   justify-items: center;
-  border: 1px solid lightgrey;
+  border: 1px solid var(--border-color);
   border-radius: 4px;
   text-align: center;
   margin:10px 0;
@@ -70,7 +72,6 @@
 .menu__header {
   display: flex;
   align-items: center;
-  color: #333333;
 }
 
 .menu__img {
@@ -91,21 +92,32 @@
 
 /* Highlight curret sort option and disable pointer */
 .sortMenu__sortOption.active {
-  background-color: #d1d4d5;
-}
-
-img.direction-active:hover {
-  cursor: not-allowed;
-}
-
-img.direction-inactive:hover {
-  cursor: pointer;
+  background-color: var(--selected-item-color);
 }
 
 .sortMenu__sortOption.inactive:hover {
-  background-color: #f5f7f9;
+  background-color: var(--selectable-item-hover-color);
 }
 
 .sortMenu__sortOption.inactive:active {
-  background-color: #d1d4d5;
+  background-color: var(--selected-item-color);
+}
+
+/* NEW STYLE FOR SVG SORT ICONS */
+svg.desc {
+  transform: rotate(90deg);
+}
+svg.asc {
+  transform: rotate(270deg);
+}
+svg.direction-active {
+  fill: var(--virus-color);
+}
+
+svg.direction-active:hover {
+  cursor: not-allowed;
+}
+
+svg.direction-inactive:hover {
+  cursor: pointer;
 }

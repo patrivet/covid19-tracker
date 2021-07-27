@@ -41,7 +41,8 @@ button {
 body {
   font-family: 'Lato', sans-serif;
   font-size: var(--body-font-size);
-  background-color: #f5f7f9; /* ? Or white - TBC */
+  background-color: var(--background-color);
+  color: var(--primary-font-color);
 }
 
 /* Apply filter blur when body has blur class */
@@ -70,11 +71,11 @@ a:active {
 }
 
 .App_scrollToTop:hover {
-  background-color: grey;
+  background-color: var(--returnToTop-hover-background-color);
 }
 
 .App_scrollToTop:hover svg {
-  fill: white;
+  fill: var( --returnToTop-hover-color);
 }
 
 .App_scrollToTop {
@@ -88,7 +89,7 @@ a:active {
   width: 25px;
   height: 25px;
   transition: opacity 1s ease-in-out;
-  box-shadow: 0 9px 25px 0 rgba(132, 128, 177, 0.28);
+  box-shadow: 0 9px 25px 0 var(--returnToTop-shadow-color);
   border: none;
   outline: none;
 }
@@ -145,7 +146,7 @@ of the CountryCard (global view) */
 *[class$='label'] {
   text-transform: uppercase;
   font-size: 12px;
-  color: #9c9c94;
+  color: var(--primary-label-color);
   text-align: center;
 }
 
