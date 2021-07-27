@@ -3,7 +3,7 @@
   --header-font-size: 16px;
 
   /* Variables for dark-light-mode */
-  --virus-color: #D46767; /* Used for Sort direction arrow */
+  --virus-color: #D46767; /* Used for Sort direction arrow. */
   --button-color: #4d4e4e;
   --button-hover-color: #9c9c94;
   --background-color:#f5f7f9;
@@ -46,7 +46,14 @@
 
   /* ! TBC colors below */
   --card-shadow-color: blue;
-  --card-shadow-hover-color: blue;
+
+  /* Material-UI Paper box-shadow: */
+  --card-box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.2),
+    0px 3px 4px 0px rgba(0, 0, 0, 0.14), 0px 1px 8px 0px rgba(0, 0, 0, 0.12);
+
+  --card-shadow-hover-color: 0px 3px 8px -2px rgba(0, 0, 0, 0.2),
+  0px 3px 9px 0px rgba(0, 0, 0, 0.14), 0px 1px 12px 0px rgba(0, 0, 0, 0.12);
+
   --bookmarks-view-icon-color: blue;
   --continent-icon-color: blue;
 
@@ -62,6 +69,13 @@
 
   --chart-zoom-option-selected-color: #000000;
   --chart-zoom-option-selected-back-color: rgb(230, 235, 245);
+
+  /* ! Footer */
+  /* ! shadow */
+
+  /* ! Spinner colors */
+  /* ! TBC */
+
 }
 
 /* Media Query- Tablet and mobile screens: */
