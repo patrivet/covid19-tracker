@@ -83,24 +83,27 @@
   float: right;
 }
 
-.sortMenu__sortOption {
+.sortMenu__row {
   margin-bottom: 5px;
-  margin-right: 10px;
   display: flex;
   align-items: center;
 }
 
 /* Highlight curret sort option and disable pointer */
-.sortMenu__sortOption.active {
+.sortMenu__row.active {
   background-color: var(--selected-item-color);
 }
 
-.sortMenu__sortOption.inactive:hover {
+.sortMenu__row.inactive:hover {
   background-color: var(--selectable-item-hover-color);
 }
 
-.sortMenu__sortOption.inactive:active {
+.sortMenu__row.inactive:active {
   background-color: var(--selected-item-color);
+}
+
+.sortMenu__item {
+  margin-right: 5px;
 }
 
 /* NEW STYLE FOR SVG SORT ICONS */

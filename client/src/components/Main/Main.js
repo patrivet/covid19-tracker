@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import './Main.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 // Custom components
 import GlobalCard from '../GlobalCard';
@@ -32,7 +33,7 @@ const Main = () => {
           {!showingGlobal ? (
             <>
               {/* Main header */}
-              <img src={`/${displayImageName}.png`} className='App__mainViewImg' style={{ height: '25px'}} />
+              <FontAwesomeIcon className='App__mainViewImg' icon="bookmark" style={{ "width": '23px', 'height': '23px' }} />
               <p className='App__mainViewText'>{displayMode}</p>
             </>
           ) : null}
