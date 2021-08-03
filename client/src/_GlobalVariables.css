@@ -11,6 +11,8 @@
   --bookmark-icon-hover-color: #747471;
   --primary-font-color: rgb(0, 0, 0);
   --primary-label-color:#9c9c94;
+  --primary-font-color: pink;
+  --primary-label-color: pink;
   /* used for - Overall & Section titles,
   global labels and country labels -bar Cases & Deaths
   Drill down - header text.
@@ -40,13 +42,6 @@
   --selected-item-color: #d1d4d5;
   --selectable-item-hover-color: #f5f7f9;
 
-  /* ? ==========================================  */
-  /* ? Variables above this line have been inserted into  */
-  /* ? JSX to replace hard coded colors  */
-
-  /* ! TBC colors below */
-  --card-shadow-color: blue;
-
   /* Material-UI Paper box-shadow: */
   --card-box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.2),
     0px 3px 4px 0px rgba(0, 0, 0, 0.14), 0px 1px 8px 0px rgba(0, 0, 0, 0.12);
@@ -54,21 +49,32 @@
   --card-shadow-hover-color: 0px 3px 8px -2px rgba(0, 0, 0, 0.2),
   0px 3px 9px 0px rgba(0, 0, 0, 0.14), 0px 1px 12px 0px rgba(0, 0, 0, 0.12);
 
-  --bookmarks-view-icon-color: blue;
-  --continent-icon-color: blue;
+  /* --bookmarks-view-icon-color:  AS VIRUS-COLOR */
 
   /* ! All the Charting colors */
-  --chart-axis-color: rgb(102, 102, 102);
   --chart-axis-line-color: rgb(230, 230, 230);
+  --chart-range-label: #333333; /* e.g. "1w" */
+  --chart-range-option: #666666; /* e.g. "Zoom" */
+  --chart-range-option-background: rgb(247, 247, 247);
+  --chart-range-option-selected: #000000; /* e.g. "All" */
+  --chart-range-option-selected-background: rgb(230, 235, 245);
+  --chart-axis-label: #666666;
+  --chart-legend:#333333;
+  --chart-range-option-hover: #e6e6e6;
 
-  --chart-key-color: #333333;
-  --chart-zoom-label-color: #666666;
+  /* ? ==========================================  */
+  /* ? Variables above this line have been inserted into  */
+  /* ? JSX to replace hard coded colors  */
 
-  --chart-zoom-option-color: #333333;
-  --chart-zoom-option-back-color: rgb(247, 247, 247);
+  /* ! TBC colors below */
+  --continent-icon-color: blue; /* Currently pngs - need to fnd SVGs */
 
-  --chart-zoom-option-selected-color: #000000;
-  --chart-zoom-option-selected-back-color: rgb(230, 235, 245);
+  /* Chart to do:-
+  -- card background color
+  -- box shadow
+  -- chart colors (to stay the same??) TBC
+  -- Chart hover label and line coloring - TBC
+  */
 
   /* ! Footer */
   /* ! shadow */

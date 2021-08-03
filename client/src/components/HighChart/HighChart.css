@@ -1,3 +1,5 @@
+@import '../../_GlobalVariables.css';
+
 /* HighChart.css */
 .container {
   margin: 5px 15px;
@@ -30,3 +32,67 @@
 .highcharts-input-group {
   display: none;
 }
+
+/* Ordinarily CSS below would be set by props to highstock components inside JSX
+e.g. <RangeSelector selected={5} buttonTheme={{style { color: black}}}>
+however doing it in CSS for now */
+
+/* Grid lines */
+.highcharts-yaxis-grid > path {
+  stroke: var(--chart-axis-line-color);
+}
+
+/* range selector label */
+.highcharts-range-selector-buttons > text {
+  fill: var(--chart-range-label) !important;
+}
+
+/* range selector option- bg color */
+.highcharts-button-normal > rect {
+  fill: var(--chart-range-option-background);
+}
+
+/* range selector option - text */
+.highcharts-button-normal > text {
+  fill: var(--chart-range-option) !important;
+}
+
+/* range selector -selected option! */
+.highcharts-button-pressed > text {
+  fill: var(--chart-range-option-selected);
+}
+
+.highcharts-button-pressed > rect {
+  fill: var(--chart-range-option-selected-background);
+}
+
+/* chart axis text */
+.highcharts-axis-labels > text {
+  fill: var(--chart-axis-label) !important;
+}
+
+.highcharts-button-hover > rect {
+  fill: var(--chart-range-option-hover);
+}
+
+/* Legend */
+.highcharts-legend-item > text {
+  fill: var(--chart-legend) !important;
+}
+
+/* Fonts */
+/* .highcharts-range-selector-buttons {
+  font-family: 'Lato'
+}
+
+.highcharts-container {
+  font-family: 'Lato'
+}
+
+.highChart__chart {
+  font-family: 'Lato' !important;
+}
+
+div[id^="highcharts"] {
+  font-family: 'Lato' !important;
+}*/
