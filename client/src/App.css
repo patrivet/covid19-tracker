@@ -70,6 +70,11 @@ a:active {
   color: inherit;
 }
 
+.App_scrollToTop > svg {
+  /* Arrow color */
+  fill: var(--returnToTop-arrow-color);
+}
+
 .App_scrollToTop:hover {
   background-color: var(--returnToTop-hover-background-color);
 }
