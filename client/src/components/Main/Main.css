@@ -1,3 +1,5 @@
+@import '../../_GlobalVariables.css';
+
 .App__mainViewTitle {
   display: flex;
   font-size: 18px;
@@ -7,10 +9,11 @@
 
 .App__mainViewImg {
   padding-right: 10px;
+  color: var(--virus-color);
 }
 
 .App__mainViewText {
-  color: #9c9c94;
+  color: var(--primary-label-color);
   text-transform: uppercase;
   font-weight: bold;
 }
@@ -20,7 +23,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: #9c9c94;
+  color: var(--primary-label-color);
+
   text-emphasis: bold;
   text-transform: uppercase;
   font-weight: 1000;

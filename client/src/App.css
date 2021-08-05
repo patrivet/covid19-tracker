@@ -41,7 +41,8 @@ button {
 body {
   font-family: 'Lato', sans-serif;
   font-size: var(--body-font-size);
-  background-color: #f5f7f9; /* ? Or white - TBC */
+  background-color: var(--background-color);
+  color: var(--primary-font-color);
 }
 
 /* Apply filter blur when body has blur class */
@@ -69,16 +70,21 @@ a:active {
   color: inherit;
 }
 
+.App_scrollToTop > svg {
+  /* Arrow color */
+  fill: var(--returnToTop-arrow-color);
+}
+
 .App_scrollToTop:hover {
-  background-color: grey;
+  background-color: var(--returnToTop-hover-background-color);
 }
 
 .App_scrollToTop:hover svg {
-  fill: white;
+  fill: var( --returnToTop-hover-color);
 }
 
 .App_scrollToTop {
-  background-color: white;
+  background-color: var(--returnToTop-background-color);
   right: 10px;
   bottom: 30px; /* Above fixed footer */
   position: fixed;
@@ -88,7 +94,7 @@ a:active {
   width: 25px;
   height: 25px;
   transition: opacity 1s ease-in-out;
-  box-shadow: 0 9px 25px 0 rgba(132, 128, 177, 0.28);
+  box-shadow: 0 9px 25px 0 var(--returnToTop-shadow-color);
   border: none;
   outline: none;
 }
@@ -145,7 +151,7 @@ of the CountryCard (global view) */
 *[class$='label'] {
   text-transform: uppercase;
   font-size: 12px;
-  color: #9c9c94;
+  color: var(--primary-label-color);
   text-align: center;
 }
 
@@ -175,10 +181,8 @@ of the CountryCard) */
 /* Global box shadow */
 .boxShadow {
   border-radius: 6px;
-  /* Material-UI Paper box-shadow: */
-  box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.2),
-    0px 3px 4px 0px rgba(0, 0, 0, 0.14), 0px 1px 8px 0px rgba(0, 0, 0, 0.12);
-  background-color: white;
+  box-shadow: var(--card-box-shadow);
+  background-color: var(--card-background-color);
 }
 
 /* Media Queries */

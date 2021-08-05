@@ -1,3 +1,5 @@
+@import '../../_GlobalVariables.css';
+
 .drillNav {
   display: flex;
   align-items: center;
@@ -5,9 +7,9 @@
   /* Position header top and make fixed/sticky */
   position: sticky;
   top: 0;
-  background-color: #f5f7f9;
+  background-color: var(--background-color);
   z-index: 999;
-  color: #9c9c94;
+  color: var(--primary-label-color);
   text-emphasis: bold;
   text-transform: uppercase;
   font-weight: 1000;
@@ -20,7 +22,7 @@
 }
 
 .drillNav__back {
-  color: #4d4e4e;
+  color: var(--button-color);
   font-size: 40px;
   padding-right: 30px;
 }

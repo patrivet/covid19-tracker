@@ -1,3 +1,5 @@
+@import '../../_GlobalVariables.css';
+
 .appHeader {
   display: flex;
   margin: 10px;
@@ -6,7 +8,7 @@
   /* Position header top and make fixed/sticky */
   position: sticky;
   top: 0;
-  background-color: #f5f7f9;
+  background-color: var(--background-color);
   z-index: 999;
 }
 
@@ -22,7 +24,7 @@
 
 .appHeader__title,
 .appHeader__country {
-  color: #9c9c94;
+  color: var(--primary-label-color);
   text-emphasis: bold;
   text-transform: uppercase;
   font-weight: 1000;

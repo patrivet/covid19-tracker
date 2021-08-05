@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import {ReactComponent as SortArrow} from './arrow.svg';
 import { useSelector } from 'react-redux';
 import store from '../../store';
 import { setSorting } from '../../actions/actions';
@@ -58,18 +59,24 @@ const Sort = () => {
     }
   }, [menuShown]);
 
-  const getArrow = (direction, sortOption, classNames) => {
+  const getArrow = (direction, sortOption) => {
     const sortOptionCopy = {...sortOption, direction};
     const isActive = isActiveSort(sortOptionCopy);
-    const activeText = (isActive) ? '-active' : '';
-    classNames +=
-    (isActive)
+    let classNames = (isActive)
       ? ' direction-active'
       : ' direction-inactive';
+
+    // Add the arrow direction - so svg can be rotated to point up or down.
+    classNames += ` sortMenu__item ${direction}`;
+
     return (
-      <img src={`/caret-arrow-${direction}${activeText}.png`} className={classNames} onClick={() => {
+      // Replace <img> with <ReactComponent>
+      // <img src={`/caret-arrow-${direction}${activeText}.png`} className={classNames} onClick={() => {
+      //   applySort(sortOptionCopy)}}
+      // ></img>
+      <SortArrow height="20" width="20" className={classNames} onClick={() => {
         applySort(sortOptionCopy)}}
-      ></img>
+      />
     )
   }
 
@@ -108,13 +115,14 @@ const Sort = () => {
 
             <div className="menu__key">
               <p className="menu__key_label">Key:</p>
-              <img className="menu__key_asc" src={`/caret-arrow-asc.png`}></img>
+              <SortArrow height="18" width="18" className="menu__key_asc asc"/>
               <p className="menu__key_ascLabel" >Ascending</p>
-              <img className="menu__key_desc" src={`/caret-arrow-desc.png`}></img>
+              <SortArrow height="18" width="18" className="menu__key_desc desc"/>
+
               <p className="menu__key_descLabel" >Descending</p>
               <div className="menu__key_active">
-                <img src={`/caret-arrow-asc-active.png`}></img>
-                <img src={`/caret-arrow-desc-active.png`}></img>
+                <SortArrow height="18" width="18" className="menu__key_asc asc direction-active"/>
+                <SortArrow height="18" width="18" className="menu__key_desc desc direction-active"/>
               </div>
               <p className="menu__key_activeLabel" >Active sort</p>
             </div>
@@ -122,18 +130,16 @@ const Sort = () => {
             {/* THIS DOESN'T WORK SO USING FUNCTION INSTEAD OF COMPONENT <Arrow selected={true} sortOption={opt} /> */}
 
             {sortOptions.map(option => {
-              let classNames = 'sortMenu__sortOption';
               /* Mark the active sort option an 'active' class, all others add an 'inactive' class. */
-              classNames +=
+              let classNames =
                 activeSortOption.label === option.label
                   ? ' active'
                   : ' inactive';
               return (
-                <div className={classNames} key={`${option.sortVal}`}>
-                  {getArrow('asc', option, classNames)}
-                  {getArrow('desc', option, classNames)}
+                <div className={`sortMenu__row ${classNames}`} key={`${option.sortVal}`}>
+                  {getArrow('asc', option)}
+                  {getArrow('desc', option)}
                   <div
-                    className={classNames}
                     ref={element => {
                       sortOptionElements.push(element);
                     }}
