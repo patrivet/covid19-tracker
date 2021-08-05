@@ -79,7 +79,7 @@ a:active {
 }
 
 .App_scrollToTop {
-  background-color: white;
+  background-color: var(--returnToTop-background-color);
   right: 10px;
   bottom: 30px; /* Above fixed footer */
   position: fixed;
