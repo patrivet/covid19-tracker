@@ -32,6 +32,12 @@ const CountriesList = () => {
     let excludedFromSort = [];
     const currentSortVal = sortOption.sortVal;
     countriesIn.forEach( nextCountry => {
+      if (!nextCountry.todayData || !nextCountry.yesterdayData) {
+        console.warn('WARNING: country has missing today or yesterday API data =', nextCountry.name)
+        excludedFromSort.push(nextCountry);
+        return;
+      }
+
       if (currentSortVal === 'todayData.todayCases'&& !nextCountry.todayData.todayCases) {
         excludedFromSort.push(nextCountry);
         return;
