@@ -6,9 +6,15 @@ import './Footer.css';
 const Footer = () => {
   let updated = useSelector(store => store.updated);
 
+  const switchDarkLightMode = () => {
+    // ! FIXME: move to redux.
+    const body = document.querySelector('body');
+    body.classList.toggle('darkMode')
+  }
+
   return (
     <div className='footer'>
-      <input class="toggle" type="checkbox" />
+      <input class="toggle" type="checkbox" onClick={switchDarkLightMode}/>
 
       <div className='footer__source'>
         <p style={{"display":'inline-block'}}>
