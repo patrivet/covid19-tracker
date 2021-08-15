@@ -15,6 +15,28 @@ import { setSelectedCountry } from '../../actions/actions';
 import store from '../../store';
 
 const CountryCard = ({ country }) => {
+
+  /* Default values to null */
+  let todayCases = null;
+  let todayDeaths = null;
+  let yesterdayCases = null;
+  let yesterdayDeaths = null;
+  let casesPerOneMillion = null;
+  let deathsPerOneMillion = null;
+
+  /* replace null vlauee if there's today & yday data */
+  if (country.todayData) {
+    todayCases = country.todayData.todayCases;
+    todayDeaths = country.todayData.todayDeaths;
+    casesPerOneMillion = country.todayData.casesPerOneMillion;
+    deathsPerOneMillion = country.todayDatadeathsPerOneMillion
+  }
+
+  if (country.yesterdayData) {
+    yesterdayCases = country.yesterdayData.todayCases;
+    yesterdayDeaths = country.yesterdayData.todayDeaths;
+  }
+
   const linkContent = {
     pathname: `country/${country.ISO2}`,
     // pass the country as state for the link
@@ -38,22 +60,22 @@ const CountryCard = ({ country }) => {
           <CasesLabel />
           <DeathsLabel />
           <CasesToday
-            todayCases={country.todayData.todayCases}
-            yesterdayCases={country.yesterdayData.todayCases}
+            todayCases={todayCases}
+            yesterdayCases={yesterdayCases}
           />
           <DeathsToday
-            todayDeaths={country.todayData.todayDeaths}
-            yesterdayDeaths={country.yesterdayData.todayDeaths}
+            todayDeaths={todayDeaths}
+            yesterdayDeaths={yesterdayDeaths}
           />
-          <StatsTotal label="Total" value={country.todayData.cases} className='cases'  />
-          <StatsTotal label="Total" value={country.todayData.deaths} className='deaths' />
+          <StatsTotal label="Total" value={todayCases} className='cases'  />
+          <StatsTotal label="Total" value={todayDeaths} className='deaths' />
 
-          <CasesYesterday yesterdayCases={country.yesterdayData.todayCases} />
+          <CasesYesterday yesterdayCases={yesterdayCases} />
           <DeathsYesterday
-            yesterdayDeaths={country.yesterdayData.todayDeaths}
+            yesterdayDeaths={yesterdayDeaths}
           />
-          <StatsTotal label="Per 1M" value={country.todayData.deathsPerOneMillion} className='deaths' containerClassName='deaths--perMillion' />
-          <StatsTotal label="Per 1M" value={country.todayData.casesPerOneMillion} className='cases'  containerClassName='cases--perMillion'/>
+          <StatsTotal label="Per 1M" value={casesPerOneMillion} className='deaths' containerClassName='deaths--perMillion' />
+          <StatsTotal label="Per 1M" value={deathsPerOneMillion} className='cases'  containerClassName='cases--perMillion'/>
         </div>
       </Link>
     </div>
