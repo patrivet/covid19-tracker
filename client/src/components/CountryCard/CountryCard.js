@@ -21,6 +21,8 @@ const CountryCard = ({ country }) => {
   let todayDeaths = null;
   let yesterdayCases = null;
   let yesterdayDeaths = null;
+  let totalCases = null;
+  let totalDeaths = null;
   let casesPerOneMillion = null;
   let deathsPerOneMillion = null;
 
@@ -28,8 +30,10 @@ const CountryCard = ({ country }) => {
   if (country.todayData) {
     todayCases = country.todayData.todayCases;
     todayDeaths = country.todayData.todayDeaths;
+    totalCases = country.todayData.cases;
+    totalDeaths = country.todayData.deaths;
     casesPerOneMillion = country.todayData.casesPerOneMillion;
-    deathsPerOneMillion = country.todayDatadeathsPerOneMillion
+    deathsPerOneMillion = country.todayData.deathsPerOneMillion
   }
 
   if (country.yesterdayData) {
@@ -67,8 +71,8 @@ const CountryCard = ({ country }) => {
             todayDeaths={todayDeaths}
             yesterdayDeaths={yesterdayDeaths}
           />
-          <StatsTotal label="Total" value={todayCases} className='cases'  />
-          <StatsTotal label="Total" value={todayDeaths} className='deaths' />
+          <StatsTotal label="Total" value={totalCases} className='cases'  />
+          <StatsTotal label="Total" value={totalDeaths} className='deaths' />
 
           <CasesYesterday yesterdayCases={yesterdayCases} />
           <DeathsYesterday
