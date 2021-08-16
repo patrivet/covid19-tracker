@@ -30,19 +30,26 @@ const Main = () => {
         <>
           <GlobalCard />
           <div className='App__mainViewTitle'>
-          {!showingGlobal ? (
-            <>
-              {/* Main header */}
-              <FontAwesomeIcon className='App__mainViewImg' icon="bookmark" style={{ "width": '23px', 'height': '23px' }} />
-              <p className='App__mainViewText'>{displayMode}</p>
-            </>
-          ) : null}
+            {!showingGlobal && displayMode === 'Bookmarked countries' &&
+              <>
+                {/* Bookmarks icon*/}
+                <FontAwesomeIcon className='App__mainViewImg' icon="bookmark" style={{ "width": '23px', 'height': '23px' }} />
+              </>
+            }
+
+            {!showingGlobal && displayMode !== 'Bookmarked countries' &&
+              <>
+                {/* Continent icon */}
+                <img src={`/${displayImageName}.png`} className='App__mainViewImg' style={{ height: '25px'}} />
+              </>
+            }
+            {!showingGlobal && <p className='App__mainViewText'>{displayMode}</p>}
           </div>
           <CountriesList />
         </>
       )}
     </>
-  );
+  )
 };
 
 export default Main;
