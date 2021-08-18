@@ -1,0 +1,83 @@
+
+body .switch {
+  max-width: 800px;
+  /* padding: 2em; */
+  /* margin: 0 2em; */
+  background: white;
+  border-radius: 1em;
+  box-shadow: 0 0 1em rgba(0, 0, 0, 0.2);
+}
+/* Switch */
+.switch {
+ /* overall size */
+  --size: 1.5em;
+ /* Finetune switch */
+  --height: 2em;
+  --width: 4em;
+  --border: 0.15em;
+  --font-size: 1em;
+  --switch-color-checked: darkcyan;
+  --switch-color-unchecked: lightgrey;
+  --dot-color-checked: white;
+  --dot-color-unchecked: white;
+  font-size: var(--size);
+}
+.switch p {
+  font-size: var(--font-size);
+  letter-spacing: 0.05em;
+  font-weight: 300;
+  line-height: 1.4em;
+  color: #666;
+}
+.switch label {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  /* padding-left: calc(var(--width) + 1em); */
+  min-width: var(--width);
+  min-height: var(--height);
+ /* Switch Background */
+ /* Dot */
+}
+.switch label::before, .switch label::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: 0.25s ease-in-out;
+  box-sizing: border-box;
+}
+.switch label::before {
+  z-index: 1;
+  background-color: var(--switch-color-unchecked);
+  width: var(--width);
+  height: var(--height);
+  border-radius: calc(var(--height) * 0.5);
+  box-shadow: 0 0 0.4em rgba(0, 0, 0, 0.2);
+}
+.switch label::after {
+  z-index: 2;
+  background-color: var(--dot-color-unchecked);
+  height: calc(var(--height) - (var(--border) * 2));
+  width: calc(var(--height) - (var(--border) * 2));
+  transform: translate(var(--border), var(--border));
+  border-radius: calc(var(--height) / 2);
+}
+.switch label:active::after {
+  width: calc(var(--height) * 1.2);
+  max-width: calc(var(--height) * 2);
+}
+.switch input {
+  width: 0;
+  height: 0;
+  visibility: hidden;
+  display: none;
+}
+.switch input:checked + label::before {
+  transition: 0.5s;
+  background-color: var(--switch-color-checked);
+}
+.switch input:checked + label::after {
+  transform: translate(calc(var(--width) - 100% - var(--border)), var(--border));
+  background-color: var(--dot-color-checked);
+}

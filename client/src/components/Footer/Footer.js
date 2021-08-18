@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-
+import NightModeToggle from '../NightModeToggle';
 import './Footer.css';
 
 const Footer = () => {
@@ -14,7 +14,7 @@ const Footer = () => {
 
   return (
     <div className='footer'>
-      <input class="toggle" type="checkbox" onClick={switchDarkLightMode}/>
+      <NightModeToggle switchDarkLightMode={switchDarkLightMode}/>
 
       <div className='footer__source'>
         <p style={{"display":'inline-block'}}>
