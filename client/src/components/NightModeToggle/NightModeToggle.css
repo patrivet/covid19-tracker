@@ -10,7 +10,7 @@ body .switch {
 /* Switch */
 .switch {
  /* overall size */
-  --size: 1.5em;
+  --size: 1.2em;
  /* Finetune switch */
   --height: 2em;
   --width: 4em;
