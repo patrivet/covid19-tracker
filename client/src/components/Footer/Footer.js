@@ -17,17 +17,6 @@ const Footer = () => {
       <NightModeToggle switchDarkLightMode={switchDarkLightMode}/>
 
       <div className='footer__source'>
-        <p style={{"display":'inline-block'}}>
-          Built by{' '}
-          <a
-            href='http://github.com/patrivet'
-            target='_blank'
-            rel='noopener noreferrer'
-          >
-            Pat Rivet
-          </a>
-        </p>
-        <div style={{"margin":"0 5px", "display":'inline-block'}}>||</div>
         <p className='footer__source' style={{"display":'inline-block'}}>
           Source:{' '}
           <a
@@ -38,6 +27,17 @@ const Footer = () => {
           disease.sh
         </a>
       </p>
+        <div style={{"margin":"0 5px", "display":'inline-block'}}>-</div>
+        <p style={{"display":'inline-block'}}>
+          Built by{' '}
+          <a
+            href='http://github.com/patrivet'
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            Pat Rivet
+          </a>
+        </p>
       </div>
       <p className='footer__updated'>Updated: {updated}</p>
     </div>
