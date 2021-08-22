@@ -48,6 +48,20 @@ const CountryDrillView = props => {
               seriesId={'cases'}
               seriesLabel={'Cases'}
               seriesColor={'#99C4ED'}
+              series2Data={country.allDeathsDaily}
+              series2Id={'deaths'}
+              series2Label={'Deaths'}
+              series2Color={'#D36767'}
+              title={'Cases vs. Deaths (Daily)'}
+              titleIcon={casesIcon}
+              title2Icon={deathsIcon}
+              class='casesAndDeathsChart'
+            />
+            <HighChart
+              seriesData={country.allCasesDaily}
+              seriesId={'cases'}
+              seriesLabel={'Cases'}
+              seriesColor={'#99C4ED'}
               title={'Cases (Daily)'}
               titleIcon={casesIcon}
               class='casesDailyChart'
@@ -99,20 +113,6 @@ const CountryDrillView = props => {
               title={'Recoveries (Cumulative)'}
               titleIcon={recoveredIcon}
               class='recoverCumulativeChart'
-            />
-            <HighChart
-              seriesData={country.allCasesDaily}
-              seriesId={'cases'}
-              seriesLabel={'Cases'}
-              seriesColor={'#99C4ED'}
-              series2Data={country.allDeathsDaily}
-              series2Id={'deaths'}
-              series2Label={'Deaths'}
-              series2Color={'#D36767'}
-              title={'Cases vs. Deaths (Daily)'}
-              titleIcon={casesIcon}
-              title2Icon={deathsIcon}
-              class='casesAndDeathsChart'
             />
           </div>
         </>
