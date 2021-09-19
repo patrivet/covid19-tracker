@@ -12,6 +12,7 @@
   box-shadow: var(--card-box-shadow);
   background-color: var(--card-background-color);
   transition: all 0.1s ease-in 0s;
+  border: var(--card-border);
 }
 
 /* Media query for Mobile */
@@ -37,6 +38,7 @@
     transform: translateY(-8px);
     /* Increase blur on box shadow */
     box-shadow: var(--card-shadow-hover-color);
+    border: var(--card-border-hover);
   }
 }
 
