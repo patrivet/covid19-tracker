@@ -43,3 +43,7 @@ menu {
 .sortMenu__displayOption.inactive:active {
   background-color: var(--selected-item-color);
 }
+
+.showMenu__displayOption.active {
+  color: var(--selected-item-fg-color);
+}

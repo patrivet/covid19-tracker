@@ -104,6 +104,7 @@
 
 .sortMenu__item {
   margin-right: 5px;
+  fill: var(--non-selected-arrow);
 }
 
 /* NEW STYLE FOR SVG SORT ICONS */
@@ -123,4 +124,8 @@ svg.direction-active:hover {
 
 svg.direction-inactive:hover {
   cursor: pointer;
+}
+
+.sortMenu__row.active div {
+  color: var(--selected-item-fg-color);
 }

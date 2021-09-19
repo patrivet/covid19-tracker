@@ -64,7 +64,7 @@ however doing it in CSS for now */
 
 /* range selector -selected option! */
 .highcharts-button-pressed > text {
-  fill: var(--chart-range-option-selected);
+  fill: var(--chart-range-option-selected) !important;
 }
 
 .highcharts-button-pressed > rect {
@@ -73,7 +73,7 @@ however doing it in CSS for now */
 
 /* chart axis text */
 .highcharts-axis-labels > text {
-  fill: var(--chart-axis-label) !important;
+  fill: var(--chart-axis-value) !important;
 }
 
 .highcharts-button-hover > rect {
@@ -83,6 +83,14 @@ however doing it in CSS for now */
 /* Legend */
 .highcharts-legend-item > text {
   fill: var(--chart-legend) !important;
+}
+
+.highcharts-button {
+  cursor: pointer !important;
+}
+
+.highcharts-axis > text {
+  fill: var(--chart-axis-label) !important;
 }
 
 /* Fonts */
