@@ -30,6 +30,7 @@ const initalState = {
   displayMode: getLocalStorageJSONProp('displayMode') || 'All countries', // Get the last set display mode (from local store) - or use default.
   selectedCountry: null, // When set, is an Object with countryCode and name of selected country
   dataLoadingErrors: [], // Holds array of possible exceptions thrown during REST calls.
+  darkMode: getLocalStorageJSONProp('darkMode') || false
 };
 
 export default function (state = initalState, action) {
@@ -239,6 +240,13 @@ export default function (state = initalState, action) {
       return {
         ...state,
         dataLoadingErrors: [...state.dataLoadingErrors, action.payload],
+      };
+
+    case actions.SET_DARK_MODE:
+      helperFunctions.addToLocalStorageAsJSON('darkMode', action.payload);
+      return {
+        ...state,
+        darkMode: action.payload,
       };
 
     default:

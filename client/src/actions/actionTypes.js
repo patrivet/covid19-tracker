@@ -33,3 +33,6 @@ export const SET_DISPLAY_MODE = 'setDisplayMode';
 // Country actions
 export const TOGGLE_COUNTRY_TO_FAVOURITES = 'toggleCountryToFavourites';
 export const SET_SELECTED_COUNTRY = 'setSelectedCountry';
+
+// UI settings
+export const SET_DARK_MODE = 'setDarkMode';
