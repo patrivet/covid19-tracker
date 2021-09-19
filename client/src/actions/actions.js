@@ -144,6 +144,13 @@ export function addAPIError(payload) {
   };
 }
 
+export function setDarkMode(payload) {
+  return {
+    type: actions.SET_DARK_MODE,
+    payload,
+  };
+}
+
 // ! FIX ME: use the factory -and remove redundant code used in 3 functions further on...
 function fetchFactory(url) {
   // UFN: Headers set to use 'cache-control' - no cache, so disk cache is not used.
