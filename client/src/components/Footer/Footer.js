@@ -4,6 +4,9 @@ import store from '../../store';
 import { setDarkMode } from '../../actions/actions';
 
 import NightModeToggle from '../NightModeToggle';
+import lightModeIcon from '../../assets/imgs/lightTheme.svg';
+import darkModeIcon from '../../assets/imgs/darkTheme.svg';
+
 import './Footer.css';
 
 const Footer = () => {
@@ -28,7 +31,7 @@ const Footer = () => {
     <div className='footer'>
       <img
         onClick={() => store.dispatch(setDarkMode(!isDarkMode))}
-        src={`${isDarkMode ? "light" : "dark"}Theme.svg`}
+        src={isDarkMode ? darkModeIcon : lightModeIcon}
         alt="theme-icon"
         style={{'cursor': 'pointer'}}
       />
