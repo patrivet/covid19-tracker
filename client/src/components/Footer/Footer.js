@@ -28,7 +28,7 @@ const Footer = () => {
     <div className='footer'>
       <img
         onClick={() => store.dispatch(setDarkMode(!isDarkMode))}
-        src={`${isDarkMode ? "light" : "dark"}Theme.svg`}
+        src={`${isDarkMode ? "dark" : "light"}Theme.svg`}
         alt="theme-icon"
         style={{'cursor': 'pointer'}}
       />
