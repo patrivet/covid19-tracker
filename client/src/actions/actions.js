@@ -5,6 +5,13 @@ import config from '../config';
 const COVID_DAILY_DATE_API = config.COVID_DAILY_DATE_API;
 const COVID_GLOBAL_TOTALS_API = config.COVID_GLOBAL_TOTALS_API;
 const COVID_COUNTRY_HISTORICAL_API = config.COVID_COUNTRY_HISTORICAL_API;
+// UFN: Headers set to use 'cache-control' - no cache, so disk cache is not used.
+const headers = {
+  headers: {
+    Accept: 'application/json',
+    'cache-control': 'no-cache',
+  },
+};
 
 // ACTIONS
 export const setDataLoaded = payload => ({
@@ -151,15 +158,7 @@ export function setDarkMode(payload) {
   };
 }
 
-// ! FIX ME: use the factory -and remove redundant code used in 3 functions further on...
 function fetchFactory(url) {
-  // UFN: Headers set to use 'cache-control' - no cache, so disk cache is not used.
-  const headers = {
-    headers: {
-      Accept: 'application/json',
-      'cache-control': 'no-cache',
-    },
-  };
   return fetch(url, headers)
     .then(res => (res.ok ? res : Promise.reject(res)))
     .then(res => res.json());
@@ -173,17 +172,7 @@ export function fetchCovidData(countryIso2, yesterdayFlag = false) {
       '<YESTERDAY>',
       yesterdayFlag
     ).replace('<COUNTRY_CODE>', countryIso2);
-
-    // UFN: Headers set to use 'cache-control' - no cache, so disk cache is not used.
-    const headers = {
-      headers: {
-        Accept: 'application/json',
-        'cache-control': 'no-cache',
-      },
-    };
-    fetch(url, headers)
-      .then(res => (res.ok ? res : Promise.reject(res)))
-      .then(res => res.json())
+    fetchFactory(url)
       .then(res => {
         if (!yesterdayFlag) {
           // Process data for Today's data
@@ -215,9 +204,7 @@ export function fetchCovidGlobalData(yesterdayFlag = false) {
         'cache-control': 'no-cache',
       },
     };
-    fetch(url, headers)
-      .then(res => (res.ok ? res : Promise.reject(res)))
-      .then(res => res.json())
+    fetchFactory(url)
       .then(res => {
         // Process data for Today or yesterday's data
         dispatch(setGlobalData(res, yesterdayFlag));
@@ -242,16 +229,7 @@ export function fetchCountryData(countryCode) {
       '<COUNTRY_CODE>',
       countryCode
     );
-
-    const headers = {
-      headers: {
-        Accept: 'application/json',
-        'cache-control': 'no-cache',
-      },
-    };
-    fetch(url, headers)
-      .then(res => (res.ok ? res : Promise.reject(res)))
-      .then(res => res.json())
+    fetchFactory(url)
       .then(res => {
         dispatch(setCountryHistoricalData(countryCode, res));
       })
