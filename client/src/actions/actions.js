@@ -5,6 +5,7 @@ import config from '../config';
 const COVID_DAILY_DATE_API = config.COVID_DAILY_DATE_API;
 const COVID_GLOBAL_TOTALS_API = config.COVID_GLOBAL_TOTALS_API;
 const COVID_COUNTRY_HISTORICAL_API = config.COVID_COUNTRY_HISTORICAL_API;
+const COVID_COUNTRY_VACCINATIONS_API = config.COVID_COUNTRY_VACCINATIONS_API;
 // UFN: Headers set to use 'cache-control' - no cache, so disk cache is not used.
 const headers = {
   headers: {
@@ -137,6 +138,14 @@ export const setCountryHistoricalData = (countryCode, covidData) => ({
   },
 });
 
+export const setCountryVaccinationsData = (countryCode, covidData) => ({
+  type: actions.SET_COUNTRY_VACCINATIONS_DATA,
+  payload: {
+    countryCode,
+    covidData,
+  },
+});
+
 export function setLoading(payload) {
   return {
     type: actions.SET_LOADING,
@@ -196,14 +205,8 @@ export function fetchCovidData(countryIso2, yesterdayFlag = false) {
 export function fetchCovidGlobalData(yesterdayFlag = false) {
   return function (dispatch) {
     // Substitute fetch date into URL
-    let url = COVID_GLOBAL_TOTALS_API.replace('<YESTERDAY>', yesterdayFlag);
+    const url = COVID_GLOBAL_TOTALS_API.replace('<YESTERDAY>', yesterdayFlag);
 
-    const headers = {
-      headers: {
-        Accept: 'application/json',
-        'cache-control': 'no-cache',
-      },
-    };
     fetchFactory(url)
       .then(res => {
         // Process data for Today or yesterday's data
@@ -225,7 +228,7 @@ export function fetchCountryData(countryCode) {
     dispatch(setLoading(true));
 
     // Substitute fetch date into URL
-    let url = COVID_COUNTRY_HISTORICAL_API.replace(
+    const url = COVID_COUNTRY_HISTORICAL_API.replace(
       '<COUNTRY_CODE>',
       countryCode
     );
@@ -240,6 +243,26 @@ export function fetchCountryData(countryCode) {
         dispatch(addAPIError(err));
         console.error(`Error fetching GET to =${url} error =`);
         console.table(err);
+      });
+  };
+}
+
+export const fetchCountryVaccinations = (countryCode) => {
+  return function (dispatch) {
+    dispatch(setLoading(true));
+    const url = COVID_COUNTRY_VACCINATIONS_API.replace(
+      '<COUNTRY_CODE>',
+      countryCode
+    );
+    fetchFactory(url)
+      .then(res => {
+        dispatch(setCountryVaccinationsData(countryCode, res));
+      })
+      .finally(() => {
+        dispatch(setLoading(false));
+      })
+      .catch(err => {
+        dispatch(addAPIError(err));
       });
   };
 }

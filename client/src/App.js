@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import {
   fetchCovidData,
+  fetchCountryVaccinations,
   fetchCovidGlobalData,
   setUpdateTimestamp,
   setDataLoaded,
@@ -47,6 +48,7 @@ function App() {
     // Get data for today
     countries.forEach(country => {
       store.dispatch(fetchCovidData(country.ISO2));
+      store.dispatch(fetchCountryVaccinations(country.ISO2));
     });
 
     // Get data for yesterday
