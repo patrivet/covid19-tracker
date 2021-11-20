@@ -14,17 +14,6 @@ export const ADD_API_ERROR = 'addAPIError';
 
 export const SET_UPDATE_TIMESTAMP = 'setUpdateTimestamp';
 
-export const SET_COUNTRY_DAILY_CASES = 'setCountryDailyCases';
-export const SET_COUNTRY_DAILY_DEATHS = 'setCountryDailyDeaths';
-export const SET_COUNTRY_TOTAL_CASES = 'setCountryTotalCases';
-export const SET_COUNTRY_TOTAL_DEATHS = 'setCountryTotalDeaths';
-
-/* Derived data from API data */
-export const SET_COUNTRY_CASES_DELTA = 'setCountryCasesDelta';
-export const SET_COUNTRY_CASES_TREND = 'setCountryCasesTrend';
-export const SET_COUNTRY_DEATHS_DELTA = 'setCountryDeathsDelta';
-export const SET_COUNTRY_DEATH_TREND = 'setCountryDeathTrend';
-
 /* Menu bar */
 export const SET_SEARCH_TERM = 'setSearchTerm';
 export const SET_SORTING = 'setSorting';

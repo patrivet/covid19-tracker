@@ -62,54 +62,6 @@ export const setCountryName = (id, countryInfo) => ({
   },
 });
 
-export const setCountryDailyCases = (countryCode, covidData) => ({
-  type: actions.SET_COUNTRY_DAILY_CASES,
-  payload: {
-    countryCode,
-    covidData,
-  },
-});
-
-export const setCountryDailyDeaths = (countryCode, covidData) => ({
-  type: actions.SET_COUNTRY_DAILY_DEATHS,
-  payload: {
-    countryCode,
-    covidData,
-  },
-});
-
-export const setCountryTotalCases = (countryCode, covidData) => ({
-  type: actions.SET_COUNTRY_TOTAL_CASES,
-  payload: {
-    countryCode,
-    covidData,
-  },
-});
-
-export const setCountryTotalDeaths = (countryCode, covidData) => ({
-  type: actions.SET_COUNTRY_TOTAL_DEATHS,
-  payload: {
-    countryCode,
-    covidData,
-  },
-});
-
-export const setCountryCasesDelta = (countryCode, covidData) => ({
-  type: actions.SET_COUNTRY_CASES_DELTA,
-  payload: {
-    countryCode,
-    covidData,
-  },
-});
-
-export const setCountryDeathsDelta = (countryCode, covidData) => ({
-  type: actions.SET_COUNTRY_DEATHS_DELTA,
-  payload: {
-    countryCode,
-    covidData,
-  },
-});
-
 export const setSorting = payload => ({
   type: actions.SET_SORTING,
   payload,
