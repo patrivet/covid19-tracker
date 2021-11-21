@@ -103,6 +103,22 @@ export default function (state = initalState, action) {
         },
       };
 
+    case actions.SET_COUNTRY_VACCINATIONS_DATA:
+      const vaccinationsTimeline = action.payload.covidData?.timeline // e.g. { 11/19/21: 110646342 }
+      if (!vaccinationsTimeline) return state
+
+      const vaccinationsTimelineEntries = Object.values(vaccinationsTimeline) // e.g. [110646342]
+      if (!vaccinationsTimelineEntries.length) return state
+
+      return {
+        ...state,
+        countries: state.countries.map( (ctry) => {
+          return ctry.ISO2 === action.payload.countryCode
+          ? (ctry.totalVaccinations = vaccinationsTimelineEntries[0], ctry)
+          : (ctry)
+        })
+      }
+
     case actions.SET_DATA_LOADED:
       return {
         ...state,
