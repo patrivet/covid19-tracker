@@ -61,10 +61,6 @@ const CountryCard = ({ country }) => {
     if (country?.totalVaccinations && country?.todayData?.population) {
       setVaccinationsPerc(((country.totalVaccinations / country.todayData.population)*100).toFixed(0))
     }
-    // const tv = country.totalVaccinations || 'n/a'
-    // const pop = country.todayData.population || 'n/a'
-    // const per = vaccincationsPercentPopulation || 'n/a'
-    // console.log(`INFO: ${country.name}; doses=${tv}; pop=${pop} %=${per}%`)
   }, [country.todayData.population, country.totalVaccinations])
 
   return (

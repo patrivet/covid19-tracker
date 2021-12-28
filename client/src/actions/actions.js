@@ -5,7 +5,7 @@ import config from '../config';
 const COVID_DAILY_DATE_API = config.COVID_DAILY_DATE_API;
 const COVID_GLOBAL_TOTALS_API = config.COVID_GLOBAL_TOTALS_API;
 const COVID_COUNTRY_HISTORICAL_API = config.COVID_COUNTRY_HISTORICAL_API;
-const COVID_COUNTRY_VACCINATIONS_API = config.COVID_COUNTRY_VACCINATIONS_API;
+const COVID_COUNTRY_VACCINATIONS_API = config.COVID_COUNTRY_VACCINATIONS_API || 'https://disease.sh/v3/covid-19/vaccine/coverage/countries/<COUNTRY_CODE>?lastdays=1&fullData=false';
 // UFN: Headers set to use 'cache-control' - no cache, so disk cache is not used.
 const headers = {
   headers: {
