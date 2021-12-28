@@ -30,7 +30,7 @@ const initalState = {
   displayMode: getLocalStorageJSONProp('displayMode') || 'All countries', // Get the last set display mode (from local store) - or use default.
   selectedCountry: null, // When set, is an Object with countryCode and name of selected country
   dataLoadingErrors: [], // Holds array of possible exceptions thrown during REST calls.
-  darkMode: getLocalStorageJSONProp('darkMode') || false
+  darkMode: getLocalStorageJSONProp('darkMode') || false,
 };
 
 export default function (state = initalState, action) {
@@ -103,69 +103,21 @@ export default function (state = initalState, action) {
         },
       };
 
-    case actions.SET_COUNTRY_DAILY_CASES:
-      return {
-        ...state,
-        countries: state.countries.map(country =>
-          country.ISO2 === action.payload.countryCode
-            ? ((country.dailyCases = action.payload.covidData.todayCases),
-              country)
-            : country
-        ),
-      };
+    case actions.SET_COUNTRY_VACCINATIONS_DATA:
+      const vaccinationsTimeline = action.payload.covidData?.timeline // e.g. { 11/19/21: 110646342 }
+      if (!vaccinationsTimeline) return state
 
-    case actions.SET_COUNTRY_DAILY_DEATHS:
-      return {
-        ...state,
-        countries: state.countries.map(country =>
-          country.ISO2 === action.payload.countryCode
-            ? ((country.dailyDeaths = action.payload.covidData.todayDeaths),
-              country)
-            : country
-        ),
-      };
+      const vaccinationsTimelineEntries = Object.values(vaccinationsTimeline) // e.g. [110646342]
+      if (!vaccinationsTimelineEntries.length) return state
 
-    case actions.SET_COUNTRY_TOTAL_CASES:
       return {
         ...state,
-        countries: state.countries.map(country =>
-          country.ISO2 === action.payload.countryCode
-            ? ((country.totalCases = action.payload.covidData.cases), country)
-            : country
-        ),
-      };
-
-    case actions.SET_COUNTRY_TOTAL_DEATHS:
-      return {
-        ...state,
-        countries: state.countries.map(country =>
-          country.ISO2 === action.payload.countryCode
-            ? ((country.totalDeaths = action.payload.covidData.deaths), country)
-            : country
-        ),
-      };
-
-    case actions.SET_COUNTRY_CASES_DELTA:
-      return {
-        ...state,
-        countries: state.countries.map(country =>
-          country.ISO2 === action.payload.countryCode
-            ? ((country.yesterdayCases = action.payload.covidData.todayCases),
-              country)
-            : country
-        ),
-      };
-
-    case actions.SET_COUNTRY_DEATHS_DELTA:
-      return {
-        ...state,
-        countries: state.countries.map(country =>
-          country.ISO2 === action.payload.countryCode
-            ? ((country.yesterdayDeaths = action.payload.covidData.todayDeaths),
-              country)
-            : country
-        ),
-      };
+        countries: state.countries.map( (ctry) => {
+          return ctry.ISO2 === action.payload.countryCode
+          ? (ctry.totalVaccinations = vaccinationsTimelineEntries[0], ctry)
+          : (ctry)
+        })
+      }
 
     case actions.SET_DATA_LOADED:
       return {

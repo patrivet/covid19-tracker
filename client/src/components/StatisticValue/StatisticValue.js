@@ -7,6 +7,7 @@ const StatisticValue = ({
   statValue,
   displaySize,
   containerClasslist,
+  percent
 }) => {
   let containerClasses = 'valueContainer';
   // conditionally add 'smallerFont' and 'optionally passed classes.  // ! NOTE: could use a classes package here e.g. 'https://www.npmjs.com/package/classnames#usage-with-reactjs'
@@ -14,6 +15,12 @@ const StatisticValue = ({
   // Where displaySize is set to 'small' - add the class --smallerFont, to reduce the stat value and label font size.
   if (displaySize === 'small')
     containerClasses += ' valueContainer--smallerFont';
+
+  // classNames:
+  // const containerClasses = classNames('valueContainer', {
+  //   [`${containerClasslist}`]: containerClasslist,
+  //   'valueContainer--smallerFont': displaySize === 'small'
+  // });
 
     // 2=used for yesterday ("No data reported") 1=used for today ("Awaiting data")
     const messageTypeEnum = (statName === 'yesterday') ? 2 : 1;
@@ -25,6 +32,7 @@ const StatisticValue = ({
       ? <MissingData messageTypeEnum={messageTypeEnum}/>
       : <div className='valueContainer__statsNumber'>
         {getFormattedNum(statValue)}
+        {percent && '%'}
       </div>}
     </div>
   );

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './CountryCard.css';
 
@@ -7,12 +7,12 @@ import CountryHeader from '../CountryHeader';
 import DeathsToday from '../DeathsToday';
 import StatsTotal from '../StatsTotal';
 import CasesToday from '../CasesToday';
-import CasesLabel from '../CasesLabel';
-import DeathsLabel from '../DeathsLabel';
+import Label from '../Label';
 import CasesYesterday from '../CasesYesterday';
 import DeathsYesterday from '../DeathsYesterday';
 import { setSelectedCountry } from '../../actions/actions';
 import store from '../../store';
+import StatisticValue from '../StatisticValue';
 
 const CountryCard = ({ country }) => {
 
@@ -25,6 +25,7 @@ const CountryCard = ({ country }) => {
   let totalDeaths = null;
   let casesPerOneMillion = null;
   let deathsPerOneMillion = null;
+  const [vaccinationsPerc, setVaccinationsPerc] = useState(null)
 
   /* replace null vlauee if there's today & yday data */
   if (country.todayData) {
@@ -56,13 +57,24 @@ const CountryCard = ({ country }) => {
     );
   };
 
+  useEffect( () => {
+    if (country?.totalVaccinations && country?.todayData?.population) {
+      setVaccinationsPerc(((country.totalVaccinations / country.todayData.population)*100).toFixed(0))
+    }
+    // const tv = country.totalVaccinations || 'n/a'
+    // const pop = country.todayData.population || 'n/a'
+    // const per = vaccincationsPercentPopulation || 'n/a'
+    // console.log(`INFO: ${country.name}; doses=${tv}; pop=${pop} %=${per}%`)
+  }, [country.todayData.population, country.totalVaccinations])
+
   return (
     <div className='CountryCard'>
       <CountryHeader country={country} />
       <Link to={linkContent} onClick={handleSetCountry}>
         <div className='CountryCard__statsContainer'>
-          <CasesLabel />
-          <DeathsLabel />
+          <Label classNames="casesLabel" text="cases" />
+          <Label classNames="deathsLabel" text="deaths" />
+
           <CasesToday
             todayCases={todayCases}
             yesterdayCases={yesterdayCases}
@@ -80,6 +92,11 @@ const CountryCard = ({ country }) => {
           />
           <StatsTotal label="Per 1M" value={casesPerOneMillion} className='deaths' containerClassName='deaths--perMillion' />
           <StatsTotal label="Per 1M" value={deathsPerOneMillion} className='cases'  containerClassName='cases--perMillion'/>
+
+          <Label classNames="vaccinationsLabel" text="Vaccinations" />
+          <StatisticValue statName="# doses" statValue={country.totalVaccinations} containerClassName="totalVaccinations"/>
+          <StatisticValue statName="Pop. coverage" statValue={vaccinationsPerc} percent={true} containerClassName="populationPercentage"/>
+
         </div>
       </Link>
     </div>

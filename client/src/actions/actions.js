@@ -5,6 +5,14 @@ import config from '../config';
 const COVID_DAILY_DATE_API = config.COVID_DAILY_DATE_API;
 const COVID_GLOBAL_TOTALS_API = config.COVID_GLOBAL_TOTALS_API;
 const COVID_COUNTRY_HISTORICAL_API = config.COVID_COUNTRY_HISTORICAL_API;
+const COVID_COUNTRY_VACCINATIONS_API = config.COVID_COUNTRY_VACCINATIONS_API;
+// UFN: Headers set to use 'cache-control' - no cache, so disk cache is not used.
+const headers = {
+  headers: {
+    Accept: 'application/json',
+    'cache-control': 'no-cache',
+  },
+};
 
 // ACTIONS
 export const setDataLoaded = payload => ({
@@ -54,54 +62,6 @@ export const setCountryName = (id, countryInfo) => ({
   },
 });
 
-export const setCountryDailyCases = (countryCode, covidData) => ({
-  type: actions.SET_COUNTRY_DAILY_CASES,
-  payload: {
-    countryCode,
-    covidData,
-  },
-});
-
-export const setCountryDailyDeaths = (countryCode, covidData) => ({
-  type: actions.SET_COUNTRY_DAILY_DEATHS,
-  payload: {
-    countryCode,
-    covidData,
-  },
-});
-
-export const setCountryTotalCases = (countryCode, covidData) => ({
-  type: actions.SET_COUNTRY_TOTAL_CASES,
-  payload: {
-    countryCode,
-    covidData,
-  },
-});
-
-export const setCountryTotalDeaths = (countryCode, covidData) => ({
-  type: actions.SET_COUNTRY_TOTAL_DEATHS,
-  payload: {
-    countryCode,
-    covidData,
-  },
-});
-
-export const setCountryCasesDelta = (countryCode, covidData) => ({
-  type: actions.SET_COUNTRY_CASES_DELTA,
-  payload: {
-    countryCode,
-    covidData,
-  },
-});
-
-export const setCountryDeathsDelta = (countryCode, covidData) => ({
-  type: actions.SET_COUNTRY_DEATHS_DELTA,
-  payload: {
-    countryCode,
-    covidData,
-  },
-});
-
 export const setSorting = payload => ({
   type: actions.SET_SORTING,
   payload,
@@ -130,6 +90,14 @@ export const setCountryHistoricalData = (countryCode, covidData) => ({
   },
 });
 
+export const setCountryVaccinationsData = (countryCode, covidData) => ({
+  type: actions.SET_COUNTRY_VACCINATIONS_DATA,
+  payload: {
+    countryCode,
+    covidData,
+  },
+});
+
 export function setLoading(payload) {
   return {
     type: actions.SET_LOADING,
@@ -151,21 +119,14 @@ export function setDarkMode(payload) {
   };
 }
 
-// ! FIX ME: use the factory -and remove redundant code used in 3 functions further on...
 function fetchFactory(url) {
-  // UFN: Headers set to use 'cache-control' - no cache, so disk cache is not used.
-  const headers = {
-    headers: {
-      Accept: 'application/json',
-      'cache-control': 'no-cache',
-    },
-  };
   return fetch(url, headers)
     .then(res => (res.ok ? res : Promise.reject(res)))
     .then(res => res.json());
 }
 
 /* FETCH ACTION : Async data function */
+// Global view country data
 export function fetchCovidData(countryIso2, yesterdayFlag = false) {
   return function (dispatch) {
     // Substitute fetch date & country code into URL
@@ -173,17 +134,7 @@ export function fetchCovidData(countryIso2, yesterdayFlag = false) {
       '<YESTERDAY>',
       yesterdayFlag
     ).replace('<COUNTRY_CODE>', countryIso2);
-
-    // UFN: Headers set to use 'cache-control' - no cache, so disk cache is not used.
-    const headers = {
-      headers: {
-        Accept: 'application/json',
-        'cache-control': 'no-cache',
-      },
-    };
-    fetch(url, headers)
-      .then(res => (res.ok ? res : Promise.reject(res)))
-      .then(res => res.json())
+    fetchFactory(url)
       .then(res => {
         if (!yesterdayFlag) {
           // Process data for Today's data
@@ -207,17 +158,9 @@ export function fetchCovidData(countryIso2, yesterdayFlag = false) {
 export function fetchCovidGlobalData(yesterdayFlag = false) {
   return function (dispatch) {
     // Substitute fetch date into URL
-    let url = COVID_GLOBAL_TOTALS_API.replace('<YESTERDAY>', yesterdayFlag);
+    const url = COVID_GLOBAL_TOTALS_API.replace('<YESTERDAY>', yesterdayFlag);
 
-    const headers = {
-      headers: {
-        Accept: 'application/json',
-        'cache-control': 'no-cache',
-      },
-    };
-    fetch(url, headers)
-      .then(res => (res.ok ? res : Promise.reject(res)))
-      .then(res => res.json())
+    fetchFactory(url)
       .then(res => {
         // Process data for Today or yesterday's data
         dispatch(setGlobalData(res, yesterdayFlag));
@@ -233,25 +176,17 @@ export function fetchCovidGlobalData(yesterdayFlag = false) {
   };
 }
 
+// Country drill view data.
 export function fetchCountryData(countryCode) {
   return function (dispatch) {
     dispatch(setLoading(true));
 
     // Substitute fetch date into URL
-    let url = COVID_COUNTRY_HISTORICAL_API.replace(
+    const url = COVID_COUNTRY_HISTORICAL_API.replace(
       '<COUNTRY_CODE>',
       countryCode
     );
-
-    const headers = {
-      headers: {
-        Accept: 'application/json',
-        'cache-control': 'no-cache',
-      },
-    };
-    fetch(url, headers)
-      .then(res => (res.ok ? res : Promise.reject(res)))
-      .then(res => res.json())
+    fetchFactory(url)
       .then(res => {
         dispatch(setCountryHistoricalData(countryCode, res));
       })
@@ -262,6 +197,27 @@ export function fetchCountryData(countryCode) {
         dispatch(addAPIError(err));
         console.error(`Error fetching GET to =${url} error =`);
         console.table(err);
+      });
+  };
+}
+
+export const fetchCountryVaccinations = (countryCode) => {
+  return function (dispatch) {
+    dispatch(setLoading(true));
+    const url = COVID_COUNTRY_VACCINATIONS_API.replace(
+      '<COUNTRY_CODE>',
+      countryCode
+    );
+    fetchFactory(url)
+      .then(res => {
+        dispatch(setCountryVaccinationsData(countryCode, res));
+      })
+      .finally(() => {
+        dispatch(incrementDataProcessed('dataProcessed'));
+        dispatch(setLoading(false));
+      })
+      .catch(err => {
+        dispatch(addAPIError(err));
       });
   };
 }

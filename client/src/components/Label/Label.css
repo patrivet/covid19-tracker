@@ -1,11 +1,18 @@
 @import '../../_GlobalVariables.css';
 
+.deathsLabel {
+  grid-area: DeathsLabel;
+}
+
 .casesLabel {
+  grid-area: CasesLabel;
+}
+
+*[class$="Label"] {
   height: 20px;
   text-transform: uppercase;
   color: var(--secondary-label-color);
   font-size: 0.7em;
-  grid-area: CasesLabel;
   text-align: center;
 }
 
@@ -15,4 +22,8 @@
   .casesLabel {
     height: auto;
   }
+}
+
+.vaccinationsLabel {
+  padding-top: 5px;
 }

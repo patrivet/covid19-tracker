@@ -1,7 +1,6 @@
 @import '../../_GlobalVariables.css';
 
 .CountryCard {
-  height: 205px;
   width: 305px; /* ? Could be better as 420x228 (w * h) */
   margin-left: 20px;
   margin-right: 20px;
@@ -52,7 +51,9 @@
     'DailyCases DailyDeaths'
     'YesterdayCases YesterdayDeaths'
     'TotalCases TotalDeaths'
-    'PerMillionCases PerMillionDeaths';
+    'PerMillionCases PerMillionDeaths'
+    'VaccinationsLabel VaccinationsLabel'
+    'TotalVaccinations PopulationPercentage';
   /* (Below 2 settings ->)Seperation from the Country header */
   padding-top: 3px;
 }
@@ -95,4 +96,14 @@
 
 .deaths--perMillion {
   grid-area: PerMillionDeaths
+}
+
+.vaccinationsLabel {
+  grid-area: VaccinationsLabel
+}
+.totalVaccinations {
+  grid-area: TotalVaccinations
+}
+.populationPercentage {
+  grid-area: PopulationPercentage
 }
