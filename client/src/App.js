@@ -37,7 +37,7 @@ function App() {
   const countries = useSelector(store => store.countries);
   let dataProcessed = useSelector(store => store.dataProcessed);
   const dataLoadingErrors = useSelector(store => store.dataLoadingErrors);
-
+  const dataProcessedCount = (countries.length * 3) + 2 // Data processed count represents seperate API calls: countries*3 for -i)Today covid main data ii) yesterday main covid data iii) each country total vaccinations.  + 2 for 2 global data API calls.
   React.useEffect(() => {
     // Get Global stats data for today
     let fetchToday = true;
@@ -48,7 +48,6 @@ function App() {
     // Get data for today
     countries.forEach(country => {
       store.dispatch(fetchCovidData(country.ISO2));
-      store.dispatch(fetchCountryVaccinations(country.ISO2));
     });
 
     // Get data for yesterday
@@ -56,18 +55,19 @@ function App() {
       store.dispatch(fetchCovidData(country.ISO2, true));
     });
 
+    // Get Vaccinations data -for today.
+    countries.forEach(country => {
+      store.dispatch(fetchCountryVaccinations(country.ISO2));
+    });
+
+
     store.dispatch(setUpdateTimestamp(DateTime.local()));
   }, []);
 
   React.useEffect(() => {
-    if (dataProcessed >= countries.length * 2 + 2)
+    if (dataProcessed >= dataProcessedCount)
       store.dispatch(setDataLoaded(true));
   }, [dataProcessed]);
-
-  const errors = () => {
-    console.log(dataLoadingErrors);
-    return false;
-  };
 
   return (
     <BrowserRouter>
@@ -78,7 +78,7 @@ function App() {
           render={() => (
             <>
               {/* Show spinner until data processed count matches global stats x2 and countries x2. */}
-              {dataProcessed < countries.length * 2 + 2 ? (
+              {dataProcessed < dataProcessedCount ? (
                 <Spinner />
               ) : (
                 <>
@@ -92,7 +92,6 @@ function App() {
         <Route path='/country/:id' component={CountryDrillView} />
       </Switch>
       <ScrollToTop smooth className='App_scrollToTop' />
-
       <Footer />
     </BrowserRouter>
   );

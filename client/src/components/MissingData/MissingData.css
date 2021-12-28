@@ -4,5 +4,6 @@
     color: var(--tertiary-label-color);
     font-size: 13px;
     font-style: italic;
-    padding-top:  2px;
+    padding:  4px 0;
+    text-align: center;
 }

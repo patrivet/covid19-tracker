@@ -126,6 +126,7 @@ function fetchFactory(url) {
 }
 
 /* FETCH ACTION : Async data function */
+// Global view country data
 export function fetchCovidData(countryIso2, yesterdayFlag = false) {
   return function (dispatch) {
     // Substitute fetch date & country code into URL
@@ -175,6 +176,7 @@ export function fetchCovidGlobalData(yesterdayFlag = false) {
   };
 }
 
+// Country drill view data.
 export function fetchCountryData(countryCode) {
   return function (dispatch) {
     dispatch(setLoading(true));
@@ -211,6 +213,7 @@ export const fetchCountryVaccinations = (countryCode) => {
         dispatch(setCountryVaccinationsData(countryCode, res));
       })
       .finally(() => {
+        dispatch(incrementDataProcessed('dataProcessed'));
         dispatch(setLoading(false));
       })
       .catch(err => {
