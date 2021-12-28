@@ -1,10 +1,10 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import CasesLabel from './CasesLabel';
+import Label from './Label';
 
-describe('CasesLabel', () => {
+describe('Label', () => {
   test('matches snapshot', () => {
-    const wrapper = shallow(<CasesLabel />);
+    const wrapper = shallow(<Label />);
     expect(wrapper).toMatchSnapshot();
   });
 });
