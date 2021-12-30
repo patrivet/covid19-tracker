@@ -37,7 +37,7 @@ function App() {
   const countries = useSelector(store => store.countries);
   let dataProcessed = useSelector(store => store.dataProcessed);
   const dataLoadingErrors = useSelector(store => store.dataLoadingErrors);
-  const dataProcessedCount = (countries.length * 2) + 2 // Data processed count represents seperate API calls: countries*3 for -i)Today covid main data ii) yesterday main covid data iii) each country total vaccinations.  + 2 for 2 global data API calls.
+  const dataProcessedCount = (countries.length * 3) + 2 // Data processed count represents seperate API calls: countries*3 for -i)Today covid main data ii) yesterday main covid data iii) each country total vaccinations.  + 2 for 2 global data API calls.
   React.useEffect(() => {
     // Get Global stats data for today
     let fetchToday = true;
@@ -56,9 +56,9 @@ function App() {
     });
 
     // Get Vaccinations data -for today.
-    // countries.forEach(country => {
-    //   store.dispatch(fetchCountryVaccinations(country.ISO2));
-    // });
+    countries.forEach(country => {
+      store.dispatch(fetchCountryVaccinations(country.ISO2));
+    });
 
 
     store.dispatch(setUpdateTimestamp(DateTime.local()));

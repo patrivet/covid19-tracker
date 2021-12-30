@@ -57,11 +57,11 @@ const CountryCard = ({ country }) => {
     );
   };
 
-  // useEffect( () => {
-  //   if (country?.totalVaccinations && country?.todayData?.population) {
-  //     setVaccinationsPerc(((country.totalVaccinations / country.todayData.population)*100).toFixed(0))
-  //   }
-  // }, [country.todayData.population, country.totalVaccinations])
+  useEffect( () => {
+    if (country?.totalVaccinations && country?.todayData?.population) {
+      setVaccinationsPerc(((country.totalVaccinations / country.todayData.population)*100).toFixed(0))
+    }
+  }, [country.todayData.population, country.totalVaccinations])
 
   return (
     <div className='CountryCard'>
@@ -89,9 +89,9 @@ const CountryCard = ({ country }) => {
           <StatsTotal label="Per 1M" value={casesPerOneMillion} className='deaths' containerClassName='deaths--perMillion' />
           <StatsTotal label="Per 1M" value={deathsPerOneMillion} className='cases'  containerClassName='cases--perMillion'/>
 
-          {/* <Label classNames="vaccinationsLabel" text="Vaccinations" />
+          <Label classNames="vaccinationsLabel" text="Vaccinations" />
           <StatisticValue statName="# doses" statValue={country.totalVaccinations} containerClassName="totalVaccinations"/>
-          <StatisticValue statName="Pop. coverage" statValue={vaccinationsPerc} percent={true} containerClassName="populationPercentage"/> */}
+          <StatisticValue statName="Pop. coverage" statValue={vaccinationsPerc} percent={true} containerClassName="populationPercentage"/>
 
         </div>
       </Link>
