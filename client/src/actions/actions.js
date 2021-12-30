@@ -149,8 +149,8 @@ export function fetchCovidData(countryIso2, yesterdayFlag = false) {
       })
       .catch(err => {
         dispatch(addAPIError(err));
-        console.error(`Error fetching GET to =${url} error =`);
-        console.table(err);
+        console.error(`Error fetching GET to =${url} error =${err}`);
+        // console.table(err);
       });
   };
 }
