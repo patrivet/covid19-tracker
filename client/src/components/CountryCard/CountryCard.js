@@ -61,7 +61,7 @@ const CountryCard = ({ country }) => {
     if (country?.totalVaccinations && country?.todayData?.population) {
       setVaccinationsPerc(((country.totalVaccinations / country.todayData.population)*100).toFixed(0))
     }
-  }, [country.todayData.population, country.totalVaccinations])
+  }, [country?.todayData?.population, country.totalVaccinations])
 
   return (
     <div className='CountryCard'>
