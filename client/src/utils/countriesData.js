@@ -1,5 +1,13 @@
 // Export Array of Country objects
 export default {
+  countries2: [
+    {
+      name: 'Australia',
+      slug: 'australia',
+      ISO2: 'AU',
+      continent: 'Oceania',
+    },
+  ],
   countries: [
     {
       name: 'Lao PDR',

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import './CountryCard.css';
 
@@ -25,7 +25,7 @@ const CountryCard = ({ country }) => {
   let totalDeaths = null;
   let casesPerOneMillion = null;
   let deathsPerOneMillion = null;
-  const [vaccinationsPerc, setVaccinationsPerc] = useState(null)
+  // const [vaccinationsPerc, setVaccinationsPerc] = useState(null)
 
   /* replace null vlauee if there's today & yday data */
   if (country.todayData) {
@@ -57,11 +57,12 @@ const CountryCard = ({ country }) => {
     );
   };
 
-  useEffect( () => {
-    if (country?.totalVaccinations && country?.todayData?.population) {
-      setVaccinationsPerc(((country.totalVaccinations / country.todayData.population)*100).toFixed(0))
-    }
-  }, [country?.todayData?.population, country.totalVaccinations])
+  /* Turned off Vaccinations data until know the API is working. */
+  // useEffect( () => {
+  //   if (country?.totalVaccinations && country?.todayData?.population) {
+  //     setVaccinationsPerc(((country.totalVaccinations / country.todayData.population)*100).toFixed(0))
+  //   }
+  // }, [country?.todayData?.population, country.totalVaccinations])
 
   return (
     <div className='CountryCard'>
@@ -89,9 +90,11 @@ const CountryCard = ({ country }) => {
           <StatsTotal label="Per 1M" value={casesPerOneMillion} className='deaths' containerClassName='deaths--perMillion' />
           <StatsTotal label="Per 1M" value={deathsPerOneMillion} className='cases'  containerClassName='cases--perMillion'/>
 
+          {/* Turned off until know the data API is working. */}
+          {/*
           <Label classNames="vaccinationsLabel" text="Vaccinations" />
           <StatisticValue statName="# doses" statValue={country.totalVaccinations} containerClassName="totalVaccinations"/>
-          <StatisticValue statName="Pop. coverage" statValue={vaccinationsPerc} percent={true} containerClassName="populationPercentage"/>
+          <StatisticValue statName="Pop. coverage" statValue={vaccinationsPerc} percent={true} containerClassName="populationPercentage"/> */}
 
         </div>
       </Link>
