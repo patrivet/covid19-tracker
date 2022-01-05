@@ -11,7 +11,7 @@ const getLocalStorageJSONProp = propName => {
 const initalState = {
   // Get the last set sorting setting (from local store) - or use default.
   sorting: getLocalStorageJSONProp('sortingSetting') || {
-    label: 'Name (Ascending)',
+    label: 'Name',
     sortVal: 'name',
     direction: 'asc',
   },
