@@ -62,13 +62,13 @@ const CountriesList = () => {
   }
 
   return (
-    <div className='countriesList'>
+    <main className='countriesList'>
       {applySort(countries).map(
         country => {
           return <CountryCard key={country.ISO2} country={country} />;
         }
       )}
-    </div>
+    </main>
   );
 };
 

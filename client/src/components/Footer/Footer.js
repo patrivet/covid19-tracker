@@ -13,10 +13,6 @@ const Footer = () => {
   let updated = useSelector(store => store.updated);
   const isDarkMode = useSelector(store => store.darkMode);
 
-  useEffect( () => {
-    toggleDarkModeClass()
-  }, [isDarkMode])
-
   const toggleDarkModeClass = () => {
     const body = document.querySelector('body');
     const bodyHasDarkClass = body.classList.contains('darkMode')
@@ -27,8 +23,12 @@ const Footer = () => {
     body.classList.toggle('darkMode')
   }
 
+  useEffect( () => {
+    toggleDarkModeClass()
+  }, [isDarkMode, toggleDarkModeClass])
+
   return (
-    <div className='footer'>
+    <footer className='footer'>
       <img
         onClick={() => store.dispatch(setDarkMode(!isDarkMode))}
         src={isDarkMode ? darkModeIcon : lightModeIcon}
@@ -60,7 +60,7 @@ const Footer = () => {
         </p>
       </div>
       <p className='footer__updated'>Updated: {updated}</p>
-    </div>
+    </footer>
   );
 };
 
