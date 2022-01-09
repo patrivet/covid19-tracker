@@ -12,7 +12,7 @@ const Header = () => {
   const dataLoaded = useSelector(store => store.dataLoaded);
 
   return (
-    <div className='appHeader'>
+    <header className='appHeader'>
       <div className='appHeader__imgAndTitle'>
         <img
           className='appHeader__img'
@@ -25,7 +25,7 @@ const Header = () => {
           <span className='title--firstLetter'>T</span>racker
         </h4>
       </div>
-      <div className='appHeader__icons'>
+      <nav className='appHeader__icons'>
         {/* Menu Options :hidden when data is loading. */}
         {!dataLoaded ? null : <Sort />}
         {!dataLoaded ? null : <ShowMenuItem />}
@@ -35,8 +35,8 @@ const Header = () => {
           <FontAwesomeIcon icon={faCogs} className='fa-2x' />
           <p className='iconLabel'>Settings</p>
         </div> */}
-      </div>
-    </div>
+      </nav>
+    </header>
   );
 };
 
