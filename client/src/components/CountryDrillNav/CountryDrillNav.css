@@ -25,9 +25,11 @@
   color: var(--button-color);
   font-size: 40px;
   padding-right: 30px;
+  padding-right: 10px;
 }
 
 .drillNav__countryImg {
   width: 40px;
   padding-right: 8px;
+  object-fit: scale-down;
 }
