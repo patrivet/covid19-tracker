@@ -36,7 +36,6 @@ body .switch {
   /* padding-left: calc(var(--width) + 1em); */
   min-width: var(--width);
   min-height: var(--height);
-  color: pink; // TEST
  /* Switch Background */
  /* Dot */
 }
