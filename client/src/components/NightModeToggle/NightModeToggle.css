@@ -1,4 +1,3 @@
-
 body .switch {
   max-width: 800px;
   /* padding: 2em; */
@@ -9,9 +8,9 @@ body .switch {
 }
 /* Switch */
 .switch {
- /* overall size */
+  /* overall size */
   --size: 1.2em;
- /* Finetune switch */
+  /* Finetune switch */
   --height: 2em;
   --width: 4em;
   --border: 0.15em;
@@ -36,11 +35,13 @@ body .switch {
   /* padding-left: calc(var(--width) + 1em); */
   min-width: var(--width);
   min-height: var(--height);
- /* Switch Background */
- /* Dot */
+  color: blue; // 2nd change.
+  /* Switch Background */
+  /* Dot */
 }
-.switch label::before, .switch label::after {
-  content: "";
+.switch label::before,
+.switch label::after {
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
@@ -78,6 +79,9 @@ body .switch {
   background-color: var(--switch-color-checked);
 }
 .switch input:checked + label::after {
-  transform: translate(calc(var(--width) - 100% - var(--border)), var(--border));
+  transform: translate(
+    calc(var(--width) - 100% - var(--border)),
+    var(--border)
+  );
   background-color: var(--dot-color-checked);
 }
