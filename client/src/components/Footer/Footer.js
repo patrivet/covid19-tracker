@@ -15,51 +15,51 @@ const Footer = () => {
 
   const toggleDarkModeClass = () => {
     const body = document.querySelector('body');
-    const bodyHasDarkClass = body.classList.contains('darkMode')
+    const bodyHasDarkClass = body.classList.contains('darkMode');
 
     // Don't toggle on component mount- in LightMode
-    if (!isDarkMode && !bodyHasDarkClass) return
+    if (!isDarkMode && !bodyHasDarkClass) return;
 
-    body.classList.toggle('darkMode')
-  }
+    body.classList.toggle('darkMode');
+  };
 
-  useEffect( () => {
-    toggleDarkModeClass()
-  }, [isDarkMode, toggleDarkModeClass])
+  useEffect(() => {
+    toggleDarkModeClass();
+  }, [isDarkMode]);
 
   return (
-    <footer className='footer'>
+    <footer className="footer">
       <img
         onClick={() => store.dispatch(setDarkMode(!isDarkMode))}
         src={isDarkMode ? darkModeIcon : lightModeIcon}
         alt="theme-icon"
-        style={{'cursor': 'pointer'}}
+        style={{ cursor: 'pointer' }}
       />
 
-      <div className='footer__source'>
-        <p className='footer__source' style={{"display":'inline-block'}}>
+      <div className="footer__source">
+        <p className="footer__source" style={{ display: 'inline-block' }}>
           Source:{' '}
           <a
-            href='https://disease.sh/docs'
-            target='_blank'
-            rel='noopener noreferrer'
+            href="https://disease.sh/docs"
+            target="_blank"
+            rel="noopener noreferrer"
           >
-          disease.sh
-        </a>
-      </p>
-        <div style={{"margin":"0 5px", "display":'inline-block'}}>-</div>
-        <p style={{"display":'inline-block'}}>
+            disease.sh
+          </a>
+        </p>
+        <div style={{ margin: '0 5px', display: 'inline-block' }}>-</div>
+        <p style={{ display: 'inline-block' }}>
           Built by{' '}
           <a
-            href='http://github.com/patrivet'
-            target='_blank'
-            rel='noopener noreferrer'
+            href="http://github.com/patrivet"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             Pat Rivet
           </a>
         </p>
       </div>
-      <p className='footer__updated'>Updated: {updated}</p>
+      <p className="footer__updated">Updated: {updated}</p>
     </footer>
   );
 };
