@@ -62,6 +62,8 @@ function App() {
     // });
 
     store.dispatch(setUpdateTimestamp(DateTime.local()));
+    // ! Set the dark/light mode.
+    // ! TO BE DONE
   }, []);
 
   React.useEffect(() => {
@@ -84,6 +86,7 @@ function App() {
                 <>
                   <Header />
                   <Main />
+                  <Footer />
                 </>
               )}
             </>
@@ -92,7 +95,6 @@ function App() {
         <Route path='/country/:id' component={CountryDrillView} />
       </Switch>
       <ScrollToTop smooth className='App_scrollToTop' />
-      <Footer />
     </BrowserRouter>
   );
 }
