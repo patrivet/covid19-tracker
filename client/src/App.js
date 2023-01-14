@@ -19,7 +19,8 @@ import Spinner from './components/Spinner';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import store from './store';
-
+// Utils
+import { toggleDarkMode } from './utils/helperFunctions';
 // Fontawesome iconStyle
 import { library } from '@fortawesome/fontawesome-svg-core';
 import * as fas from '@fortawesome/free-solid-svg-icons';
@@ -37,6 +38,7 @@ function App() {
   const countries = useSelector(store => store.countries);
   let dataProcessed = useSelector(store => store.dataProcessed);
   const dataLoadingErrors = useSelector(store => store.dataLoadingErrors);
+  const darkMode = useSelector(store => store.darkMode);
   const dataProcessedCount = (countries.length * 2) + 2 // Data processed count represents seperate API calls: countries*2 for -i)Today covid main data ii) yesterday main covid data. + 2 for 2 global data API calls.
   React.useEffect(() => {
     // Get Global stats data for today
@@ -62,6 +64,9 @@ function App() {
     // });
 
     store.dispatch(setUpdateTimestamp(DateTime.local()));
+
+    // Set the initial dark/light mode.
+    toggleDarkMode(darkMode)
   }, []);
 
   React.useEffect(() => {
