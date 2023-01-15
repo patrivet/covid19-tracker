@@ -119,3 +119,16 @@ export const sortOptions = [
     sortVal: 'name',
   },
 ];
+
+// Dark / Light mode
+/**
+ * Update body tag to add / remove 'darkMode' class
+ * @param {boolean} toggleToDarkMode - When true or false -> sets dark mode on or off, respectively.
+ * @returns void
+ */
+export function toggleDarkMode(toggleToDarkMode = false) {
+  const body = document.querySelector('body');
+  const bodyHasDarkClass = body.classList.contains('darkMode')
+  if ((!toggleToDarkMode && !bodyHasDarkClass) || (toggleToDarkMode && bodyHasDarkClass)) return
+  body.classList.toggle('darkMode')
+}

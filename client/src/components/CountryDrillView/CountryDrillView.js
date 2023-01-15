@@ -10,6 +10,7 @@ import recoveredIcon from '../../assets/imgs/30-Doctor_5929214_recovered1.svg';
 
 import CountryDrillHeader from '../CountryDrillHeader';
 import CountryDrillNav from '../CountryDrillNav';
+import Footer from '../Footer';
 import HighChart from '../HighChart';
 import Spinner from '../Spinner';
 import store from '../../store';
@@ -115,6 +116,7 @@ const CountryDrillView = props => {
               class='recoverCumulativeChart'
             />
           </div>
+          <Footer />
         </>
       )}
     </>

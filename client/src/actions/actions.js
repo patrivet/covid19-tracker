@@ -1,5 +1,6 @@
 import * as actions from './actionTypes';
 import config from '../config';
+import * as helpers from '../utils/helperFunctions';
 
 // API URLS
 const COVID_DAILY_DATE_API = config.COVID_DAILY_DATE_API;
@@ -113,6 +114,7 @@ export function addAPIError(payload) {
 }
 
 export function setDarkMode(payload) {
+  helpers.toggleDarkMode(payload)
   return {
     type: actions.SET_DARK_MODE,
     payload,
