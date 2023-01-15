@@ -89,6 +89,7 @@ function App() {
                 <>
                   <Header />
                   <Main />
+                  <Footer />
                 </>
               )}
             </>
@@ -97,7 +98,6 @@ function App() {
         <Route path='/country/:id' component={CountryDrillView} />
       </Switch>
       <ScrollToTop smooth className='App_scrollToTop' />
-      <Footer />
     </BrowserRouter>
   );
 }

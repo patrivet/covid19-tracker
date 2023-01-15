@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
 import store from '../../store';
 import { setDarkMode } from '../../actions/actions';
