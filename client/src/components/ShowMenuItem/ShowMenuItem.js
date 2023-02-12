@@ -10,7 +10,7 @@ const continents = ["Africa","Asia", 'Europe', 'North America', 'Oceania', "Sout
 
 const ShowMenuItem = () => {
   let [menuShown, setMenuShown] = useState();
-  let displayModal, closeBtn;
+  // let displayModal, closeBtn;
   let showOptionElements = ['All countries', 'Bookmarked countries', ...continents];
   const currentDisplayOption = useSelector(store => store.displayMode);
 
@@ -25,27 +25,30 @@ const ShowMenuItem = () => {
     handleModalClose();
   };
 
-  const closeMenu = event => {
-    /* Check the click event is the close button or a display option
-       or NOT inside the display modal element. */
+  // ? Commented out whilst not working on react 18. Commented out references to fn as well.
+  // const closeMenu = event => {
+  //   /* Check the click event is the close button or a display option
+  //      or NOT inside the display modal element. */
 
-    /* Handling click other than on a display option - as longer the X or *outside* the modal -
-    close the modal. */
-    if (!displayModal.contains(event.target) || closeBtn === event.target) {
-      handleModalClose();
-    }
-  };
+  //   /* Handling click other than on a display option - as longer the X or *outside* the modal -
+  //   close the modal. */
+
+  //   if (!displayModal.contains(event.target) || closeBtn === event.target) {
+  //     handleModalClose();
+  //   }
+  // };
 
   const handleModalClose = () => {
     setMenuShown(false);
-    document.removeEventListener('click', closeMenu);
+    // document.removeEventListener('click', closeMenu);
     helpers.toggleBlurClasses();
   };
 
   useEffect(() => {
     if (menuShown) {
-      document.addEventListener('click', closeMenu);
+      // document.addEventListener('click', closeMenu);
       helpers.toggleBlurClasses();
+      // return () => document.removeEventListener('click', closeMenu);
     }
   }, [menuShown]);
 
@@ -60,14 +63,15 @@ const ShowMenuItem = () => {
         <div
           className='menu'
           /* Store a ref to the DOM element */
-          ref={element => {
-            displayModal = element;
-          }}
+          // ref={element => {
+          //   displayModal = element;
+          // }}
         >
         <button className='menu__close'
-          ref={element => {
-            closeBtn = element;
-          }}
+          // ref={element => {
+          //   closeBtn = element;
+          // }}
+          onClick={handleModalClose}
         >
           &times;
         </button>
