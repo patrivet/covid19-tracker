@@ -13,7 +13,7 @@ import * as helpers from '../../utils/helperFunctions';
 
 const Sort = () => {
   let [menuShown, setMenuShown] = useState();
-  let sortModal, closeBtn;
+  // let sortModal, closeBtn;
   let sortOptionElements = [];
   const activeSortOption = useSelector(store => store.sorting);
 
@@ -35,29 +35,30 @@ const Sort = () => {
     return activeSortOption.label === sortToSet.label && activeSortOption.direction === sortToSet.direction
   }
 
-  function closeMenu (event) {
-    /* Check the click event is the close button or a sort option
-       or NOT inside the sort modal element. */
+  // ? Commented out whilst not working on react 18. Commented out references to fn as well.
+  // function closeMenu (event) {
+  //   /* Check the click event is the close button or a sort option
+  //      or NOT inside the sort modal element. */
 
-    /* Handling click other than on a sort option - as longer the X or *outside* the modal -
-    close the modal. */
-    if (!sortModal.contains(event.target) || closeBtn === event.target) {
-      handleModalClose();
-    }
-  };
+  //   /* Handling click other than on a sort option - as longer the X or *outside* the modal -
+  //   close the modal. */
+  //   if (!sortModal.contains(event.target) || closeBtn === event.target) {
+  //     handleModalClose();
+  //   }
+  // };
 
   const handleModalClose = () => {
     setMenuShown(false);
-    document.removeEventListener('click', closeMenu);
+    // document.removeEventListener('click', closeMenu);
     helpers.toggleBlurClasses();
   };
 
   useEffect(() => {
     if (menuShown) {
-      document.addEventListener('click', closeMenu);
+      // document.addEventListener('click', closeMenu);
       helpers.toggleBlurClasses();
     }
-  }, [closeMenu, menuShown]);
+  }, [menuShown]);
 
   const getArrow = (direction, sortOption) => {
     const sortOptionCopy = {...sortOption, direction};
@@ -91,14 +92,15 @@ const Sort = () => {
         <div
           className='menu'
           /* Store a ref to the DOM element */
-          ref={element => {
-            sortModal = element;
-          }}
+          // ref={element => {
+          //   sortModal = element;
+          // }}
         >
           <button
-            ref={element => {
-              closeBtn = element;
-            }}
+            // ref={element => {
+            //   closeBtn = element;
+            // }}
+            onClick={handleModalClose}
             className='menu__close'
           >
             &times;
@@ -130,7 +132,6 @@ const Sort = () => {
             {/* THIS DOESN'T WORK SO USING FUNCTION INSTEAD OF COMPONENT <Arrow selected={true} sortOption={opt} /> */}
 
             {sortOptions.map(option => {
-              console.log("🚀 ~ file: Sort.js ~ line 133 ~ Sort ~ option", option)
               /* Mark the active sort option an 'active' class, all others add an 'inactive' class. */
               let classNames =
                 activeSortOption.label === option.label
